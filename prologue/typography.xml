@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="pre-typography">
+  <?dbhtml filename="typography.html"?>
+
+  <title>Оформление и типографские соглашения</title>
+
+  <para>Чтобы упростить работу, в книге используются некоторые соглашения по оформлению.
+  Этот раздел содержит все необходимые примеры.</para>
+
+<screen role="nodump"><userinput>./configure --prefix=/usr</userinput></screen>
+
+  <para>Этот текст необходимо набрать в командной строке в точности так, как показано,
+  если иное не сказано в тексте рядом. Это оформление также используется в объяснениях,
+  когда указываются команды.</para>
+
+  <para>В некоторых случаях строка разбивается на две и более строки
+  с использованием символа обратного слэша в конце строки.</para>
+
+<screen role="nodump"><userinput>CC="gcc -B/usr/bin/" ../binutils-2.18/configure \
+  --prefix=/tools --disable-nls --disable-werror</userinput></screen>
+
+  <para>Обратите внимание, что после обратного слэша должнен быть перевод строки.
+  Другие пробельные символы, например пробелы или табуляция, приведут к некорректному результату.
+  </para>
+
+<screen><computeroutput>install-info: unknown option '--dir-file=/mnt/lfs/usr/info/dir'</computeroutput></screen>
+
+  <para>Такой вид текста (со шрифтом фиксированной ширины) показывает 
+  результат выполнения команды на экране. Также используется
+  для имен файлов, например <filename>/etc/ld.so.conf</filename>.</para>
+
+  <para><emphasis>подчеркивание</emphasis></para>
+
+  <para>Такой вид текста используется в нескольких случаях. Основная идея это подчеркнуть
+  важные моменты или пункты.</para>
+
+  <para><ulink url="&lfs-root;"/></para>
+
+  <para>Этот формат используется для ссылок на страницы проекта LFS или
+  внешние источники. Может включать справочную информацию, ссылки на загрузку и
+  различные сайты.</para>
+
+<screen role="nodump"><userinput>cat &gt; $LFS/etc/group &lt;&lt; "EOF"
+<literal>root:x:0:
+bin:x:1:
+......</literal>
+EOF</userinput></screen>
+
+  <para>Этот формат используется для создания файлов конфигурации. Первая команда
+  говорит системе создать файл <filename>$LFS/etc/group</filename> из всего содержимого
+  последующих строк, пока не встретится флаг конца ввода (EOF). Обычно всю секцию
+  нужно перепечатать в таком же виде.</para>
+
+  <para><replaceable>&lt;ЗАМЕНИТЬ ТЕКСТ&gt;</replaceable></para>
+
+  <para>Этот формат обозначает текст, который не должен вводиться
+  без изменений или копироваться через буфер.</para>
+
+  <para><replaceable>[НЕОБЯЗАТЕЛЬНЫЙ ТЕКСТ]</replaceable></para>
+
+  <para>Этот формат используется для обозначения необязательного текста.</para>
+
+  <para><filename>passwd(5)</filename></para>
+
+  <para>Этот формат используется для ссылки на страницы руководств.
+  Число в скобках указывает на раздел руководства.
+  Например, <command>passwd</command> имеет два раздела руководства. В LFS системе
+  эти разделы будут расположены в файлах
+  <filename>/usr/share/man/man1/passwd.1</filename> и
+  <filename>/usr/share/man/man5/passwd.5</filename>. 
+  Когда в книге указанно <filename>passwd(5)</filename>, имеется ввиду
+  отсылка на <filename>/usr/share/man/man5/passwd.5</filename>.
+  Команда <command>man passwd</command> отобразит первый найденный по 
+  фразе <quote>passwd</quote> раздел руководства и это будет
+  <filename>/usr/share/man/man1/passwd.1</filename>.
+  Для приведенного примера необходимо запустить <command>man 5 passwd</command>,
+  тогда будет прочитан нужный раздел.
+  Следует отметить, что большинство страниц руководства не имеют дубликатов названий страниц 
+  в разных разделах.
+  А значит, указание команды 
+  <command>man <replaceable>&lt;имя программы&gt;</replaceable></command>
+  будет достаточно.</para>
+
+</sect1>
+

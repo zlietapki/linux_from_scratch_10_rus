@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-partitioning-stages">
+  <?dbhtml filename="stages.html"?>
+
+  <title>Этапы сборки LFS</title>
+
+  <para>LFS спланирована быть собраной за один сеанс. Предполагается,
+  что система не будет выключена на протяжении всего процесса. Но это не означает, что
+  сборка должна быть выполнена за один заход. Проблема в том, что некоторые процедуры должны
+  быть выполнены повторно при перезагрузки системы.</para>
+
+  <sect2>
+  <title>Главы&nbsp;1&ndash;4</title>
+
+    <para>Эти главы должны быть выполнены на хост-системе. После перезагрузки, обратите
+    особое внимание на следующее:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Процедуры выполняемые от имени пользователя root после раздела 2.4 требуют
+        правильной установки переменной окружения LFS <emphasis>ДЛЯ ПОЛЬЗОВАТЕЛЯ
+        ROOT</emphasis>.</para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+
+  <sect2>
+  <title>Главы&nbsp;5&ndash;6</title>
+
+    <itemizedlist>
+      <listitem>
+        <para>Раздел /mnt/lfs должен быть примонтирован.</para>
+      </listitem>
+
+      <listitem>
+        <para>Эти две главы должны быть выполнены от имени пользователя
+        <emphasis>lfs</emphasis>. Команда <command>su - lfs</command> должна
+        запускаться перед каждой задачей из этих глав. Пренебрегая этим,
+        вы рискуете установить пакеты на хост-систему и потенциально
+        сделать ее нерабочей.</para>
+      </listitem>
+
+      <listitem>
+         <para>Процедуры из <xref linkend='ch-tools-generalinstructions'/>
+         критично важны. Если есть любые сомнения в установке пакета убедитесь, что
+         каталог с распакованными исходниками удален, распакуйте архив исходников
+         и выполните все инструкции в разделе.</para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+
+  <sect2>
+  <title>Главы&nbsp;7&ndash;10</title>
+
+    <itemizedlist>
+      <listitem>
+         <para>Раздел /mnt/lfs должен быть смонтирован.</para>
+      </listitem>
+
+      <listitem>
+        <para>Несколько операций между <quote>Сменой владельца</quote> и
+        <quote>Входом в Chroot окружение</quote> должны быть выполнены от имени
+        пользователя root с установленной для него переменной окружения LFS.</para>
+      </listitem>
+
+      <listitem>
+         <para> При входе в среду chroot переменная окружения LFS должна быть установлена
+         для пользователя root. Переменная LFS не используется после этого.</para>
+      </listitem>
+
+      <listitem>
+         <para> Виртуальные файловые системы должны быть смонтированы. Это можно сделать
+         до или после входа в chroot переключившись на виртуальный терминал хоста
+         выполнив от имени root команды
+         <xref linkend='ch-tools-bindmount'/> и
+         <xref linkend='ch-tools-kernfsmount'/>.</para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+</sect1>

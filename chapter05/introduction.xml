@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-introduction">
+  <?dbhtml filename="introduction.html"?>
+
+  <title>Введение</title>
+
+  <para>Это глава описывает процесс создания кросс-компилятора и связанных с ним
+  инструментов. 
+  Несмотря на то, что кросс-компиляция здесь поддельная, принципы используются
+  схожие с компиляцией кросс-инструментария.</para>
+
+  <para>Программа созданная в этой главе будет установлена в 
+  отдельный каталог <filename class="directory">$LFS/tools</filename> для отделения её
+  от файлов устанавливаемых в последующих главах. Библиотеки, наоборот, будут установлены
+  на свое окончательное место, так как они принадлежат создаваемой системе.</para>
+
+</sect1>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-partitioning-mounting">
+  <?dbhtml filename="mounting.html"?>
+
+  <title>Монтирование нового раздела</title>
+
+  <para>Теперь, когда файловая система создана, её раздел необходимо сделать доступным.
+  Для этого необходимо примонтировать раздел в выбранную точку монтирования. 
+  В книге предполагается, что файловая система монтируется в каталог указанный
+  в переменной окружения <envar>LFS</envar>, как было описано в предыдущем разделе.</para>
+
+  <para>Создайте точку монтирования и примонтируйте файловую систему LFS командой:</para>
+
+<screen role="nodump"><userinput>mkdir -pv $LFS
+mount -v -t ext4 /dev/<replaceable>&lt;xxx&gt;</replaceable> $LFS</userinput></screen>
+
+  <para>Замените <replaceable>&lt;xxx&gt;</replaceable> на имя раздела LFS.</para>
+
+  <para>Если для LFS используется несколько разделов (например, один для
+  <filename class="directory">/</filename>, другой для
+  <filename class="directory">/usr</filename>), то примонтируйте из командой:</para>
+
+<screen role="nodump"><userinput>mkdir -pv $LFS
+mount -v -t ext4 /dev/<replaceable>&lt;xxx&gt;</replaceable> $LFS
+mkdir -v $LFS/usr
+mount -v -t ext4 /dev/<replaceable>&lt;yyy&gt;</replaceable> $LFS/usr</userinput></screen>
+
+  <para>Замените <replaceable>&lt;xxx&gt;</replaceable> и
+  <replaceable>&lt;yyy&gt;</replaceable> на соответствующие имена разделов.</para>
+
+  <para>Убедитесь, что эти новые разделы не было примонтированы со слишком
+  жесткими ограниченниями (такими опциями как <option>nosuid</option> или
+  <option>nodev</option>). Выполните команду <command>mount</command> без 
+  параметров, чтобы увидеть какие опции заданы для смонтированных разделов LFS.
+  Если опции  <option>nosuid</option> и/или <option>nodev</option> установлены, то
+  разделы необходимо перемонтировать.</para>
+
+  <warning><para>В приведенных выше инструкциях предполагается, что вы не будете
+  перезапускать компьютер в процессе сборки LFS. При перезагрузке 
+  нужно будет либо каждый раз повторно монтировать раздел LFS,
+  либо отредактировать файл /etc/fstab, чтобы разделы монтировались автоматически. Пример:
+
+<screen role="nodump">/dev/<replaceable>&lt;xxx&gt;</replaceable>  /mnt/lfs ext4   defaults      1     1</screen>
+
+  Если вы используете несколько разделов, не забудьте добавить их тоже.
+
+  </para></warning>
+
+
+  <para>Если используется <systemitem
+  class="filesystem">swap</systemitem> раздел команда <command>swapon</command>
+  поможет убедится, что он включен:</para>
+
+<screen role="nodump"><userinput>/sbin/swapon -v /dev/<replaceable>&lt;zzz&gt;</replaceable></userinput></screen>
+
+  <para>Замените <replaceable>&lt;zzz&gt;</replaceable> на имя 
+  <systemitem class="filesystem">swap</systemitem> раздела.</para>
+
+  <para>Теперь, когда рабочее место организовано, пришло время скачать пакеты.</para>
+
+</sect1>
+

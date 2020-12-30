@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-glibc" role="wrap">
+  <?dbhtml filename="glibc.html"?>
+
+  <sect1info condition="script">
+    <productname>glibc</productname>
+    <productnumber>&glibc-version;</productnumber>
+    <address>&glibc-url;</address>
+  </sect1info>
+
+  <title>Glibc-&glibc-version;</title>
+
+  <indexterm zone="ch-tools-glibc">
+    <primary sortas="a-Glibc">Glibc</primary>
+    <secondary>инструменты</secondary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../chapter08/glibc.xml"
+    xpointer="xpointer(/sect1/sect2[1]/para[1])"/>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&glibc-tmp-sbu;</seg>
+        <seg>&glibc-tmp-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Установка Glibc</title>
+
+    <para>Сначала создайте символическую ссылку для соответствия стандарту LSB. Дополнительно,
+    на x86_64-платформе создание символической ссылки необходимо для корректной
+    работы динамичского загрузчика библиотек:</para>
+
+<screen><userinput remap="pre">case $(uname -m) in
+    i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
+    ;;
+    x86_64) ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64
+            ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64/ld-lsb-x86-64.so.3
+    ;;
+esac</userinput></screen>
+
+    <para>Некоторые программы Glibc используют несоответствующий FHS 
+    (иерархия файловой системы) каталог <filename class="directory">/var/db</filename>
+    для хранения своих данных.
+    Примените следующий патч чтобы подобные программы хранили свои данные
+    в каталогах в соответствии с FHS:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../glibc-&glibc-version;-fhs-1.patch</userinput></screen>
+
+    <para>Документация пакета Glibc рекомендует выполнять сборку в 
+    отдельном каталоге:</para>
+
+<screen><userinput remap="pre">mkdir -v build
+cd       build</userinput></screen>
+
+    <para>Подготовка Glibc к компиляции:</para>
+
+<screen><userinput remap="configure">../configure                             \
+      --prefix=/usr                      \
+      --host=$LFS_TGT                    \
+      --build=$(../scripts/config.guess) \
+      --enable-kernel=&min-kernel;                \
+      --with-headers=$LFS/usr/include    \
+      libc_cv_slibdir=/lib</userinput></screen>
+<!--
+      libc_cv_forced_unwind=yes          \
+      libc_cv_c_cleanup=yes</userinput></screen> -->
+
+    <variablelist>
+      <title>Значение параметров конфигурации:</title>
+
+      <varlistentry>
+        <term><parameter>--host=$LFS_TGT, --build=$(../scripts/config.guess)</parameter></term>
+        <listitem>
+          <para>Комбинация этих аргументов указывает системе сборки Glibc выполнять 
+          кросс-компиляцию пакета, используя кросс-компоновщик и кросс-компилятор 
+          из каталога <filename class="directory">$LFS/tools</filename>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-kernel=&min-kernel;</parameter></term>
+        <listitem>
+          <para>Указывает Glibc компилировать библиотеку с поддержкой Linux ядер
+          от &min-kernel; до более поздних. Поддержка более старых ядер не будет включена.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-headers=$LFS/usr/include</parameter></term>
+        <listitem>
+          <para>Аргумент говорит Glibc компилировать себя с заголовочными файлами,
+          установленными в каталог $LFS/usr/include. Таким образом пакету будет
+          точно известно, какие функции ядра используются, и будет возможна
+          оптимизация.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>libc_cv_slibdir=/lib</parameter></term>
+        <listitem>
+          <para>Гарантирует установку библиотеки в /lib
+          вместо /lib64 включенного по умолчанию для 64-битных машин.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>На текущем этапе возможны следующие предупреждения:</para>
+
+    <blockquote>
+<screen><computeroutput>configure: WARNING:
+*** These auxiliary programs are missing or
+*** incompatible versions: msgfmt
+*** some features will be disabled.
+*** Check the INSTALL file for required versions.</computeroutput></screen>
+    </blockquote>
+
+    <para>Обычно является безопасным отсутствие или несовместимость 
+    программы <command>msgfmt</command>. <command>msgfmt</command> является 
+    частью пакета Gettext, который предоставляет хост-система.</para>
+
+    <note><para>Сообщалось, что ошибка возникает при выполнении
+    "параллельной сборки". Если такое случилось, повторите команду make 
+    с аргументом "-j1".</para></note>
+
+    <para>Компиляция пакета:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Установка пакета:</para>
+
+    <warning><para>Если переменная <envar>LFS</envar> установленна некорректно и вы,
+    несмотря на рекомендации, работаете от имени root, то последующая
+    команда установит созданный glibc на вашу хост-систему, что, скорее всего, 
+    сделает систему нерабочей.
+    Убедитесь, что переменная корректно установлена для пользователя
+    <systemitem class="username">lfs</systemitem>.</para></warning>
+
+<screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
+
+    <variablelist>
+      <title>Значение аргументов <command>make install</command>:</title>
+
+      <varlistentry>
+        <term><parameter>DESTDIR=$LFS</parameter></term>
+        <listitem>
+          <para>Переменная make <envar>DESTDIR</envar> используется почти для всех
+          пакетов и указывает путь для установки собранного пакета.
+          Если переменная не указана, то значением по умолчанию является
+          корневой каталог (<filename class="directory">/</filename>).
+          Здесь пакет устанавливается в <filename class="directory">$LFS
+          </filename>, который станет корневым каталогом после <xref linkend=
+          "ch-tools-chroot"/>.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <caution>
+      <para>На этом этапе необходимо остановиться и убедиться, что базовый функционал
+      (компиляция и линовка) созданных инструментов работает как и ожидается.
+      Для проверки работоспособности, выполните следующие команды:</para>
+
+<screen><userinput>echo 'int main(){}' &gt; dummy.c
+$LFS_TGT-gcc dummy.c
+readelf -l a.out | grep '/ld-linux'</userinput></screen>
+
+      <para>Если все работает правильно, то ошибок не будет, а вывод последней команды 
+      будет иметь вид:</para>
+
+<screen><computeroutput>[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
+
+      <para>Обратите внимание - на 32-битной машине интерпретатор
+      будет называться <filename>/lib/ld-linux.so.2</filename>.</para>
+
+      <para>Если вывод не похож на приведенный выше или вообще отсутствует, то
+      что-то пошло не так. Исследуйте предыдущие шаги и повторите их, чтобы
+      обозначить проблему и устраните её. Важно устранить проблему до того, как
+      вы продвинетесь дальше.</para>
+
+    <para>Если все готово, очистите тестовые файлы:</para>
+
+<screen><userinput>rm -v dummy.c a.out</userinput></screen>
+
+    </caution>
+
+    <note><para>Сборка пакетов в следующей главе будет дополнительной проверкой
+    корректности сборки временных инструментов.
+    Если некоторые пакеты, в частности binutils-pass2 или gcc-pass2, не удается
+    скомпилировать, это признак проблем установки Binutils, GCC
+    или Glibc.</para></note>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Подробная информация об этом пакете находится в
+    <xref linkend="contents-glibc" role="."/></para>
+
+  </sect2>
+
+</sect1>

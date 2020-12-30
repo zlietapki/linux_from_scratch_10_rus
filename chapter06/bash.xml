@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-bash" role="wrap">
+  <?dbhtml filename="bash.html"?>
+
+  <sect1info condition="script">
+    <productname>bash</productname>
+    <productnumber>&bash-version;</productnumber>
+    <address>&bash-url;</address>
+  </sect1info>
+
+  <title>Bash-&bash-version;</title>
+
+  <indexterm zone="ch-tools-bash">
+    <primary sortas="a-Bash">Bash</primary>
+    <secondary>tools</secondary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../chapter08/bash.xml"
+    xpointer="xpointer(/sect1/sect2[1]/para[1])"/>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&bash-tmp-sbu;</seg>
+        <seg>&bash-tmp-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Установка Bash</title>
+
+    <para>Подготовьте Bash для компиляции:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr                   \
+            --build=$(support/config.guess) \
+            --host=$LFS_TGT                 \
+            --without-bash-malloc</userinput></screen>
+
+    <variablelist>
+      <title>Значение параметров конфигурации:</title>
+
+      <varlistentry>
+        <term><parameter>--without-bash-malloc</parameter></term>
+        <listitem>
+          <para>Выключает использование функции выделения памяти
+          (<function>malloc</function>) Bash'ем. Функция известна своей способностью
+          вызывать ошибки сегментирования. После выключения этой функцию Bash будет
+          использовать более стабильную фуннкцию <function>malloc</function> из
+          пакета Glibc.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Скомпилируйте пакет:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Установите пакет:</para>
+
+<screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
+
+    <para>Переместите исполняемые файлы туда, где их ожидают:</para>
+
+<screen><userinput remap="install">mv $LFS/usr/bin/bash $LFS/bin/bash</userinput></screen>
+
+    <para>Создайте ссылку для программ использующих <command>sh</command> в качестве
+    оболочки:</para>
+
+<screen><userinput remap="install">ln -sv bash $LFS/bin/sh</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Подробная информация о пакете находится в
+    <xref linkend="contents-bash" role="."/></para>
+
+  </sect2>
+
+</sect1>
