@@ -5,12 +5,12 @@
   %general-entities;
 ]>
 
-<sect1 id="materials-packages">
+<sect1 id="ch-materials-packages">
   <?dbhtml filename="packages.html"?>
 
   <title>Все пакеты</title>
 
-  <para>Загрузите или иным образом получите следующие пакеты с указанными версиями:</para>
+  <para>Загрузите любым доступным способом следующие пакеты:</para>
 
   <variablelist role="materials">
 
@@ -192,7 +192,9 @@
         <para>MD5: <literal>&file-md5;</literal></para>
 
         <note>
-          <para>File (&file-version;) может быть недоступен по указанной ссылке. Администраторы сайта иногда удаляют старые версии после выхода новых. Ссылку загрузки с нужной версией можно найти на странице: <ulink
+          <para>File (&file-version;) может быть недоступен по указанной ссылке.
+          Администраторы сайта иногда удаляют старые версии после выхода новых. Ссылку
+          с нужной версией можно найти на странице: <ulink
           url="http://www.linuxfromscratch.org/lfs/download.html#ftp"/>.</para>
         </note>
       </listitem>
@@ -431,10 +433,13 @@
         <para>MD5: <literal>&linux-md5;</literal></para>
 
         <note>
-          <para>Ядро Linux обновляется достаточно часто по причине исправлений проблем безопасности. Необходимо использовать последний стабильный релиз  &linux-major-version;.&linux-minor-version;.x версии ядра, если в разделе опечаток и неточностей не указано иное.</para>
+          <para>Ядро Linux обновляется достаточно часто по причине исправлений проблем
+          безопасности. Может быть использован последний стабильный релиз ядра, если в
+          разделе опечаток и неточностей не сказано иначе.</para>
 
-          <para>Пользователям с ограниченным или дорогим выходом в интернет можно скачать базовую версию ядра и затем применить к ней патчи, которые могут быть загружены отдельно. Обновление до последней версии при помощи патчей может сэкономить время и стоимость.
-          </para>
+          <para>Пользователи с ограниченным или дорогим выходом в интернет могут отдельно
+          скачать базовую версию ядра и патчи к ней. Это может сэкономить время
+          и деньги при последующем обновлении минорной версии.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -647,8 +652,8 @@
         <para>MD5: <literal>&systemd-man-md5;</literal></para>
 
         <note>
-          <para>Команда Linux From Scratch генерирует свои архивы со страницами
-          руководств используя исходники systemd. Это делается для того, чтобы избежать
+          <para>Команда Linux From Scratch создает свои собственные архивы со страницами
+          руководств на основе исходников systemd. Это делается избежания
           ненужных зависимостей.</para>
         </note>
       </listitem>
@@ -731,6 +736,13 @@
         <para>Домашняя страница:  <ulink url="&vim-home;"/></para>
         <para>Скачать: <ulink url="&vim-url;"/></para>
         <para>MD5: <literal>&vim-md5;</literal></para>
+        <note>
+          <para>
+            Версии vim изменяются ежедневно. Для получения последней перейдите по ссылке
+            <ulink url="https://github.com/vim/vim/releases">
+            https://github.com/vim/vim/releases</ulink>.
+          </para>
+        </note>
       </listitem>
     </varlistentry>
 
@@ -758,6 +770,15 @@
         <para>Домашняя страница:  <ulink url="&zlib-home;"/></para>
         <para>Скачать: <ulink url="&zlib-url;"/></para>
         <para>MD5: <literal>&zlib-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Zstd (&zstd-version;) - <token>&zstd-size;</token>:</term>
+      <listitem>
+        <para>Домашняя страница: <ulink url="&zstd-home;"/></para>
+        <para>Скачать: <ulink url="&zstd-url;"/></para>
+        <para>MD5: <literal>&zstd-md5;</literal></para>
       </listitem>
     </varlistentry>
 
