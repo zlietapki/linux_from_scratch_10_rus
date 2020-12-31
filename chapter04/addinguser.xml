@@ -10,14 +10,14 @@
 
   <title>Создание пользователя LFS</title>
 
-  <para>Когда мы находимся в системе под пользователем
+  <para>Когда вход в систему выполнен от имени пользователя
   <systemitem class="username">root</systemitem>, одна единственная ошибка может привести
-  к повреждению или поломке хост-системы. Поэтому пакеты следующих двух глав будут
-  собраны непривилигированным пользователем. Вы можете использовать произвольное имя
-  пользователя, но для упрощения создания чистого рабочего окружения назовите
-  нового пользователя <systemitem class="username">lfs</systemitem>, сделайте его членом
-  группы <systemitem class="groupname">lfs</systemitem> и используйте этого пользователя
-  во время процесса установки. Для создания нового пользователя выполните команды от имени
+  к поломке или уничтожению всей системы. Поэтому пакеты следующих двух глав будут
+  собраны непривилигированным пользователем. Вы можете использовать произвольное имя, но для
+  упрощения создания чистого рабочего окружения назовите нового пользователя
+  <systemitem class="username">lfs</systemitem>, сделайте его членом новой группы
+  (называемой также <systemitem class="groupname">lfs</systemitem>) и используйте его во
+  время процесса установки. Для создания нового пользователя выполните команды от имени 
   <systemitem class="username">root</systemitem>:</para>
 
 <screen><userinput>groupadd lfs
@@ -55,7 +55,7 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
       <listitem>
         <para>Предотвращает возможное копирование файлов из каталога базовых настроек
         (по умолчанию <filename class="directory">/etc/skel</filename>), изменяя
-        местоположение каталога на специальное null  устройство.</para>
+        его путь на специальное null  устройство.</para>
       </listitem>
     </varlistentry>
 
@@ -70,14 +70,14 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
 
   <para>Чтобы войти в систему как пользователь lfs (в отличие от переключения
   на пользователя <systemitem class="username">lfs</systemitem>, когда вы авторизованы
-  как <systemitem class="username">root</systemitem> и пароль для
-  <systemitem class="username">lfs</systemitem> может быть не задан),
+  как <systemitem class="username">root</systemitem>, а пароль для
+  <systemitem class="username">lfs</systemitem> не задан),
   создайте пароль учётной записи:</para>
 
 <screen role="nodump"><userinput>passwd lfs</userinput></screen>
 
   <para>Предоставьте пользователю <systemitem class="username">lfs</systemitem> полный
-  доступ к каталогам внутри <filename class="directory">$LFS</filename> назначив его
+  доступ дочерним каталогам <filename class="directory">$LFS</filename> назначив его
   владельцем каталога:</para>
 
 <screen><userinput>chown -v lfs $LFS/{usr,lib,var,etc,bin,sbin,tools}
@@ -85,26 +85,25 @@ case $(uname -m) in
   x86_64) chown -v lfs $LFS/lib64 ;;
 esac</userinput></screen>
 
-  <para>Если был создан отдельный рабочий каталог, как и предлагалось,
+  <para>Если рекомендации соблюдены, и отдельный рабочий каталог был создан,
   предоставьте пользователю <systemitem class="username">lfs</systemitem> права на
-  этот каталог:</para>
+  него:</para>
 
 <screen><userinput>chown -v lfs $LFS/sources</userinput></screen>
 
-  <note><para>На некоторых хост-системах указанная команда не выполняется корректно
-  и отправляет процесс авторизации пользователя в фон. Если приглашение
-  "lfs:~$" не появилось мгновенно, ввод команды
-  <command>fg</command> исправит проблему.</para></note>
+  <note><para>Следующая команда не выполняется корректно на некоторых хост-системах и
+  отправляет процесс авторизации пользователя в фон. Если приглашение "lfs:~$" не появилось
+  мгновенно, ввод команды <command>fg</command> исправит проблему.</para></note>
 
-  <para>Далее войдите как пользователь <systemitem class="username">lfs</systemitem>.
+  <para>Переключитесь в пользователя <systemitem class="username">lfs</systemitem>.
   Это можно сделать используя виртуальный терминал, графический менеджер
   или используя команду переключения пользователя:</para>
 
 <screen role="nodump"><userinput>su - lfs</userinput></screen>
 
-  <para>Аргумент <quote><parameter>-</parameter></quote> говорит команде
-  <command>su</command> запустить login-оболочку, в отличие от обычной.
-  Различия между этим двумя типами оболочек детально описаны в
+  <para>Аргумент <quote><parameter>-</parameter></quote> команды <command>su</command>
+  означает запустить процедуру входа в оболочку, в отличие от non-login оболочки без 
+  процедуры входа. Различия между этим двумя типами оболочек детально описаны в
   <filename>bash(1)</filename> и <command>info bash</command>.</para>
 
 </sect1>
