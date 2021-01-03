@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Ninja - утилита для сборки программ, фокусирующая на скорости. От других систем сборки программ она отличается двумя основными аспектами: для работы используется свой формат входных файлов, созданных системой построения более высокого уровня, и она предназначена для быстрой сборки программ.</para>
+    <para>Ninja - небольшая система сборки ориентированная на скорость.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -36,12 +36,10 @@
     </segmentedlist>
 
     <tip revision="sysv">
-      <para>This section is not strictly required for LFS if not using
-      systemd. On the other hand, ninja associated to meson makes
-      a powerful build system combination,
-      which is expected to be used more and more often. It is required for
-      several packages in <ulink url="&blfs-book;">the BLFS
-      book</ulink>.</para>
+      <para>Этот раздел необязателен, если LFS не использует systemd.
+      С другой стороны, связка ninja с meson является мощной системой сборки, которая,
+      скорее всего, будет использоваться всё чаще. Она необходима для нескольких
+      пакетов из <ulink url="&blfs-book;">книги BLFS</ulink>.</para>
     </tip>
 
   </sect2>
@@ -49,18 +47,26 @@
   <sect2 role="installation">
     <title>Установка Ninja</title>
 
-    <para>Когда программа ninja запущена, как правило, используется максимальное количество процессов параллельно. По умолчанию этому числу присваивается значение количество ядер компьютера плюс два. В некоторых случаях это может привести к перегреву центрального процессора, и (или) переполнению оперативной памяти. Если выполнять запуск через командную строку, можно передать аргумент -jN, в котором можно явно указать количество потоков для выполнения. Но в некоторых пакетах данное  значение встроено и аргумент -jN будет игнорирован.</para>
+    <para>Во время работы ninja, как правило, использует максимальное количество
+    параллельных процессов. По умолчанию это количество ядер системы плюс два.
+    В некоторых случаях это может привести к перегреву процессора или переполнению
+    оперативной памяти. Если запускать ninja из командной строки, то можно указать 
+    количество параллельных процессов через аргумент -jN. Но у некоторых пакетов
+    запуск ninja встроен и аргумент -jN игнорируется.</para>
 
-    <para>Можно использовать <emphasis>опциональный</emphasis> патч, который позволит устанавливать количество потоков выполнения через переменную среды, NINJAJOBS. <command>Например</command> указание значения переменной среды:
-     <!-- Using <command> here to make the output bold.  We really don't want
+    <para>Следующая <emphasis>опциональная</emphasis> процедура даст пользователю
+    возможность управлять количеством параллельных процессов через переменную окружения
+    NINJAJOBS.
+    <command>Например</command> установка:
+     <!-- <command> тут чтоб сделать вывод жирным текстом.  We really don't want
      users setting this now and experience shows that many users blindly
      copy/paste anything in a box. -->
 
     <screen>export NINJAJOBS=4</screen>
-		ограничит одновременное выполнение ninja в четыре процесса.</para>
 
-    <para>If desired, add the capability to use the environment variable
-    NINJAJOBS by running:</para>
+    ограничит ninja до четырёх паралеллельных процессов.</para>
+
+    <para>Чтобы добавить возможность управления через переменную NINJAJOBS запустите:</para>
 
 <screen><userinput remap="pre">sed -i '/int Guess/a \
   int   j = 0;\
@@ -69,23 +75,23 @@
   if ( j > 0 ) return j;\
 ' src/ninja.cc</userinput></screen>
 
-    <para>Выполните сборку пакета Ninja выполнив команду:</para>
+    <para>Сборка Ninja:</para>
 
 <screen><userinput remap="configure">python3 configure.py --bootstrap</userinput></screen>
 
     <variablelist>
-      <title>Значения аргументов сборки:</title>
+      <title>Значения параметров сборки:</title>
 
       <varlistentry>
         <term><parameter>--bootstrap</parameter></term>
         <listitem>
-          <para>Аргумент указывает ninja пересобрать себя в текущей системе.</para>
+          <para>указывает ninja пересобрать себя для текущей системы.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Для выполнения тестов, выполните команду:</para>
+    <para>Тестирование:</para>
 
 <screen><userinput remap="test">./ninja ninja_test
 ./ninja_test --gtest_filter=-SubprocessTest.SetWithLots</userinput></screen>

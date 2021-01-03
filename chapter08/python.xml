@@ -23,9 +23,9 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Python 3 package contains the Python development environment. It
-    is useful for object-oriented programming, writing scripts, prototyping
-    large programs, or developing entire applications.</para>
+    <para>Пакет Python 3 содержит окружение разработчика Python. Его можно использовать
+    для объектно-ориентированного программирования, написания скриптов, прототипирования
+    больших проектов или разработки приложений.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,9 +40,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Python 3</title>
+    <title>Установка Python 3</title>
 
-    <para>Prepare Python for compilation:</para>
+    <para>Подготовка Python к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr       \
             --enable-shared     \
@@ -51,48 +51,47 @@
             --with-ensurepip=yes</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Значение параметров конфигурации:</title>
 
     <varlistentry>
       <term><parameter>--with-system-expat</parameter></term>
       <listitem>
-        <para>This switch enables linking against system version of
-        <application>Expat</application>.</para>
+        <para>Включает линковку с системной версией <application>Expat</application>.</para>
        </listitem>
      </varlistentry>
 
     <varlistentry>
       <term><parameter>--with-system-ffi</parameter></term>
       <listitem>
-        <para>This switch enables linking against system version of
-        <application>libffi</application>.</para>
+        <para>Включает линковку с системной версией <application>libffi</application>.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>--with-ensurepip=yes</parameter></term>
       <listitem>
-        <para>This switch enables building <command>pip</command> and
-        <command>setuptools</command> packaging programs.</para>
+        <para>Включает сборку программ <command>pip</command> и
+        <command>setuptools</command>.</para>
       </listitem>
     </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para> 
+    <para>Тестирование:</para> 
 
 <screen><userinput remap="test">make test</userinput></screen>
 
-    <para>Some tests requiring a network connection or additional packages are
-    skipped.  The test named test_unicodedata fails because network
-    configuration is not completed yet.  For more comprehensive results,
-    the test can be rerun when Python 3 is reinstalled in BLFS.</para>
+    <para>Некоторые тесты будует пропущены из-за отсутсвия сети или дополнительных,
+    необходимых пакетов.
+    Тест test_unicodedata не пройдет, т.к. конфигурация сети еще не завершена.
+    Более объемное тестирование возможно перезапуском тестов после переустановки Python 3
+    в BLFS.</para>
 
-    <para>Install the package:</para>
+    <para>Установка пакета:</para>
 
 <screen><userinput remap="install">make install
 chmod -v 755 /usr/lib/libpython&python-minor;.so
@@ -100,19 +99,19 @@ chmod -v 755 /usr/lib/libpython3.so
 ln -sfv pip&python-minor; /usr/bin/pip3</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the install commands:</title>
+      <title>Значение команд установки:</title>
 <!-- ======  Change 8m if Python minor version changes ======= -->
     <varlistentry>
       <term><command>chmod -v 755 /usr/lib/libpython3.{8.,}so</command></term>
       <listitem>
-        <para>Fix permissions for libraries to be consistent with other
-        libraries.</para>
+        <para>Исправление прав доступа для библиотеки для сохранения консистентности с
+        остальными библиотеками.</para>
       </listitem>
     </varlistentry>
 
     </variablelist>
 
-    <para>If desired, install the preformatted documentation:</para>
+    <para>По желанию можно установить документацию:</para>
 
 <screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html 
 
@@ -123,14 +122,14 @@ tar --strip-components=1  \
     -xvf ../python-&python-version;-docs-html.tar.bz2</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the documentation install commands:</title>
+      <title>Значение параметров установки документации:</title>
 
     <varlistentry>
-      <term><option>--no-same-owner</option> and <option>--no-same-permissions</option></term>
+      <term><option>--no-same-owner</option> и <option>--no-same-permissions</option></term>
       <listitem>
-        <para>Ensure the installed files have the correct ownership and 
-        permissions.  Without these options, using <application>tar</application>
-        will install the package files with the upstream creator's values. 
+        <para>Гарантирует корректные права и владельца для устанавливаемых файлов.
+        Без этих опций <application>tar</application> установит файлы с правами пользователя
+        создававшего пакет. 
         </para>
       </listitem>
     </varlistentry>
@@ -140,30 +139,30 @@ tar --strip-components=1  \
   </sect2>
 
   <sect2 id="contents-python" role="content">
-    <title>Contents of Python 3</title>
+    <title>Содержимое Python 3</title>
 
     <segmentedlist>
-      <segtitle>Installed Programs</segtitle>
-      <segtitle>Installed Library</segtitle>
-      <segtitle>Installed Directories</segtitle>
+      <segtitle>Установленные программы</segtitle>
+      <segtitle>Установленные библиотеки</segtitle>
+      <segtitle>Установленные каталоги</segtitle>
 
       <seglistitem>
         <seg>
-          2to3, idle3, pip3, pydoc3, python3, and python3-config
+          2to3, idle3, pip3, pydoc3, python3 и python3-config
         </seg>
         <seg>
-          libpython&python-minor;.so and libpython3.so
+          libpython&python-minor;.so и libpython3.so
         </seg>
         <seg>
           /usr/include/python&python-minor;, 
-          /usr/lib/python3, and
+          /usr/lib/python3 и
           /usr/share/doc/python-&python-version;
         </seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">Краткое описание</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -171,10 +170,9 @@ tar --strip-components=1  \
         <term><command>2to3</command></term>
         <listitem>
           <para>
-            is a <application>Python</application> program that reads
-            <application>Python 2.x</application> source code and applies a
-            series of fixes to transform it into 
-            valid <application>Python 3.x</application> code.
+            программа на <application>Python</application>, которая читает файлы написанные
+            на <application>Python 2.x</application>, применяет к ним серию изменений и
+            переводит их в валидный код <application>Python 3.x</application>.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-2to3">2to3</primary>
@@ -186,10 +184,10 @@ tar --strip-components=1  \
         <term><command>idle3</command></term>
         <listitem>
           <para>
-            is a wrapper script that opens a <application>Python</application>
-            aware GUI editor. For this script to run, you must have installed
-            <application>Tk</application> before Python so that the Tkinter
-            Python module is built.
+            скрипт-обертка, запускающая GUI редактор <application>Python</application>.
+            Для работы, перед установкой Python, должен быть установлен
+            <application>Tk</application>. В этом случае будет собран необходимый Python
+            модуль Tkinter.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-idle3">idle3</primary>
@@ -201,8 +199,8 @@ tar --strip-components=1  \
         <term><command>pip3</command></term>
         <listitem>
           <para>
-            The package installer for Python. You can use pip to install
-            packages from Python Package Index and other indexes.
+            менеджер пакетов Python. Позволяет устанавливать пакеты из
+            Python Package Index и других источников.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-pip3">pip3</primary>
@@ -214,7 +212,7 @@ tar --strip-components=1  \
         <term><command>pydoc3</command></term>
         <listitem>
           <para>
-            is the <application>Python</application> documentation tool.
+            инструмент документации <application>Python</application>.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-pydoc3">pydoc3</primary>
@@ -226,8 +224,7 @@ tar --strip-components=1  \
         <term><command>python3</command></term>
         <listitem>
           <para>
-            is an interpreted, interactive, object-oriented programming
-            language.
+            динамический, интерактивный, объектно-ориентированный язык программирования.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-python3">python3</primary>

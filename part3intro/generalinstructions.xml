@@ -11,8 +11,7 @@
 
   <title>Общие инструкции по компиляции</title>
 
-  <para>When building packages there are several assumptions made within
-  the instructions:</para>
+  <para>Во время сборки пакетов действуют несколько предположений:</para>
 
   <itemizedlist>
 
@@ -28,88 +27,85 @@
   </listitem>
 
   <listitem>
-    <para>During the compilation of most packages, there will be several
-    warnings that scroll by on the screen. These are normal and can safely be
-    ignored.  These warnings are as they appear&mdash;warnings about
-    deprecated, but not invalid, use of the C or C++ syntax. C standards change
-    fairly often, and some packages still use the older standard. This is not a
-    problem, but does prompt the warning.</para>
+    <para>Во время компиляции большинства пакетов на экране будут пробегать несколько
+    предупржедений. Это нормально и будет безопасно проигнорировать их.
+    Эти сообщения предупреждают об устаревшем, но все еще валидном синтаксисе Си или C++.
+    Стандарты Си меняются довольно часто, а некоторые пакеты все еще используют устаревшие
+    стандарты. Это не является ошибкой, но выдает предупрждение.</para>
   </listitem>
 
   <listitem>
-    <para>Check one last time that the <envar>LFS</envar> environment variable
-    is set up properly:</para>
+    <para>Последний раз убедитесь, что переменная окружения <envar>LFS</envar>
+    установлена правильно:</para>
 
 <screen role="nodump"><userinput>echo $LFS</userinput></screen>
 
-    <para>Make sure the output shows the path to the LFS partition's mount
-    point, which is <filename class="directory">/mnt/lfs</filename>, using our
-    example.</para>
+    <para>Вывод должен указывать на точку монтирования LFS раздела. Это
+    <filename class="directory">/mnt/lfs</filename>, если вы испульзовали наш пример.</para>
   </listitem>
 
   <listitem>
 
-    <para>Finally, two important items must be emphasized:</para>
+    <para>И наконец, еще две вещи следует выделить:</para>
 
     <important>
 
-      <para>The build instructions assume that the <xref
-      linkend='ch-partitioning-hostreqs'/>, including symbolic links, have
-      been set properly:</para>
+      <para>Инструкции сборки подразумевают, что условия <xref
+      linkend='ch-partitioning-hostreqs'/>, включая символические ссылки, были
+      соблюдены:</para>
 
       <itemizedlist role='important'>
 
-        <listitem override='bullet'><para><command>bash</command> is the shell
-        in use.</para></listitem>
+        <listitem override='bullet'><para><command>bash</command> установлена используемой
+        оболочкой.</para></listitem>
 
-        <listitem override='bullet'><para><command>sh</command> is a symbolic
-        link to <command>bash</command>.</para></listitem>
+        <listitem override='bullet'><para><command>sh</command> это символическая
+        ссылка на <command>bash</command>.</para></listitem>
 
-        <listitem override='bullet'><para><command>/usr/bin/awk</command> is a
-        symbolic link to <command>gawk</command>.</para></listitem>
+        <listitem override='bullet'><para><command>/usr/bin/awk</command> это симовлическая
+        ссылка на <command>gawk</command>.</para></listitem>
 
-        <listitem override='bullet'><para><command>/usr/bin/yacc</command> is a
-        symbolic link to <command>bison</command> or a small script that
-        executes bison.</para></listitem>
+        <listitem override='bullet'><para><command>/usr/bin/yacc</command> это символическая
+        ссылка на <command>bison</command> или на небольшой скрипт запускающий
+        bison.</para></listitem>
 
       </itemizedlist>
     </important>
 
     <important>
-      <para>To re-emphasize the build process:</para>
+      <para>Еще раз процесс сборки по пунктам:</para>
 
       <orderedlist numeration="arabic" spacing="compact">
         <listitem>
-          <para>Place all the sources and patches in a directory that will be
-          accessible from the chroot environment such as
-      	  <filename class="directory">/mnt/lfs/sources/</filename>.<!-- Do
+          <para>Поместите все исходники и патчи в каталог доступный из среды chroot,
+          например <filename class="directory">/mnt/lfs/sources/</filename>.<!-- Do
           <emphasis>not</emphasis> put sources in
 	  <filename class="directory">/mnt/lfs/tools/</filename>. --></para>
         </listitem>
         <listitem>
-          <para>Change to the sources directory.</para>
+          <para>Перейдите в каталог с исходниками.</para>
         </listitem>
-        <listitem id='buildinstr' xreflabel='Package build instructions'>
-          <para>For each package:</para>
+        <listitem id='buildinstr' xreflabel='Инструкции по сборке пакета'>
+          <para>Для каждого пакета:</para>
           <orderedlist numeration="loweralpha" spacing="compact">
             <listitem>
-              <para>Using the <command>tar</command> program, extract the package
-              to be built.  In <xref linkend="chapter-cross-tools"/> and
-              <xref linkend="chapter-temporary-tools"/>, ensure you are
-              the <emphasis>lfs</emphasis> user when extracting the package.</para>
+              <para>С помощью программы <command>tar</command> распакуйте нужный пакет.
+              В <xref linkend="chapter-cross-tools"/> и
+              <xref linkend="chapter-temporary-tools"/> убедитесь, что во время распаковки
+              пакета работаете от имени пользователя <emphasis>lfs</emphasis>.</para>
             </listitem>
             <listitem>
-              <para>Change to the directory created when the package was
-              extracted.</para>
+              <para>Перейдите в каталог созданный распаковкой пакета.</para>
             </listitem>
             <listitem>
-              <para>Follow the book's instructions for building the package.</para>
+              <para>Следуйте инструкциям книги по сборке пакета.</para>
             </listitem>
             <listitem>
-              <para>Change back to the sources directory.</para>
+              <para>Вернитесь в каталог исходников.</para>
             </listitem>
             <listitem>
-              <para>Delete the extracted source directory unless instructed otherwise.</para>
+              <para>Удалите каталог с распакованными исходниками, если нет инструкций
+              поступить иначе.</para>
             </listitem>
           </orderedlist>
         </listitem>
