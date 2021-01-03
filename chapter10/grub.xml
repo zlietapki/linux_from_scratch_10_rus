@@ -14,110 +14,100 @@
     <address>&grub-url;</address>
   </sect1info>
 
-  <title>Using GRUB to Set Up the Boot Process</title>
+  <title>Использование GRUB для загрузки</title>
 
   <sect2>
-    <title>Introduction</title>
+    <title>Введение</title>
 
-    <warning><para>Configuring GRUB incorrectly can render your system
-    inoperable without an alternate boot device such as a CD-ROM or bootable
-    USB drive. This section is not required to boot your LFS system.  You may
-    just want to modify your current boot loader, e.g. Grub-Legacy, GRUB2, or
-    LILO.</para></warning>
+    <warning><para>При неправильной настройке GRUB ваша система перестанет загружаться без
+    вспомогательно загрузочного CD-ROM или USB диска.
+    Для загрузки системы LFS эта глава необязательна. Возможно достаточным будет изменить
+    существующий загрузчик, например Grub-Legacy, GRUB2 или LILO.</para></warning>
 
-    <para> Ensure that an emergency boot disk is ready to <quote>rescue</quote>
-    the computer if the computer becomes unusable (un-bootable).  If you do not
-    already have a boot device, you can create one.  In order for the procedure
-    below to work, you need to jump ahead to BLFS and install
-    <userinput>xorriso</userinput> from the <ulink
-    url="&blfs-book;multimedia/libisoburn.html">
-    libisoburn</ulink> package.</para>
+    <para>Убедитесь, что аварийный загрузочный диск готов <quote>спасти</quote> 
+    компьютер, если он перестанет загружаться. Если у вас еще нет загрузочного диска, то его
+    можно создать следующей командой. Для её выполнения понадобится перейти в раздел BLFS и
+    установить программу <userinput>xorriso</userinput> из пакета <ulink
+    url="&blfs-book;multimedia/libisoburn.html">libisoburn</ulink>.</para>
 
-<screen role="nodump"><userinput>cd /tmp
-grub-mkrescue --output=grub-img.iso
+<screen role="nodump"><userinput>cd /tmp 
+grub-mkrescue --output=grub-img.iso 
 xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></screen>
 
     <note>
       <para>
-        To boot LFS on host systems that have UEFI enabled, the kernel needs to
-        have been built with the CONFIG_EFI_STUB capability described in the
-        previous section.  However, LFS can be booted using GRUB2 without such
-        an addition. To do this, the UEFI Mode and Secure Boot capabilities in
-        the host system's BIOS need to be turned off.  For details, see <ulink
-        url="&hints-root;lfs-uefi.txt">
-        the lfs-uefi.txt hint</ulink> at
-        &hints-root;lfs-uefi.txt.
+        Для загрузки LFS в хост-системах с UEFI, ядро должно быть собрано с указанием
+        ключа конфигурации CONFIG_EFI_STUB, как это описано в предыдущем разделе.
+        Однако можно загрузить  LFS и без такого дополнения с помощью GRUB2 .
+        Для этого в BIOS хост-системы необходимо отключить функции UEFI Mode и Secure Boot.
+        Подробная информация доступна в
+        <ulink url="&hints-root;lfs-uefi.txt">подсказке по lfs-uefi.txt</ulink>.
       </para>
     </note>
 
   </sect2>
 
   <sect2>
-    <title>GRUB Naming Conventions</title>
+    <title>Именование в GRUB</title>
 
-    <para>GRUB uses its own naming structure for drives and partitions in
-    the form of <emphasis>(hdn,m)</emphasis>, where <emphasis>n</emphasis>
-    is the hard drive number and <emphasis>m</emphasis> is the partition
-    number. The hard drive number starts from zero, but the partition number
-    starts from one for normal partitions and five for extended partitions.
-    Note that this is different from earlier versions where
-    both numbers started from zero. For example, partition <filename
-    class="partition">sda1</filename> is <emphasis>(hd0,1)</emphasis> to
-    GRUB and <filename class="partition">sdb3</filename> is
-    <emphasis>(hd1,3)</emphasis>. In contrast to Linux, GRUB does not
-    consider CD-ROM drives to be hard drives. For example, if using a CD
-    on <filename class="partition">hdb</filename> and a second hard drive
-    on <filename class="partition">hdc</filename>, that second hard drive
-    would still be <emphasis>(hd1)</emphasis>.</para>
+    <para>GRUB использует собственную систему именования дисков и разделов вида
+    <emphasis>(hdn,m)</emphasis>, где <emphasis>n</emphasis> - номер диска, а 
+    <emphasis>m</emphasis> - номер раздела. Номер диска начинается с нуля, а номер раздела
+    с единицы - для первичных разделов и с пяти для расширенных. Обратите
+    внимание, именование отличалось в предыдущих версиях, где оба номера начинались
+    с нуля. Например, раздел <filename class="partition">sda1</filename> это
+    <emphasis>(hd0,1)</emphasis> в GRUB, а
+    <filename class="partition">sdb3</filename> - <emphasis>(hd1,3)</emphasis>.
+    В отличие от Linux, GRUB не считает CD-ROM жесткими дисками. 
+    Например, если вы используете CD по имени <filename class="partition">hdb</filename>,
+    а второй жесткий диск как <filename class="partition">hdc</filename>, этот второй жесткий
+    диск будет всё равно <emphasis>(hd1)</emphasis>.</para>
 
   </sect2>
 
   <sect2>
-    <title>Setting Up the Configuration</title>
+    <title>Настройка</title>
 
-    <para>GRUB works by writing data to the first physical track of the
-    hard disk.  This area is not part of any file system.  The programs
-    there access GRUB modules in the boot partition.  The default location
-    is /boot/grub/.</para>
+    <para>GRUB записывает данные на первый физический сектор жесткого диска. Эта область не
+    является частью какой-либо файловой системы. Программы доступны как модули GRUB в
+    загрузочном разделе в каталоге по умолчанию -/boot/grub/.</para>
 
-    <para>The location of the boot partition is a choice of the user that
-    affects the configuration.  One recommendation is to have a separate small
-    (suggested size is 200 MB) partition just for boot information.  That way
-    each build, whether LFS or some commercial distro, can access the same boot
-    files and access can be made from any booted system.  If you choose to do
-    this, you will need to mount the separate partition, move all files in the
-    current <filename class="directory">/boot</filename> directory (e.g. the
-    linux kernel you just built in the previous section) to the new partition.
-    You will then need to unmount the partition and remount it as <filename
-    class="directory">/boot</filename>.  If you do this, be sure to update
-    <filename>/etc/fstab</filename>.</para>
+    <para>Расположение загрузочного раздела это выбор пользователя. Одна из рекомендаций
+    - держать отдельный небольшой раздел (примерно 200 МБ) исключительно для загрузочных
+    данных.
+    В этом случае каждая сборка, будь то LFS или другой дистрибутив, может
+    обращаться к тем же загрузочным файлам, а доступ может быть получен из любой загруженной
+    системы. Если вы решите так сделать, вам понадобится примонтировать отдельный раздел,
+    переместить все файлы из текущего каталога /boot (например, ядро Linux, которое вы только
+    что создали в предыдущем разделе) в новый раздел. Затем нужно отмонтировать раздел и
+    примонтировать его заново в каталог /boot. Когда вы это сделаете, обязательно обновите
+    данные в файле /etc/fstab.</para>
 
-    <para>Using the current lfs partition will also work, but configuration
-    for multiple systems is more difficult.</para>
+    <para>Использование текущего раздела lfs будет работать, но настройка для нескольких
+    систем сложнее.</para>
 
-    <para>Using the above information, determine the appropriate
-    designator for the root partition (or boot partition, if a separate
-    one is used). For the following example, it is assumed that the root
-    (or separate boot) partition is <filename
-    class="partition">sda2</filename>.</para>
+    <para>Используя информацию выше, определите соответствующие точки монтирования для
+    корневого раздела (или загрузочного раздела, если используется отдельный). В следующем
+    примере предполагается, что корневой (или отдельный загрузочный) раздел является
+    <filename class="partition">sda2</filename>.</para>
 
-    <para>Install the GRUB files into <filename
-    class="directory">/boot/grub</filename> and set up the boot track:</para>
+    <para>Установите файлы GRUB в каталог<filename
+    class="directory">/boot/grub</filename> и настройте загрузочный сектор:</para>
 
     <warning>
-      <para>The following command will overwrite the current boot loader. Do not
-      run the command if this is not desired, for example, if using a third party
-      boot manager to manage the Master Boot Record (MBR).</para>
+      <para>Следующая команда перезапишет текущий загрузчик. Не выполняйте эту команду,
+      если это нежелательно, например, если вы используете сторонний менеджер загрузки для
+      управления главной загрузочной записью (MBR).</para>
     </warning>
 
 <screen role="nodump"><userinput>grub-install /dev/sda</userinput></screen>
 
     <note>
-      <para>If the system has been booted using UEFI,
-      <command>grub-install</command> will try to install files for the
-      <emphasis>x86_64-efi</emphasis> target, but those files
-      have not been installed in chapter 6. If this is the case, add
-      <option>--target i386-pc</option> to the command above.</para>
+      <para>Если система была загружена с использованием UEFI, 
+      <command>grub-install</command> попытается установить файлы для 
+      <emphasis>x86_64-efi</emphasis>, но эти файлы не были установлены в главе 6.
+      В этом случае, добавьте к комманде выше аргумент 
+      <option>--target i386-pc</option>.</para>
     </note>
 
 <!-- This does not seem to be true any more
@@ -134,9 +124,9 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
   </sect2>
 
   <sect2 id="grub-cfg">
-    <title>Creating the GRUB Configuration File</title>
+    <title>Создание файла конфигурации GRUB</title>
 
-    <para>Generate <filename>/boot/grub/grub.cfg</filename>:</para>
+    <para>Создайте файл конфигурации /boot/grub/grub.cfg:</para>
 
     <screen revision="sysv"><userinput>cat &gt; /boot/grub/grub.cfg &lt;&lt; "EOF"
 <literal># Begin /boot/grub/grub.cfg
@@ -165,25 +155,12 @@ menuentry "GNU/Linux, Linux &linux-version;-lfs-&versiond;" {
 EOF</userinput></screen>
 
 
-    <note><para>From <application>GRUB</application>'s perspective, the
-    kernel files are relative to the partition used.  If you
-    used a separate /boot partition, remove /boot from the above
-    <emphasis>linux</emphasis> line.  You will also need to change the
-    <emphasis>set root</emphasis> line to point to the boot partition.
+    <note><para>С точки зрения GRUB, файлы ядра относительны от используемого раздела. Если вы используете отдельные /boot раздел, удалите /boot из строки linux. Вам также потребуется изменить строку set root, чтобы указать на загрузочный раздел.
     </para></note>
 
-    <para>GRUB is an extremely powerful program and it provides a tremendous
-    number of options for booting from a wide variety of devices, operating
-    systems, and partition types.  There are also many options for customization
-    such as graphical splash screens, playing sounds, mouse input, etc.  The
-    details of these options are beyond the scope of this introduction.</para>
+    <para>GRUB - чрезвычайно мощная программа, и она обеспечивает огромное      количество вариантов загрузки с самых разных устройств, работающих      систем и типов разделов. Существует также множество вариантов настройки      таких как графические экраны заставок, звуки воспроизведения, ввод мыши и т. д.      детали этих вариантов выходят за рамки этого раздела.</para>
 
-    <caution><para>There is a command, <application>grub-mkconfig</application>, that
-    can write a configuration file automatically.  It uses a set of scripts in
-    /etc/grub.d/ and will destroy any customizations that you make.  These scripts
-    are designed primarily for non-source distributions and are not recommended for
-    LFS.  If you install a commercial Linux distribution, there is a good chance
-    that this program will be run.  Be sure to back up your grub.cfg file.</para></caution>
+    <caution><para>Существует команда grub-mkconfig, которая может автоматически записывать файл конфигурации. Она использует набор скриптов в файле /etc/grub.d/ и уничтожит любые сделанные вами настройки. Эти сценарии предназначены в первую очередь для обычных дистрибутивов и не рекомендуются для LFS. Если вы устанавливаете коммерческий дистрибутив Linux, есть вероятность, что эта программа будет запущена. Обязательно создайте резервную копию файла grub.cfg.</para></caution>
 
    </sect2>
 

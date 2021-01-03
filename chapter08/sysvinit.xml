@@ -39,7 +39,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Установка пакета Sysvinit</title>
+    <title>Установка Sysvinit</title>
 
 <!--
     <para>When run-levels are changed (for example, when halting the
@@ -67,8 +67,8 @@
         -e '/mesg/d'       \
         -e 's/= sulogin(\.8)?/=/' src/Makefile</userinput></screen>
 -->
-    <para>Во-первых, примените патч удаляющий несколько программ установленных другими
-    пакетами, проясняет сообщение и исправляет предупреждение компилятора:</para>
+    <para>Примените патч, который удалит несколько установленных другими пакетами программ,
+    сделает сообщение более читабельным и исправляет предупреждение компилятора:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&sysvinit-consolidated-patch;</userinput></screen>
 
@@ -105,7 +105,7 @@
       <varlistentry id="bootlogd">
         <term><command>bootlogd</command></term>
         <listitem>
-          <para>Logs boot messages to a log file</para>
+          <para>Логирует сообщения загрузки</para>
           <indexterm zone="ch-system-sysvinit bootlogd">
             <primary sortas="b-bootlogd">bootlogd</primary>
           </indexterm>
@@ -115,7 +115,7 @@
       <varlistentry id="fstab-decode">
         <term><command>fstab-decode</command></term>
         <listitem>
-          <para>Run a command with fstab-encoded arguments</para>
+          <para>Запускает команду с fstab-encoded параметрами</para>
           <indexterm zone="ch-system-sysvinit fstab-decode">
             <primary sortas="b-fstab-decode">fstab-decode</primary>
           </indexterm>
@@ -125,11 +125,10 @@
       <varlistentry id="halt-sysv">
         <term><command>halt</command></term>
         <listitem>
-          <para>Normally invokes <command>shutdown</command> with the
-          <parameter>-h</parameter> option, except when already in run-level 0,
-          then it tells the kernel to halt the system; it notes in the
-          file <filename>/var/log/wtmp</filename> that the system is being
-          brought down</para>
+          <para>Обычно вызывает <command>shutdown</command> с параметром
+          <parameter>-h</parameter>, но если текущий уровень уже 0,
+          то говорит ядру остановить систему. Делает запись в файле
+          <filename>/var/log/wtmp</filename> об остановке системы</para>
           <indexterm zone="ch-system-sysvinit halt-sysv">
             <primary sortas="b-halt">halt</primary>
           </indexterm>
@@ -139,9 +138,9 @@
       <varlistentry id="init-sysv">
         <term><command>init</command></term>
         <listitem>
-          <para>The first process to be started when the kernel has initialized
-          the hardware which takes over the boot process and starts all the
-          proceses specified in its configuration file</para>
+          <para>Первый процесс, запускаемый ядром после инициализации оборудования.
+          Перехватывает загрузку и запускает остальные процессы, перечисленные в его
+          файле настроек</para>
           <indexterm zone="ch-system-sysvinit init-sysv">
             <primary sortas="b-init">init</primary>
           </indexterm>
@@ -151,8 +150,8 @@
       <varlistentry id="killall5">
         <term><command>killall5</command></term>
         <listitem>
-          <para>Sends a signal to all processes, except the processes in its own
-          session so it will not kill its parent shell</para>
+          <para>Отправляет сигнал всем процессам за исключением процессов собственной
+          сессии. Поэтому не может убить процессы родительской оболочки</para>
           <indexterm zone="ch-system-sysvinit killall5">
             <primary sortas="b-killall5">killall5</primary>
           </indexterm>
@@ -162,8 +161,8 @@
       <varlistentry id="poweroff-sysv">
         <term><command>poweroff</command></term>
         <listitem>
-          <para>Tells the kernel to halt the system and switch off the computer
-          (see <command>halt</command>)</para>
+          <para>Говорит ядру остановить систему и выключить компьютер
+          (см. <command>halt</command>)</para>
           <indexterm zone="ch-system-sysvinit poweroff-sysv">
             <primary sortas="b-poweroff">poweroff</primary>
           </indexterm>
@@ -173,7 +172,7 @@
       <varlistentry id="reboot-sysv">
         <term><command>reboot</command></term>
         <listitem>
-          <para>Tells the kernel to reboot the system (see
+          <para>Говорит ядру перезагрузить систему (см.
           <command>halt</command>)</para>
           <indexterm zone="ch-system-sysvinit reboot-sysv">
             <primary sortas="b-reboot">reboot</primary>
@@ -184,8 +183,8 @@
       <varlistentry id="runlevel-sysv">
         <term><command>runlevel</command></term>
         <listitem>
-          <para>Reports the previous and the current run-level, as noted in the
-          last run-level record in <filename>/var/run/utmp</filename></para>
+          <para>Выдает предыдущий и текущий уровень запуска, читает запись
+          о последнем уровне запуска из <filename>/var/run/utmp</filename></para>
           <indexterm zone="ch-system-sysvinit runlevel-sysv">
             <primary sortas="b-runlevel">runlevel</primary>
           </indexterm>
@@ -195,8 +194,8 @@
       <varlistentry id="shutdown-sysv">
         <term><command>shutdown</command></term>
         <listitem>
-          <para>Brings the system down in a secure way, signaling all processes
-          and notifying all logged-in users</para>
+          <para>Безопасно выключает все систему, отправляя сигналы всем процессам и сообщая
+          всем пользователям в системе</para>
           <indexterm zone="ch-system-sysvinit shutdown-sysv">
             <primary sortas="b-shutdown">shutdown</primary>
           </indexterm>
@@ -206,7 +205,7 @@
       <varlistentry id="telinit-sysv">
         <term><command>telinit</command></term>
         <listitem>
-          <para>Tells <command>init</command> which run-level to change to</para>
+          <para>Сообщает <command>init</command> на какой уровень запуска переключиться</para>
           <indexterm zone="ch-system-sysvinit telinit-sysv">
             <primary sortas="b-telinit">telinit</primary>
           </indexterm>
