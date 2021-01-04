@@ -71,7 +71,7 @@ cd       build</userinput></screen>
     --disable-libstdcxx-pch</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>CXXFLAGS="-g -O2 -D_GNU_SOURCE"</parameter></term>

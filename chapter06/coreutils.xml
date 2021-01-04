@@ -52,7 +52,7 @@
             --enable-no-install-program=kill,uptime</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><envar>--enable-install-program=hostname</envar></term>

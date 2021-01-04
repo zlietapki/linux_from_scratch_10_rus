@@ -51,7 +51,7 @@
 <screen><userinput remap="configure">./configure --disable-shared</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--disable-shared</parameter></term>
@@ -63,7 +63,7 @@
 
     </variablelist>
 
-    <para>Скомпилируйте пакет:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 

@@ -51,7 +51,7 @@
             --without-bash-malloc</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--without-bash-malloc</parameter></term>

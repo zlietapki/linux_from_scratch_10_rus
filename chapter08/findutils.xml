@@ -48,7 +48,7 @@
 <screen><userinput remap="configure">./configure --prefix=/usr --localstatedir=/var/lib/locate</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--localstatedir</parameter></term>

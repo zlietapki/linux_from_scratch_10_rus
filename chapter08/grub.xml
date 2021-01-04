@@ -49,7 +49,7 @@
             --disable-werror</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the new configure options:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--disable-werror</parameter></term>

@@ -80,7 +80,7 @@ cd       build</userinput></screen>
              --enable-64-bit-bfd \
              --with-system-zlib</userinput></screen>
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--enable-gold</parameter></term>

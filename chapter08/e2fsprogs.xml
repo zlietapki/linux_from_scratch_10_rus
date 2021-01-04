@@ -62,7 +62,7 @@ cd       build</userinput></screen>
              --disable-fsck</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--with-root-prefix=""</parameter> и

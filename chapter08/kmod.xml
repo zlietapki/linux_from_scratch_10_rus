@@ -51,7 +51,7 @@
             --with-zlib</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--with-xz, --with-zlib</parameter></term>

@@ -45,7 +45,7 @@
 <screen><userinput remap="configure">./configure --prefix=/usr --sysconfdir=/etc</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--sysconfdir=/etc</parameter></term>

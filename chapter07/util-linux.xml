@@ -24,7 +24,7 @@
   <sect2 role="package">
     <title/>
 
-     <para>Пакет Util-linux содержит разносторонние утилиты.</para>
+     <para>Пакет Util-linux содержит служебные утилиты.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -60,7 +60,7 @@
             --without-python</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>ADJTIME_PATH=/var/lib/hwclock/adjtime</parameter></term>
@@ -91,7 +91,7 @@
 
      </variablelist>
 
-    <para>Скомпилируйте пакет:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 

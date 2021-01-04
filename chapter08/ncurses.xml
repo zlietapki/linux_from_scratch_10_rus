@@ -56,7 +56,7 @@
             --enable-widec</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the new configure options:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--enable-widec</parameter></term>

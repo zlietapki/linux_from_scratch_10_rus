@@ -68,7 +68,7 @@ cd unix
             $([ "$(uname -m)" = x86_64 ] &amp;&amp; echo --enable-64bit)</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>$([ "$(uname -m)" = x86_64 ] &amp;&amp; echo --enable-64bit)</parameter></term>

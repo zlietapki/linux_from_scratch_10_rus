@@ -57,7 +57,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
             --docdir=/usr/share/doc/readline-&readline-version;</userinput></screen>
 
      <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--with-curses</parameter></term>

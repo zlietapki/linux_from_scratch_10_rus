@@ -65,7 +65,7 @@
             --with-systemdsystemunitdir=</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry revision="systemd">
         <term><command>sed -i '/find/s@/usr@@' init/systemd/man-db.service.in</command></term>

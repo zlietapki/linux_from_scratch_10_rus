@@ -69,7 +69,7 @@ export BUILD_BZIP2=0</userinput></screen>
              -Dusethreads</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>-Dvendorprefix=/usr</parameter></term>

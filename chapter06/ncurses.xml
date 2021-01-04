@@ -57,7 +57,7 @@ pushd build
   make -C progs tic
 popd</userinput></screen>
 
-    <para>Подготовьте  Ncurses для компиляции:</para>
+    <para>Подготовьте Ncurses для компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr                \
             --host=$LFS_TGT              \
@@ -71,7 +71,7 @@ popd</userinput></screen>
             --enable-widec</userinput></screen>
 
     <variablelist>
-      <title>Значение новых параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--with-manpage-format=normal</parameter></term>

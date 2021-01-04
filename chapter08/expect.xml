@@ -48,7 +48,7 @@
   <sect2 role="installation">
     <title>Установка Expect</title>
 
-    <para>Подготовка  Expect к компиляции:</para>
+    <para>Подготовка Expect к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr           \
             --with-tcl=/usr/lib     \
@@ -57,7 +57,7 @@
             --with-tclinclude=/usr/include</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--with-tcl=/usr/lib</parameter></term>

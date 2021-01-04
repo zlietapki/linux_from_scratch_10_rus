@@ -100,7 +100,7 @@ cd       build</userinput></screen>
     --disable-libstdcxx                            \
     --enable-languages=c,c++</userinput></screen>
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--with-glibc-version=2.11</parameter></term>

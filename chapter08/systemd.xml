@@ -101,7 +101,7 @@ meson --prefix=/usr                 \
       ..</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации meson:</title>
+      <title>Значение параметров meson:</title>
 
       <varlistentry>
         <term><parameter>-D*-path=*</parameter></term>

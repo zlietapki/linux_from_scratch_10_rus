@@ -51,7 +51,7 @@
             --with-ensurepip=yes</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
     <varlistentry>
       <term><parameter>--with-system-expat</parameter></term>

@@ -74,7 +74,7 @@ cd       build</userinput></screen>
              --disable-werror</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--prefix=$LFS/tools</parameter></term>

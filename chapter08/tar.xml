@@ -50,7 +50,7 @@
             --bindir=/bin</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><envar>FORCE_UNSAFE_CONFIGURE=1</envar></term>

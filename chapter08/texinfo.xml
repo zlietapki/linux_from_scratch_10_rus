@@ -80,7 +80,7 @@
 <screen><userinput remap="install">make TEXMF=/usr/share/texmf install-tex</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the make parameter:</title>
+      <title>Значения параметров make:</title>
 
       <varlistentry>
         <term><parameter>TEXMF=/usr/share/texmf</parameter></term>

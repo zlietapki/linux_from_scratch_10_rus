@@ -55,7 +55,7 @@
             --with-console-auth-dir=/run/console</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--with-console-auth-dir=/run/console</parameter></term>

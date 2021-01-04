@@ -69,7 +69,7 @@ mount -vt sysfs sysfs $LFS/sys
 mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
 <!--
     <variablelist>
-      <title>Значение параметров монтирования для devpts:</title>
+      <title>Значение параметров mount для devpts:</title>
 
       <varlistentry>
         <term><parameter>gid=5</parameter></term>

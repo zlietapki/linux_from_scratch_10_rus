@@ -45,7 +45,7 @@
 <screen><userinput remap="configure">PREFIX=/usr CC=gcc CFLAGS="-std=c99" ./configure.sh -G -O3</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>CC=gcc CFLAGS="-std=c99"</parameter></term>
