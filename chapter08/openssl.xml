@@ -23,10 +23,9 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет OpenSSL содержит инструменты управления и библиотеки
-    криптографии. Они полезны для предоставления криптографических функций
-    другим пакетам таким как OpenSSH, почтовым приложениям и веб-браузерам
-    (для доступа к HTTPS сайтам).</para>
+    <para>Пакет OpenSSL содержит криптографические инструменты и библиотеки.
+    Предоставляет криптографические функции, которые могут использованы другими пакетами,
+    такими как OpenSSH, почтовые приложения, веб-браузеры (для доступа к HTTPS).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -59,15 +58,15 @@
 
 <screen><userinput remap="test">make test</userinput></screen>
 
-    <para>Один тест - 30-test_afalg.t известен как нерабочий при некоторых
-    настройках ядра (он подразумевает включенность некоторых опций шифрования).</para>
+    <para>Тест 30-test_afalg.t известен как нерабочий при некоторых
+    настройках ядра (видимо, подразумевает включенность некоторых опций шифрования).</para>
 
     <para>Установка пакета:</para>
 
 <screen><userinput remap="install">sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 make MANSUFFIX=ssl install</userinput></screen>
 
-    <para>К имени каталога с документацией добавьте версию для согласованности с другими
+    <para>К имени каталога документации добавьте версию для согласованности с другими
     пакетами:</para>
 
 <screen><userinput remap="install">mv -v /usr/share/doc/openssl /usr/share/doc/openssl-&openssl-version;</userinput></screen>
@@ -111,7 +110,7 @@ make MANSUFFIX=ssl install</userinput></screen>
         <term><command>c_rehash</command></term>
         <listitem>
           <para>
-            Скрипт <application>Perl</application>, который сканирует все файлы в каталоге
+            скрипт <application>Perl</application>, который сканирует все файлы в каталоге
             и добавляет символические ссылки на их хэш-значения.
           </para>
           <indexterm zone="ch-system-openssl c_rehash">
@@ -124,10 +123,9 @@ make MANSUFFIX=ssl install</userinput></screen>
         <term><command>openssl</command></term>
         <listitem>
           <para>
-            Инструмент командной строки для использования различных криптографических
-            функций библиотеки <application>OpenSSL</application> из оболочки.
-            Его можно использовать для различных функций которые документированы в
-            <command>man 1 openssl</command>.
+            инструмент командной строки для использования криптографических функций
+            <application>OpenSSL</application>. Варианты использования
+            описаны в <command>man 1 openssl</command>.
           </para>
           <indexterm zone="ch-system-openssl openssl-prog">
             <primary sortas="b-openssl">openssl</primary>
@@ -138,11 +136,11 @@ make MANSUFFIX=ssl install</userinput></screen>
       <varlistentry id="libcrypto">
         <term><filename class="libraryfile">libcrypto.so</filename></term>
         <listitem>
-          <para>реализует широкий спектр криптографических алгоритмов, используемых
-          в различных Internet стандартах.
+          <para>реализует большой список криптографических алгоритмов, используемых
+          в различных Internet-стандартах.
           Сервисы предоставляемые этой библиотекой используются в 
-          <application>OpenSSL</application> реализации SSL, TLS, S/MIME, а также
-          в реализации <application>OpenSSH</application>,
+          <application>OpenSSL</application> реализации SSL, TLS, S/MIME, раньше
+          использовались в <application>OpenSSH</application>,
           <application>OpenPGP</application> и других криптографических стандартах.
           </para>
           <indexterm zone="ch-system-openssl libcrypto">
@@ -156,8 +154,7 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>
             реализация протокола защиты транспортного уровня (TLS v1). Предоставляет
-            богатое функции API, документацию к которой можно получить 
-            выполнив команду <command>man 3 ssl</command>.
+            богатое API. Документацию можно получить командой <command>man 3 ssl</command>.
           </para>
           <indexterm zone="ch-system-openssl libssl">
             <primary sortas="c-libssl">libssl.so</primary>
