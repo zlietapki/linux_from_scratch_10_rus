@@ -50,7 +50,7 @@
     <title>Содержимое пакета Man-pages</title>
 
     <segmentedlist>
-      <segtitle>Установленные файлы</segtitle>
+      <segtitle>&contentfiles;</segtitle>
 
       <seglistitem>
         <seg>различные страницы руководств</seg>
@@ -58,14 +58,14 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="man-pages">
         <term><filename>man pages</filename></term>
         <listitem>
-          <para>Описывают функции языка Си, важные файлы устройств и 
+          <para>Описывают функции языка Си, важные файлы устройств и
           значительные файлы конфигурации</para>
           <indexterm zone="ch-system-man-pages man-pages">
             <primary sortas="e-man-pages">man pages</primary>

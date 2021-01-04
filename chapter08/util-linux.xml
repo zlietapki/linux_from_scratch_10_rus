@@ -79,10 +79,10 @@
             --without-python</userinput></screen>
 
     <para>The --disable and --without options prevent warnings about
-    building components that require packages not in LFS or are 
+    building components that require packages not in LFS or are
     inconsistent with programs installed by other packages.</para>
 
-    <para>Compile the package:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
@@ -101,19 +101,19 @@
 <screen><userinput remap="test">chown -Rv tester .
 su tester -c "make -k check"</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>Установка пакета:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-utillinux" role="content">
-    <title>Contents of Util-linux</title>
+    <title>Содержимое пакета Util-linux</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>addpart, agetty, blkdiscard, blkid, blkzone, blockdev, cal, cfdisk, chcpu,
@@ -129,20 +129,20 @@ su tester -c "make -k check"</userinput></screen>
         swapoff (link to swapon), swapon, switch_root, taskset, ul,
         umount, uname26, unshare, utmpdump, uuidd, uuidgen, uuidparse, wall, wdctl, whereis,
         wipefs, x86_64, and zramctl</seg>
-        <seg>libblkid.so, libfdisk.so, libmount.so, 
+        <seg>libblkid.so, libfdisk.so, libmount.so,
         libsmartcols.so, and libuuid.so</seg>
-        <seg>/usr/include/blkid, 
-             /usr/include/libfdisk, 
-             /usr/include/libmount, 
-             /usr/include/libsmartcols, 
-             /usr/include/uuid, 
-             /usr/share/doc/util-linux-&util-linux-version;, 
+        <seg>/usr/include/blkid,
+             /usr/include/libfdisk,
+             /usr/include/libmount,
+             /usr/include/libsmartcols,
+             /usr/include/uuid,
+             /usr/share/doc/util-linux-&util-linux-version;,
          and /var/lib/hwclock</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -583,8 +583,8 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="last">
         <term><command>last</command></term>
         <listitem>
-          <para>Shows which users last logged in (and out), searching back 
-          through the <filename>/var/log/wtmp</filename> file; it also shows 
+          <para>Shows which users last logged in (and out), searching back
+          through the <filename>/var/log/wtmp</filename> file; it also shows
           system boots, shutdowns, and run-level changes</para>
           <indexterm zone="ch-system-util-linux last">
             <primary sortas="b-last">last</primary>
@@ -595,7 +595,7 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="lastb">
         <term><command>lastb</command></term>
         <listitem>
-          <para>Shows the failed login attempts, as logged in 
+          <para>Shows the failed login attempts, as logged in
           <filename>/var/log/btmp</filename></para>
           <indexterm zone="ch-system-util-linux lastb">
             <primary sortas="b-lastb">lastb</primary>
@@ -750,7 +750,7 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="mesg">
         <term><command>mesg</command></term>
         <listitem>
-          <para>Controls whether other users can send messages to the current 
+          <para>Controls whether other users can send messages to the current
           user's terminal</para>
           <indexterm zone="ch-system-util-linux mesg">
             <primary sortas="b-mesg">mesg</primary>
@@ -1251,7 +1251,7 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="zramctl">
         <term><command>zramctl</command></term>
         <listitem>
-          <para>A program to set up and control zram (compressed ram disk) 
+          <para>A program to set up and control zram (compressed ram disk)
           devices</para>
           <indexterm zone="ch-system-util-linux zramctl">
             <primary sortas="b-zramctl">zramctl</primary>

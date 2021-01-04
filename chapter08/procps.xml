@@ -102,9 +102,9 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
     <title>Содержимое Procps-ng</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленная библиотека</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>free, pgrep, pidof, pkill, pmap, ps, pwdx, slabtop,
@@ -115,7 +115,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

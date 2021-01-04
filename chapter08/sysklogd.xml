@@ -94,7 +94,7 @@ EOF</userinput></screen>
     <title>Содержимое пакета Sysklogd</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
+      <segtitle>&contentprogs;</segtitle>
 
       <seglistitem>
         <seg>klogd and syslogd</seg>
@@ -102,7 +102,7 @@ EOF</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -120,7 +120,7 @@ EOF</userinput></screen>
         <term><command>syslogd</command></term>
         <listitem>
           <para>Регистрирует сообщения предлагаемые системными программами для
-          записи в лог (Каждое регистрируемое сообщение содержит как минимум 
+          записи в лог (Каждое регистрируемое сообщение содержит как минимум
           время события, имя хоста и имя программы, но это зависит от настроек доверия
           службы логирования.)</para>
           <indexterm zone="ch-system-sysklogd syslogd">

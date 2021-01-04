@@ -132,7 +132,7 @@ cd       build</userinput></screen>
           <para>Как правило, значение tooldir (каталог в котором будут располагаться
           исполняемые файлы) установлено как <filename
           class="directory">$(exec_prefix)/$(target_alias)</filename>. На пример, на
-          машине x86_64 значение приобретёт вид 
+          машине x86_64 значение приобретёт вид
           <filename class="directory">/usr/x86_64-unknown-linux-gnu</filename>. Потому
           что это пользовательская система, и её целевой каталог в <filename
           class="directory">/usr</filename> не требуется. Путь <filename
@@ -167,9 +167,9 @@ cd       build</userinput></screen>
     <title>Содержимое пакета Binutils</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Каталог установки</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>addr2line, ar, as, c++filt, dwp, elfedit, gprof, ld, ld.bfd, ld.gold, nm,
@@ -180,7 +180,7 @@ cd       build</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

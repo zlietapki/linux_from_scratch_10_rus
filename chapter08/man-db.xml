@@ -70,7 +70,7 @@
       <varlistentry revision="systemd">
         <term><command>sed -i '/find/s@/usr@@' init/systemd/man-db.service.in</command></term>
         <listitem>
-          <para>Изменяет жестко заданный путь к утилите <command>find</command>, 
+          <para>Изменяет жестко заданный путь к утилите <command>find</command>,
           которую установили в
           <filename class="directory">/bin</filename>.</para>
         </listitem>
@@ -86,7 +86,7 @@
       <varlistentry>
         <term><parameter>--enable-cache-owner=bin</parameter></term>
         <listitem>
-          <para>Устаналивает владельцем файлов общесистемного кеша пользователя 
+          <para>Устаналивает владельцем файлов общесистемного кеша пользователя
           <systemitem class="username">bin</systemitem>.</para>
         </listitem>
       </varlistentry>
@@ -109,7 +109,7 @@
       <varlistentry revision="sysv">
         <term><parameter>--with-systemd...</parameter></term>
         <listitem>
-          <para>Эти параметры отключают установку ненужных каталогов 
+          <para>Эти параметры отключают установку ненужных каталогов
           и файлов systemd.</para>
         </listitem>
       </varlistentry>
@@ -310,9 +310,9 @@
     <title>Содержимое пакета Man-DB</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>accessdb, apropos (ссылка на whatis), catman, lexgrog, man, mandb,
@@ -324,14 +324,14 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="accessdb">
         <term><command>accessdb</command></term>
         <listitem>
-          <para>Сохраняет содержимое базы данных <command>whatis</command> в 
+          <para>Сохраняет содержимое базы данных <command>whatis</command> в
           человекочитаемой форме</para>
           <indexterm zone="ch-system-man-db accessdb">
             <primary sortas="b-accessdb">accessdb</primary>
@@ -363,7 +363,7 @@
       <varlistentry id="lexgrog">
         <term><command>lexgrog</command></term>
         <listitem>
-          <para>Отображает одной строкой краткую информацию об указанной странице 
+          <para>Отображает одной строкой краткую информацию об указанной странице
           руководства</para>
           <indexterm zone="ch-system-man-db lexgrog">
             <primary sortas="b-lexgrog">lexgrog</primary>

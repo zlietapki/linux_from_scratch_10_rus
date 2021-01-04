@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Модуль XML::Parser это Perl интерфейс к XML парсеру Expat 
+    <para>Модуль XML::Parser это Perl интерфейс к XML парсеру Expat
     автора James Clark.</para>
 
     <segmentedlist>
@@ -63,7 +63,7 @@
     <title>Содержимое пакета XML::Parser</title>
 
     <segmentedlist>
-      <segtitle>Установленный модуль</segtitle>
+      <segtitle>Модуль</segtitle>
 
       <seglistitem>
         <seg>Expat.so</seg>
@@ -71,7 +71,7 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

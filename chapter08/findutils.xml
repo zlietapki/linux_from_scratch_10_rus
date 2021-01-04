@@ -93,8 +93,8 @@ sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb</userinput></screen>
     <title>Содержимое Findutils</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленный каталог</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>find, locate, updatedb и xargs</seg>
@@ -104,7 +104,7 @@ sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

@@ -50,7 +50,7 @@
     <title>Содержимое Iana-Etc</title>
 
     <segmentedlist>
-      <segtitle>Установленные файлы</segtitle>
+      <segtitle>&contentfiles;</segtitle>
 
       <seglistitem>
         <seg>/etc/protocols and /etc/services</seg>
@@ -58,7 +58,7 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

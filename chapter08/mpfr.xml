@@ -73,8 +73,8 @@ make install-html</userinput></screen>
     <title>Содержимое пакета MPFR</title>
 
     <segmentedlist>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Каталог установки</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>libmpfr.so</seg>
@@ -83,7 +83,7 @@ make install-html</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

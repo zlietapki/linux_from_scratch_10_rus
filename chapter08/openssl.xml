@@ -81,13 +81,13 @@ make MANSUFFIX=ssl install</userinput></screen>
     <title>Содержимое пакета OpenSSL</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>
-          c_rehash and openssl
+          c_rehash и openssl
         </seg>
         <seg>
           libcrypto.so и libssl.so
@@ -95,14 +95,14 @@ make MANSUFFIX=ssl install</userinput></screen>
         <seg>
           /etc/ssl,
           /usr/include/openssl,
-          /usr/lib/engines and
+          /usr/lib/engines и
           /usr/share/doc/openssl-&openssl-version;
         </seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -138,7 +138,7 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>реализует большой список криптографических алгоритмов, используемых
           в различных Internet-стандартах.
-          Сервисы предоставляемые этой библиотекой используются в 
+          Сервисы предоставляемые этой библиотекой используются в
           <application>OpenSSL</application> реализации SSL, TLS, S/MIME, раньше
           использовались в <application>OpenSSH</application>,
           <application>OpenPGP</application> и других криптографических стандартах.

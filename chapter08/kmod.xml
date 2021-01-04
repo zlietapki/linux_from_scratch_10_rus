@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет Kmod содержит библиотеки и утилиты для загрузки модулей 
+    <para>Пакет Kmod содержит библиотеки и утилиты для загрузки модулей
     ядра</para>
 
     <segmentedlist>
@@ -78,7 +78,7 @@
     Как минимум требуется программа git и несколько тестов не будут выполняться вне
      git репозитория.</para>
 
-    <para>Установите пакет и создайте символические ссылки для обеспечения совместимости 
+    <para>Установите пакет и создайте символические ссылки для обеспечения совместимости
     с Module-Init-Tools (пакет, который ранее обрабатывал модули ядра Linux):</para>
 
 <screen><userinput remap="install">make install
@@ -95,8 +95,8 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
     <title>Содержимое пакета Kmod</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленная библиотека</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
 
       <seglistitem>
         <seg>depmod (link to kmod), insmod (link to kmod), kmod,
@@ -107,7 +107,7 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

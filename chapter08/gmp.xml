@@ -44,7 +44,7 @@
     <note>
       <para>Если вы выполняете сборку для 32-битной машины x86, но у вас процессор
       способный выполнять 64-битные инструкции <emphasis>и</emphasis> указана
-      переменная окружения <envar>CFLAGS</envar>, то скрипт configure 
+      переменная окружения <envar>CFLAGS</envar>, то скрипт configure
       будет пытаться сконфигурировать для 64-битной системы и процесс
       завершиться ошибкой. Обходной путь это запуск configure следующей строкой:
 <screen role="nodump"><userinput><parameter>ABI=32</parameter> ./configure ...</userinput></screen></para>
@@ -99,10 +99,10 @@ make html</userinput></screen>
     <para>Тестирование:</para>
 
 <screen><userinput remap="test">make check 2>&amp;1 | tee gmp-check-log</userinput></screen>
- 
+
     <caution><para>Код gmp сильно оптимизирован для процессора,
-    на котором он компилируется. 
-    Иногда код, который определяет процессор, неверно идентифицирует 
+    на котором он компилируется.
+    Иногда код, который определяет процессор, неверно идентифицирует
     возможности системы и возникают ошибки в тестах или других приложениях,
     использующих библиотеки gmp, с сообщением "Illegal instruction".
     В таком случае, необходимо выполнить повторную конфигурацию пакета с аргументом
@@ -124,8 +124,8 @@ make install-html</userinput></screen>
     <title>Содержимое пакета GMP</title>
 
     <segmentedlist>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленный каталог</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>libgmp.so and libgmpxx.so</seg>
@@ -134,7 +134,7 @@ make install-html</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

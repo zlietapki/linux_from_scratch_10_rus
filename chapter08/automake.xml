@@ -72,8 +72,8 @@
     <title>Содержимое пакета Automake</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>aclocal, aclocal-&am-minor-version; (жесткая ссылка на aclocal), automake и
@@ -84,7 +84,7 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

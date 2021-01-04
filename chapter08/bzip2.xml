@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет Bzip2 содержит программы для сжатия и распаковки файлов. 
+    <para>Пакет Bzip2 содержит программы для сжатия и распаковки файлов.
     Сжатие текстовых файлов с помощью <command>bzip2</command> даёт больший процент сжатия,
     чем традиционный <command>gzip</command>.</para>
 
@@ -96,9 +96,9 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
     <title>Содержимое Bzip2</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленный каталог</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>bunzip2 (ссылка на bzip2), bzcat (ссылка на bzip2), bzcmp (ссылка на
@@ -110,7 +110,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

@@ -123,7 +123,7 @@ ln -sfv ../../lib/libshadow.so.0 /usr/lib/libshadow.so</userinput></screen> -->
 
     <para>Пакет содержит утилиты для добавления, модификации и удаления пользователей
     и групп; установки и изменения паролей; а также выполняет другие задачи по
-    администрированию. Для полного разъяснения что означает 
+    администрированию. Для полного разъяснения что означает
     <emphasis>password shadowing</emphasis>, обратитесь к документации, которая
     расположена в каталоге <filename>doc/HOWTO</filename> в архиве пакета. Если вы
     используете функциональную поддержку Shadow, необходимо держать в уме что
@@ -177,8 +177,8 @@ ln -sfv ../../lib/libshadow.so.0 /usr/lib/libshadow.so</userinput></screen> -->
     <title>Содержимое пакета Shadow</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Каталог установки</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>chage, chfn, chgpasswd, chpasswd, chsh, expiry, faillog, gpasswd,
@@ -191,7 +191,7 @@ ln -sfv ../../lib/libshadow.so.0 /usr/lib/libshadow.so</userinput></screen> -->
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

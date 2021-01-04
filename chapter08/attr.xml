@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет attr содержит утилиты для администрирования расширенных атрибутов 
+    <para>Пакет attr содержит утилиты для администрирования расширенных атрибутов
     объектов файловой системы.</para>
 
     <segmentedlist>
@@ -82,9 +82,9 @@ ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so</userinput
     <title>Содержимое пакета Attr</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленная библиотека</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>attr, getfattr, and setfattr</seg>
@@ -94,7 +94,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so</userinput
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

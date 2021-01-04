@@ -70,7 +70,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
-          <para>Отключает опцию -Werror переданную 
+          <para>Отключает опцию -Werror переданную
           GCC.  Это необходимо для прохождения тестов.</para>
         </listitem>
       </varlistentry>
@@ -144,17 +144,17 @@ esac</userinput></screen>
     <itemizedlist>
 
       <listitem>
-        <para><emphasis>io/tst-lchmod</emphasis> 
+        <para><emphasis>io/tst-lchmod</emphasis>
         завершается с ошибкой в среде chroot LFS.</para>
       </listitem>
 
       <listitem>
-        <para><emphasis>misc/tst-ttyname</emphasis> 
+        <para><emphasis>misc/tst-ttyname</emphasis>
         завершается с ошибкой в среде chroot LFS.</para>
       </listitem>
 <!--
       <listitem>
-        <para><emphasis>inet/tst-idna_name_classify</emphasis> 
+        <para><emphasis>inet/tst-idna_name_classify</emphasis>
         завершается с ошибкой в среде chroot LFS.</para>
       </listitem>
 
@@ -171,12 +171,12 @@ esac</userinput></screen>
 
       <listitem>
         <para>Тесты <emphasis>rt/tst-cputimer{1,2,3}</emphasis> зависят от версии ядра
-        хост-системы. Версии 4.14.91&ndash;4.14.96,4.19.13&ndash;4.19.18 
+        хост-системы. Версии 4.14.91&ndash;4.14.96,4.19.13&ndash;4.19.18
         и 4.20.0&ndash;4.20.5 известны как вызывающие ошибки в этих тестах.</para>
       </listitem>
 
       <listitem>
-        <para>Математические тесты иногда не проходят 
+        <para>Математические тесты иногда не проходят
         при запуске на относительно
         старых процессорах Intel или AMD.</para>
       </listitem>
@@ -204,7 +204,7 @@ esac</userinput></screen>
 <screen><userinput remap="install">cp -v ../nscd/nscd.conf /etc/nscd.conf
 mkdir -pv /var/cache/nscd</userinput></screen>
 
-    <para revision="systemd">Установите файлы для поддержки systemd 
+    <para revision="systemd">Установите файлы для поддержки systemd
     программой <command>nscd</command>:</para>
 
     <screen revision="systemd"><userinput remap="install">install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
@@ -255,19 +255,19 @@ localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS</userinput></screen>
 
     <para>Либо установите одновременно все локали перечисленные в файле
     <filename>glibc-&glibc-version;/localedata/SUPPORTED</filename>
-    (он содержит все перечисленные локали и многие другие) 
+    (он содержит все перечисленные локали и многие другие)
     выполнив команду:</para>
 
 <screen><userinput remap="locale-full">make localedata/install-locales</userinput></screen>
 
     <para>Затем, используйте команду <command>localedef</command> чтобы создать
-    и установить те локали, которые не представленны в файле 
+    и установить те локали, которые не представленны в файле
     <filename>glibc-&glibc-version;/localedata/SUPPORTED</filename>, если
     они необходимы.</para>
 
-    <note><para>Glibc now uses libidn2 when resolving internationalized 
+    <note><para>Glibc now uses libidn2 when resolving internationalized
     domain names.  This is a run time dependency.  If this capability
-    is needed, the instructions for installing libidn2 are in the 
+    is needed, the instructions for installing libidn2 are in the
     <ulink url="&blfs-book;general/libidn2.html">BLFS libidn2 page</ulink>.
     </para></note>
 
@@ -347,7 +347,7 @@ unset ZONEINFO</userinput></screen>
           POSIX необходимо быть в <filename class="directory">zoneinfo</filename>
           иначе некоторые тесты будут завершаться с ошибками. На встраиваемых системах,
           где мало места на диске и вы не собираетесь обновлять часовые пояса, можно
-          сэкономить около 1.9 MB не используя каталог 
+          сэкономить около 1.9 MB не используя каталог
           <filename class="directory">posix</filename>,
           но тогда некоторые приложения или тесты могут выдавать ошибки.</para>
         </listitem>
@@ -366,7 +366,7 @@ unset ZONEINFO</userinput></screen>
         <term><parameter>zic ... -p ...</parameter></term>
         <listitem>
           <para>Создаёт файл <filename>posixrules</filename>. Используется New York,
-          потому что POSIX требует соответсвия правил летнего времени 
+          потому что POSIX требует соответсвия правил летнего времени
           с правилами США.</para>
         </listitem>
       </varlistentry>
@@ -380,16 +380,16 @@ unset ZONEINFO</userinput></screen>
 
     <para>После ответов не вопросы о местоположении, сценарий выдаст наименование
     временной зоны (например <emphasis>America/Edmonton</emphasis>). Есть и другие
-    часовые пояса, которые указанны в файле: 
-    <filename class='directory'>/usr/share/zoneinfo</filename>, такие как 
-    <emphasis>Canada/Eastern</emphasis> или <emphasis>EST5EDT</emphasis> котрые не 
+    часовые пояса, которые указанны в файле:
+    <filename class='directory'>/usr/share/zoneinfo</filename>, такие как
+    <emphasis>Canada/Eastern</emphasis> или <emphasis>EST5EDT</emphasis> котрые не
     распознаются запущеным сценарием, но могут быть использованы.</para>
 
     <para>Создайте файл <filename>/etc/localtime</filename> выполнив команду:</para>
 
 <screen><userinput>ln -sfv /usr/share/zoneinfo/<replaceable>&lt;xxx&gt;</replaceable> /etc/localtime</userinput></screen>
 
-    <para>Замените <replaceable>&lt;xxx&gt;</replaceable> на имя выбранной временной 
+    <para>Замените <replaceable>&lt;xxx&gt;</replaceable> на имя выбранной временной
     зоны (например, Canada/Eastern).</para>
 
   </sect3>
@@ -401,7 +401,7 @@ unset ZONEINFO</userinput></screen>
       <primary sortas="e-/etc/ld.so.conf">/etc/ld.so.conf</primary>
     </indexterm>
 
-    <para>По умолчанию динамический загрузчик (<filename 
+    <para>По умолчанию динамический загрузчик (<filename
     class="libraryfile">/lib/ld-linux.so.2</filename>) выполняет поиск
     динамических библиотек в каталогах <filename class="directory">/lib</filename>
     и <filename class="directory">/usr/lib</filename>, которые необходимы для
@@ -443,13 +443,13 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
     <title>Содержимое пакета Glibc</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>catchsegv, gencat, getconf, getent, iconv, iconvconfig, ldconfig,
-        ldd, lddlibc4, locale, localedef, makedb, mtrace, nscd, 
+        ldd, lddlibc4, locale, localedef, makedb, mtrace, nscd,
         pcprofiledump, pldd, sln, sotruss, sprof, tzselect, xtrace,
         zdump, and zic</seg>
         <seg>ld-&glibc-version;.so, libBrokenLocale.{a,so}, libSegFault.so, libanl.{a,so},
@@ -473,7 +473,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -687,7 +687,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="xtrace">
         <term><command>xtrace</command></term>
         <listitem>
-          <para>Трассирует выполнение программы, печатая текущую 
+          <para>Трассирует выполнение программы, печатая текущую
           выполняемую функцию</para>
           <indexterm zone="ch-system-glibc xtrace">
             <primary sortas="b-xtrace">xtrace</primary>

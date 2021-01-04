@@ -65,12 +65,12 @@ cp -rv dest/* /</userinput></screen>
 
     <variablelist>
       <title>Значения параметров установки:</title>
-      
+
       <varlistentry>
         <term><parameter>--root=dest</parameter></term>
         <listitem>
           <para>По умолчанию команда <command>python3 setup.py install</command>
-          выполняет установку различных файлов (например, файлов руководств) в 
+          выполняет установку различных файлов (например, файлов руководств) в
           Python Eggs. При указанном аргументе root, <command>setup.py</command> установит
           файлы в стандартную иерархию каталогов. Эту иерархию можно затем скопировать в
           стундарное местоположение.
@@ -85,8 +85,8 @@ cp -rv dest/* /</userinput></screen>
     <title>Содержимое пакета Meson</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>meson</seg>
@@ -95,7 +95,7 @@ cp -rv dest/* /</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

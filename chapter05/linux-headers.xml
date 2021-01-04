@@ -42,7 +42,7 @@
   <sect2 role="installation">
     <title>Установка заголовочных файлов</title>
 
-   <para>Ядро Linux должно предоставлять интерфейс API для его использования 
+   <para>Ядро Linux должно предоставлять интерфейс API для его использования
    системной библиотекой C (Glibc в LFS). Реализовано это через заголовочные С-файлы,
    которые поставляются в архиве исходных кодов ядра.</para>
 
@@ -50,11 +50,11 @@
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
-    <para>Распакуйте видимые пользователю заголовочные файлы из архива исходных 
+    <para>Распакуйте видимые пользователю заголовочные файлы из архива исходных
     кодов ядра. Рекомендованный вариант make target <quote>headers_install</quote>
     не может быть использован, потому что нуждается в
     приложении <application>rsync</application>, которое может быть недоступно.
-    Заголовочные файлы сначала будут помещены в 
+    Заголовочные файлы сначала будут помещены в
     <filename class="directory">./usr</filename>, затем скопированы в указанное место.</para>
 
 <screen><userinput remap="make">make headers
@@ -68,24 +68,24 @@ rm usr/include/Makefile
     <title>Содержимое заголовочных файлов Linux</title>
 
     <segmentedlist>
-      <segtitle>Установленные заголовочные файлы</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentheaders;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>/usr/include/asm/*.h, /usr/include/asm-generic/*.h,
         /usr/include/drm/*.h, /usr/include/linux/*.h, /usr/include/misc/*.h,
-        /usr/include/mtd/*.h, /usr/include/rdma/*.h, /usr/include/scsi/*.h, 
-        /usr/include/sound/*.h, /usr/include/video/*.h, 
+        /usr/include/mtd/*.h, /usr/include/rdma/*.h, /usr/include/scsi/*.h,
+        /usr/include/sound/*.h, /usr/include/video/*.h,
         and /usr/include/xen/*.h</seg>
         <seg>/usr/include/asm, /usr/include/asm-generic, /usr/include/drm,
-        /usr/include/linux, /usr/include/misc, /usr/include/mtd, 
-        /usr/include/rdma, /usr/include/scsi, /usr/include/sound, 
+        /usr/include/linux, /usr/include/misc, /usr/include/mtd,
+        /usr/include/rdma, /usr/include/scsi, /usr/include/sound,
         /usr/include/video и /usr/include/xen</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

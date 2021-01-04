@@ -74,7 +74,7 @@
     <title>Содержимое пакета Less</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
+      <segtitle>&contentprogs;</segtitle>
 
       <seglistitem>
         <seg>less, lessecho, and lesskey</seg>
@@ -82,7 +82,7 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

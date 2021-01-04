@@ -84,8 +84,8 @@ make -C doc install-html docdir=/usr/share/doc/tar-&tar-version;</userinput></sc
     <title>Содержимое пакета Tar</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленный каталог</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>tar</seg>
@@ -94,7 +94,7 @@ make -C doc install-html docdir=/usr/share/doc/tar-&tar-version;</userinput></sc
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

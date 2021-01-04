@@ -43,8 +43,8 @@
     <title>Установка Libffi</title>
 
     <note>
-      <para>Подобно GMP, libffi собирается с оптимизацией специфичной 
-      для текущего процессора. Если происходит сборка для другой системы, 
+      <para>Подобно GMP, libffi собирается с оптимизацией специфичной
+      для текущего процессора. Если происходит сборка для другой системы,
       установите значения CFLAGS и CXXFLAGS, чтобы конкретезировать архитектуру сборки.
       Если этого не сделать, все приложения слинкованные с libffi будут выдавать ошибку
       Illegal Operation Errors.</para>
@@ -60,10 +60,10 @@
       <varlistentry>
         <term><parameter>--with-gcc-arch=native</parameter></term>
         <listitem>
-          <para>Гарантирует отптимизацию GCC для текущей системы. Если 
-          аргумент не указан, система будет угадана и 
-          созданный код может быть неправильным в некоторых случаях. Если 
-          создаваемый код будет скопирован в систему с меньшими 
+          <para>Гарантирует отптимизацию GCC для текущей системы. Если
+          аргумент не указан, система будет угадана и
+          созданный код может быть неправильным в некоторых случаях. Если
+          создаваемый код будет скопирован в систему с меньшими
           возможностями, укажите эту систему в качестве параметра.
           Подробнее об альтернативных типах систем смотрите <ulink
           url='https://gcc.gnu.org/onlinedocs/gcc-&gcc-version;/gcc/x86-Options.html'>
@@ -91,7 +91,7 @@
     <title>Содержимое пакета Libffi</title>
 
     <segmentedlist>
-      <segtitle>Установленная библиотека</segtitle>
+      <segtitle>&contentlibs;</segtitle>
 
       <seglistitem>
         <seg>libffi.so</seg>
@@ -99,7 +99,7 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

@@ -106,7 +106,7 @@ cd       build</userinput></screen>
 
     <para>Тестирование от имени непривилегированного пользователя без остановки в случае ошибки:</para>
 
-<screen><userinput remap="test">chown -Rv tester . 
+<screen><userinput remap="test">chown -Rv tester .
 su tester -c "PATH=$PATH make -k check"</userinput></screen>
 
     <para>Чтобы получить сводку результатов тестирования запустите:</para>
@@ -124,7 +124,7 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     связано с локалью en_HK.</para>
 
     <para>Также следующие тесты относящиеся к перечисленным файлам известны как нерабочие
-    для версии glibc-2.32: asan_test.C, co-ret-17-void-ret-coro.C, 
+    для версии glibc-2.32: asan_test.C, co-ret-17-void-ret-coro.C,
     pr95519-05-gro.C, pr80166.c.</para>
 
 <!-- больше не падают после перемещения iana-etc и /etc/hosts
@@ -133,7 +133,7 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     /etc/hosts and iana-etc.</para>
 -->
     <para>Несколько неожиданных сбоев не всегда удается избежать. Разработчики GCC
-    обычно знают о таких проблемах, но некоторые из них ещё не решены. 
+    обычно знают о таких проблемах, но некоторые из них ещё не решены.
     Если результаты тестов не особо отличаются от опубликованных
     по ссылке выше, то безопасно продолжать.</para>
 
@@ -213,7 +213,7 @@ ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/&gcc-version;/liblto_plugin.so \
   Разница может быть в имени каталога после
   <filename class="directory">/usr/lib/gcc</filename>. Важным здесь является то, что
   <command>gcc</command> нашел все три файла
-  <filename>crt*.o</filename> в каталоге 
+  <filename>crt*.o</filename> в каталоге
   <filename class="directory">/usr/lib</filename>.</para>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -323,9 +323,9 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
     <title>Содержимое пакета GCC</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>c++, cc (link to gcc), cpp, g++, gcc,
@@ -344,7 +344,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -590,7 +590,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libsupc">
         <term><filename class="libraryfile">libsupc++</filename></term>
         <listitem>
-          <para>Предоставляет вспомогательные процедуры для языка 
+          <para>Предоставляет вспомогательные процедуры для языка
           программирования C++</para>
           <indexterm zone="ch-system-gcc libsupc">
             <primary sortas="c-libsupc++">libsupc++</primary>

@@ -121,9 +121,9 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
     <title>Содержимое пакета Eudev</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg><!-- These are in /lib/udev and not to be called by the user:
@@ -137,7 +137,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
       <varlistentry id="udevadm" revision="sysv">

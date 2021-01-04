@@ -23,10 +23,10 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет e2fsprogs содержит утилиты для работы с файловой системой 
-    <systemitem class="filesystem">ext2</systemitem>. Также 
-    он поддерживает журналирующие файловые системы 
-    <systemitem class="filesystem">ext3</systemitem> и 
+    <para>Пакет e2fsprogs содержит утилиты для работы с файловой системой
+    <systemitem class="filesystem">ext2</systemitem>. Также
+    он поддерживает журналирующие файловые системы
+    <systemitem class="filesystem">ext3</systemitem> и
     <systemitem class="filesystem">ext4</systemitem>.</para>
 
     <segmentedlist>
@@ -44,7 +44,7 @@
   <sect2 role="installation">
     <title>Установка E2fsprogs</title>
 
-    <para>Документация e2fsprogs рекомендует выполнять сборку в подкаталоге папки 
+    <para>Документация e2fsprogs рекомендует выполнять сборку в подкаталоге папки
     с исходниками:</para>
 
 <screen><userinput remap="pre">mkdir -v build
@@ -72,7 +72,7 @@ cd       build</userinput></screen>
           считаются важными.  Например, когда каталог
           <filename class="directory">/usr</filename> не примонтирован, необходимо
           чтобы эти программы оставались доступны. Они принадлежат каталогам
-          <filename class="directory">/lib</filename> и 
+          <filename class="directory">/lib</filename> и
           <filename class="directory">/sbin</filename>. Если эти аргументы не указать,
           установка будет произведена в каталог
           <filename class="directory">/usr</filename>.</para>
@@ -111,7 +111,7 @@ cd       build</userinput></screen>
     <para>Один из тестов пакета e2fsprogs попытается занять 256 MB памяти.
     Если у вас нет значительно большего объема оперативной памяти, не забудьте включить
     файл подкачки для выполнения теста. Смотрите  <xref
-    linkend="ch-partitioning-creatingfilesystem"/> и <xref 
+    linkend="ch-partitioning-creatingfilesystem"/> и <xref
     linkend="ch-partitioning-mounting"/>
     для деталей создания и включения файла подкачки.</para>
 -->
@@ -146,9 +146,9 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
     <title>Содержимое пакета E2fsprogs</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>badblocks, chattr, compile_et, debugfs, dumpe2fs, e2freefrag,
@@ -165,7 +165,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -196,7 +196,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="compile_et">
         <term><command>compile_et</command></term>
         <listitem>
-          <para>Компилятор таблицы ошибок; он преобразует таблицу имен и сообщений 
+          <para>Компилятор таблицы ошибок; он преобразует таблицу имен и сообщений
            кодов ошибок в исходный файл Си пригодный для использования с библиотекой
           <filename class="libraryfile">com_err</filename></para>
           <indexterm zone="ch-system-e2fsprogs compile_et">

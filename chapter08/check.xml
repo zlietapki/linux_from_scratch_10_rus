@@ -65,8 +65,8 @@
     <title>Содержимое пакета Check</title>
 
     <segmentedlist>
-      <segtitle>Установленная программа</segtitle>
-      <segtitle>Установленная библиотека</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
 
       <seglistitem>
         <seg>checkmk</seg>
@@ -75,14 +75,14 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="checkmk">
         <term><command>checkmk</command></term>
         <listitem>
-          <para>Скрипт Awk для генерации юнит-тестов Си при использовании 
+          <para>Скрипт Awk для генерации юнит-тестов Си при использовании
           фреймворка Check</para>
           <indexterm zone="ch-system-check checkmk">
             <primary sortas="b-checmk">checkmk</primary>

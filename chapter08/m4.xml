@@ -68,7 +68,7 @@ echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
     <title>Содержимое M4</title>
 
     <segmentedlist>
-      <segtitle>Установленная программа</segtitle>
+      <segtitle>&contentprogs;</segtitle>
 
       <seglistitem>
         <seg>m4</seg>
@@ -76,7 +76,7 @@ echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -90,7 +90,7 @@ echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
           <command>m4</command> обладает встроенными функциями, которые могут:
           включать файлы по имени, запускать Unix команды, выполнять арифметические действия,
           изменять текст, поддерживают рекурсию и прочее. Программа <command>m4</command>
-          может использоваться как фронтенд к компилятору или как независимый 
+          может использоваться как фронтенд к компилятору или как независимый
           макропроцессор.</para>
           <indexterm zone="ch-system-m4 m4">
             <primary sortas="b-m4">m4</primary>

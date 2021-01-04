@@ -67,7 +67,7 @@
     Automake. Также, два теста не пройдут из-за изменений в библиотеке libtool-2.4.3
     и её более поздних версиях.</para>
 
-    <note><para>Время тестирования autoconf можно значительно сохратить на многоядерых 
+    <note><para>Время тестирования autoconf можно значительно сохратить на многоядерых
     системах.
     Для этого добавьте <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> к строке выше.
     Для примера, использование аргумента -j4 может сократить время тестирования более чем
@@ -83,8 +83,8 @@
     <title>Содержимое Autoconf</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установаленный каталог</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>autoconf, autoheader, autom4te, autoreconf, autoscan, autoupdate,
@@ -94,16 +94,16 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="autoconf">
         <term><command>autoconf</command></term>
         <listitem>
-          <para>Генерирует сценарии оболочки, которые автоматически выполняют 
+          <para>Генерирует сценарии оболочки, которые автоматически выполняют
           конфигурирование исходного кода пакетов для адаптации его ко многим разновидностям
-          Unix-подобных систем. Создаваемые сценарии конфигурирования независимы и 
+          Unix-подобных систем. Создаваемые сценарии конфигурирования независимы и
           не нуждаются в программе <command>autoconf</command></para>
           <indexterm zone="ch-system-autoconf autoconf">
             <primary sortas="b-autoconf">autoconf</primary>
@@ -177,7 +177,7 @@
         <listitem>
           <para>Помогает при написании файла <filename>configure.in</filename> для пакета;
           выводит идентификаторы, которые использует пакет в условиях препроцессора Си.
-          (Если пакет уже был настроен для переносимости, эта программа может помочь 
+          (Если пакет уже был настроен для переносимости, эта программа может помочь
           определить, что нужно проверять сценарию <command>configure</command>.
           Он также может заполнить пробелы в файле <filename>configure.in</filename>,
           сформированным <command>autoscan</command>.)</para>

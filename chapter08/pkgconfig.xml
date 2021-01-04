@@ -85,8 +85,8 @@
     <title>Содержимое пакета Pkg-config</title>
 
     <segmentedlist>
-      <segtitle>Установленная программа</segtitle>
-      <segtitle>Каталог установки</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>pkg-config</seg>
@@ -95,7 +95,7 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

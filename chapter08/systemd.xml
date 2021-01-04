@@ -204,7 +204,7 @@ meson --prefix=/usr                 \
 
 <screen><userinput remap="make">LANG=en_US.UTF-8 ninja</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>Установка пакета:</para>
 
 <screen><userinput remap="install">LANG=en_US.UTF-8 ninja install</userinput></screen>
 
@@ -225,12 +225,12 @@ meson --prefix=/usr                 \
     use a network configuration other than what is provided by
     systemd-networkd:</para>
     <!-- Observed halting startup with dhcpcd handling the primary NIC -->
- 
+
 <screen><userinput remap="adjust">systemctl disable systemd-time-wait-sync.service</userinput></screen>
 
     <para>Prevent systemd from resetting the maximum PID value which causes
     some problems with packages and units in BLFS:</para>
-    
+
 <screen><userinput remap="adjust">rm -f /usr/lib/sysctl.d/50-pid-max.conf</userinput></screen>
 
   </sect2>
@@ -239,9 +239,9 @@ meson --prefix=/usr                 \
     <title>Содержимое пакета systemd</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>bootctl, busctl, coredumpctl, halt (symlink to systemctl),
@@ -251,7 +251,7 @@ meson --prefix=/usr                 \
         resolvectl), resolvectl, runlevel (symlink to systemctl), shutdown
         (symlink to systemctl), systemctl, systemd-analyze,
         systemd-ask-password, systemd-cat, systemd-cgls, systemd-cgtop,
-        systemd-delta, systemd-detect-virt, systemd-dissect, systemd-escape, 
+        systemd-delta, systemd-detect-virt, systemd-dissect, systemd-escape,
         systemd-hwdb, systemd-id128, systemd-inhibit, systemd-machine-id-setup,
         systemd-mount, systemd-notify, systemd-nspawn, systemd-path,
         systemd-repart, systemd-resolve (symlink to resolvectl), systemd-run,
@@ -266,8 +266,8 @@ meson --prefix=/usr                 \
         <seg>/etc/binfmt.d, /etc/init.d, /etc/kernel, /etc/modules-load.d,
         /etc/sysctl.d, /etc/systemd, /etc/tmpfiles.d, /etc/udev,
         /etc/xdg/systemd, /lib/systemd, /lib/udev, /usr/include/systemd,
-        /usr/lib/binfmt.d, /usr/lib/environment.d, /usr/lib/kernel, 
-        /usr/lib/modules-load.d, /usr/lib/sysctl.d, /usr/lib/systemd, 
+        /usr/lib/binfmt.d, /usr/lib/environment.d, /usr/lib/kernel,
+        /usr/lib/modules-load.d, /usr/lib/sysctl.d, /usr/lib/systemd,
         /usr/lib/tmpfiles.d,
         /usr/share/doc/systemd-&systemd-version;, /usr/share/factory,
         /usr/share/systemd, /var/lib/systemd, and /var/log/journal</seg>
@@ -275,7 +275,7 @@ meson --prefix=/usr                 \
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -338,7 +338,7 @@ meson --prefix=/usr                 \
         <term><command>init</command></term>
         <listitem>
           <para>Is the first process to be started when the kernel has initialized
-          the hardware which takes over the boot process and starts all 
+          the hardware which takes over the boot process and starts all
           processes according to its configuration files. In this case, it starts
           systemd.</para>
           <indexterm zone="ch-system-systemd init">
@@ -404,7 +404,7 @@ meson --prefix=/usr                 \
       <varlistentry id="networkctl">
         <term><command>networkctl</command></term>
         <listitem>
-          <para>Is used to introspect and configure the state of the network 
+          <para>Is used to introspect and configure the state of the network
           links configured by systemd-networkd</para>
           <indexterm zone="ch-system-systemd networkctl">
             <primary sortas="b-networkctl">networkctl</primary>
@@ -482,7 +482,7 @@ meson --prefix=/usr                 \
       <varlistentry id="shutdown">
         <term><command>shutdown</command></term>
         <listitem>
-          <para>Brings the system down in a safe and secure manner, signaling 
+          <para>Brings the system down in a safe and secure manner, signaling
           all processes and notifying all logged-in users</para>
           <indexterm zone="ch-system-systemd shutdown">
             <primary sortas="b-shutdown">shutdown</primary>
@@ -758,7 +758,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-tty-ask-password-agent">
         <term><command>systemd-tty-ask-password-agent</command></term>
         <listitem>
-          <para>Is used to list and/or process pending systemd password 
+          <para>Is used to list and/or process pending systemd password
           requests</para>
           <indexterm zone="ch-system-systemd systemd-tty-ask-password-agent">
             <primary sortas="b-systemd-tty-ask-password-agent">systemd-tty-ask-password-agent</primary>
@@ -791,9 +791,9 @@ meson --prefix=/usr                 \
       <varlistentry id="udevadm">
         <term><command>udevadm</command></term>
         <listitem>
-          <para>Is a generic udev administration tool which controls the udevd 
-          daemon, provides info from the Udev hardware database, monitors 
-          uevents, waits for uevents to finish, tests udev configuration, and 
+          <para>Is a generic udev administration tool which controls the udevd
+          daemon, provides info from the Udev hardware database, monitors
+          uevents, waits for uevents to finish, tests udev configuration, and
           triggers uevents for a given device</para>
           <indexterm zone="ch-system-systemd udevadm">
             <primary sortas="b-udevadm">udevadm</primary>

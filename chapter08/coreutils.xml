@@ -77,7 +77,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
       <varlistentry>
         <term><command>autoreconf</command></term>
         <listitem>
-          <para>This command updates generated configuration files 
+          <para>This command updates generated configuration files
           consistent with the latest version of automake.
           </para>
         </listitem>
@@ -86,7 +86,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
       <varlistentry>
         <term><envar>FORCE_UNSAFE_CONFIGURE=1</envar></term>
         <listitem>
-          <para>This environment variable allows the package to be 
+          <para>This environment variable allows the package to be
           built as the root user.
           </para>
         </listitem>
@@ -102,7 +102,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
       </varlistentry>
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
@@ -163,9 +163,9 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
     <title>Contents of Coreutils</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>[, b2sum, base32, base64, basename, basenc, cat, chcon, chgrp, chmod, chown,
@@ -185,7 +185,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

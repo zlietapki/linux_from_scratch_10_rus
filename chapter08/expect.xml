@@ -28,7 +28,7 @@
     <command>telnet</command>, <command>ftp</command>,
     <command>passwd</command>, <command>fsck</command>,
     <command>rlogin</command> и <command>tip</command> используя скриптовые диалоги .
-    <application>Expect</application> также полезен для тестирования перечисленных и похожих 
+    <application>Expect</application> также полезен для тестирования перечисленных и похожих
     на них приложений, а также облегчения задач сложнорешаемых другими средствами.
     Фреймворк <application>DejaGnu</application>
     написан с помощью <application>Expect</application>.</para>
@@ -62,7 +62,7 @@
       <varlistentry>
         <term><parameter>--with-tcl=/usr/lib</parameter></term>
         <listitem>
-          <para>Параметр нужен для указания 
+          <para>Параметр нужен для указания
           <command>configure</command> где находится скрипт
           <command>tclConfig.sh</command>.</para>
         </listitem>
@@ -96,8 +96,8 @@ ln -svf expect&expect-version;/libexpect&expect-version;.so /usr/lib</userinput>
     <title>Содержимое Expect</title>
 
     <segmentedlist>
-      <segtitle>Установленная программа</segtitle>
-      <segtitle>Установленная библиотека</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
 
       <seglistitem>
         <seg>expect</seg>
@@ -106,7 +106,7 @@ ln -svf expect&expect-version;/libexpect&expect-version;.so /usr/lib</userinput>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

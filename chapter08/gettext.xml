@@ -49,7 +49,7 @@
             --disable-static \
             --docdir=/usr/share/doc/gettext-&gettext-version;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>Компиляция пакета:</para>
 
 <!--<screen><userinput remap="make">make BISON_LOCALEDIR=/usr/share/locale</userinput></screen>-->
 <screen><userinput remap="make">make</userinput></screen>
@@ -69,8 +69,7 @@
 
     </variablelist>
 -->
-    <para>To test the results (this takes a long time, around 3 SBUs),
-    issue:</para>
+    <para>Тестирование (может занять продолжительное время, примерно 3 SBUs):</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -85,9 +84,9 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
     <title>Contents of Gettext</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>autopoint, envsubst, gettext, gettext.sh,
@@ -102,7 +101,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

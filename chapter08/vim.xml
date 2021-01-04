@@ -40,7 +40,7 @@
 
       <para>Если вы предпочитаете другой текстовый редактор, например Emacs,
       Joe или Nano, перейдите по ссылке <ulink
-      url="&blfs-book;postlfs/editors.html"/> для ознакомления инструкций по 
+      url="&blfs-book;postlfs/editors.html"/> для ознакомления инструкций по
       установке.</para>
     </tip>
 
@@ -131,7 +131,7 @@ done</userinput></screen>
 
 " Ensure defaults are set before customizing settings, not after
 source $VIMRUNTIME/defaults.vim
-let skip_defaults_vim=1 
+let skip_defaults_vim=1
 
 set nocompatible
 set backspace=2
@@ -187,8 +187,8 @@ set spell</literal></screen>
     <title>Содержимое пакета Vim</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Каталог установки</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
        <seg> ex (link to vim), rview (link to vim), rvim (link to vim), vi
@@ -199,7 +199,7 @@ set spell</literal></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

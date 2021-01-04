@@ -102,13 +102,13 @@ ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so</useri
     <title>Содержимое пакета D-Bus</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>dbus-cleanup-sockets, dbus-daemon, dbus-launch, dbus-monitor,
-        dbus-run-session, dbus-send, dbus-test-tool, 
+        dbus-run-session, dbus-send, dbus-test-tool,
         dbus-update-activation-environment, and dbus-uuidgen</seg>
         <seg>libdbus-1.{a,so}</seg>
         <seg>/etc/dbus-1, /usr/include/dbus-1.0, /usr/lib/dbus-1.0,
@@ -118,7 +118,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so</useri
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -221,7 +221,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so</useri
       <varlistentry id="libdbus-1">
         <term><filename class="libraryfile">libdbus-1</filename></term>
         <listitem>
-          <para>Содержит функции API используемые для обмена данными с шиной 
+          <para>Содержит функции API используемые для обмена данными с шиной
           сообщений D-Bus</para>
           <indexterm zone="ch-system-dbus libdbus-1">
             <primary sortas="c-libdbus-1">libdbus-1</primary>

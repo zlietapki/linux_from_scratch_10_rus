@@ -58,11 +58,11 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Тесты необходимо запустить на файловой системе, которая поддерживает списки 
+    <para>Тесты необходимо запустить на файловой системе, которая поддерживает списки
     контроля доступа, после сборки пакета <application>Coreutils</application> с
     поддержкой библиотек Acl. При желании, вернитесь позднее к этому пакету
-    и выполните команду <command>make check</command> после сборки 
-    пакета <application>Coreutils</application>, который будет установлен немного 
+    и выполните команду <command>make check</command> после сборки
+    пакета <application>Coreutils</application>, который будет установлен немного
     позднее в этой главе</para>
 
     <para>Установка пакета:</para>
@@ -83,9 +83,9 @@ ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so</userinput><
     <title>Содержимое пакета Acl</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленная библиотека</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>chacl, getfacl, and setfacl</seg>
@@ -95,7 +95,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so</userinput><
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

@@ -68,8 +68,8 @@ make install-html</userinput></screen>
     <title>Содержимое пакета MPC</title>
 
     <segmentedlist>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленный каталог</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>libmpc.so</seg>
@@ -78,7 +78,7 @@ make install-html</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

@@ -108,8 +108,8 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
     <title>Contents of Bash</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>bash, bashbug, and sh (link to bash)</seg>
@@ -119,7 +119,7 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

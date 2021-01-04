@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет Groff содержит программы для обработки и форматирования 
+    <para>Пакет Groff содержит программы для обработки и форматирования
     текста.</para>
 
     <segmentedlist>
@@ -70,8 +70,8 @@
   <title>Содержимое пакета Groff</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>addftinfo, afmtodit, chem, eqn, eqn2graph, gdiffmk, glilypond,
@@ -87,7 +87,7 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 

@@ -69,9 +69,9 @@
 		<title>Содержимое пакета Libtool</title>
 
 		<segmentedlist>
-			<segtitle>Установленные программы</segtitle>
-			<segtitle>Установленные библиотеки</segtitle>
-			<segtitle>Установленные каталоги</segtitle>
+			<segtitle>&contentprogs;</segtitle>
+			<segtitle>&contentlibs;</segtitle>
+			<segtitle>&contentdirs;</segtitle>
 
 			<seglistitem>
 				<seg>libtool and libtoolize</seg>
@@ -81,7 +81,7 @@
 		</segmentedlist>
 
 		<variablelist>
-			<bridgehead renderas="sect3">Краткое описание</bridgehead>
+			<bridgehead renderas="sect3">&shortdescr;</bridgehead>
 			<?dbfo list-presentation="list"?>
 			<?dbhtml list-presentation="table"?>
 

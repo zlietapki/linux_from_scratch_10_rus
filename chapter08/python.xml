@@ -81,7 +81,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Тестирование:</para> 
+    <para>Тестирование:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
 
@@ -113,7 +113,7 @@ ln -sfv pip&python-minor; /usr/bin/pip3</userinput></screen>
 
     <para>По желанию можно установить документацию:</para>
 
-<screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html 
+<screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html
 
 tar --strip-components=1  \
     --no-same-owner       \
@@ -129,7 +129,7 @@ tar --strip-components=1  \
       <listitem>
         <para>Гарантирует корректные права и владельца для устанавливаемых файлов.
         Без этих опций <application>tar</application> установит файлы с правами пользователя
-        создававшего пакет. 
+        создававшего пакет.
         </para>
       </listitem>
     </varlistentry>
@@ -142,9 +142,9 @@ tar --strip-components=1  \
     <title>Содержимое Python 3</title>
 
     <segmentedlist>
-      <segtitle>Установленные программы</segtitle>
-      <segtitle>Установленные библиотеки</segtitle>
-      <segtitle>Установленные каталоги</segtitle>
+      <segtitle>&contentprogs;</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
         <seg>
@@ -154,7 +154,7 @@ tar --strip-components=1  \
           libpython&python-minor;.so и libpython3.so
         </seg>
         <seg>
-          /usr/include/python&python-minor;, 
+          /usr/include/python&python-minor;,
           /usr/lib/python3 и
           /usr/share/doc/python-&python-version;
         </seg>
@@ -162,7 +162,7 @@ tar --strip-components=1  \
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Краткое описание</bridgehead>
+      <bridgehead renderas="sect3">&shortdescr;</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
