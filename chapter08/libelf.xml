@@ -42,14 +42,11 @@
     <title>Установка Libelf</title>
 
       <para>Libelf является частью пакета elfutils-&elfutils-version;.
-      Используйте elfutils-&elfutils-version;.tar.bz2 как архив с исходными текстами.</para>
+      Используйте elfutils-&elfutils-version;.tar.bz2 в качестве архива с исходниками.</para>
 
     <para>Подготовка Libelf к компиляции:</para>
 
-    <screen><userinput remap="configure">./configure --prefix=/usr                \
-            --disable-debuginfod         \
-            --enable-libdebuginfod=dummy \
-            --libdir=/lib</userinput></screen>
+<screen><userinput remap="configure">./configure --prefix=/usr --disable-debuginfod --libdir=/lib</userinput></screen>
 
     <para>Компиляция пакета:</para>
 
@@ -75,6 +72,7 @@ rm /lib/libelf.a</userinput></screen>
     <segmentedlist>
       <segtitle>&contentlibs;</segtitle>
       <segtitle>&contentdirs;</segtitle>
+
       <seglistitem>
         <seg>
           libelf.so
