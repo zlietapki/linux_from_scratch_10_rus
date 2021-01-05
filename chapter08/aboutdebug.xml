@@ -8,7 +8,7 @@
 <sect1 id="ch-system-aboutdebug">
   <?dbhtml filename="aboutdebug.html"?>
 
-  <title>По поводу отладочных символов</title>
+  <title>Отладочные символы</title>
 
   <para>Большинство программ и библиотек по умолчанию компилируются с
   отладочными символами (с указанием аргумента <parameter>-g</parameter> команде <command>gcc</command>).

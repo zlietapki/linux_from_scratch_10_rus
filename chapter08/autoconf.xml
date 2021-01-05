@@ -40,25 +40,23 @@
 
   <sect2 role="installation">
     <title>Установка Autoconf</title>
-<!--
-    <para>Сначала примените патч исправляющий ошибки, возникающие в последней версии
-    perl, libtool и bash.</para>
 
-<screen><userinput remap="pre">patch -Np1 -i ../&autoconf-fixes-patch;</userinput></screen>
--->
-    <para>Подготовьте Autoconf для компиляции:</para>
+    <para>Исправьте ошибку вызываемую Perl 5.28.</para>
+
+<screen><userinput remap="pre">sed -i '361 s/{/\\{/' bin/autoscan.in</userinput></screen>
+
+    <para>Подготовка Autoconf к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Скомпилируйте пакет:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
-
-    <para>Для проверки результатов выполните:</para>
 <!--
+    <para>Для проверки результатов выполните:</para>-->
     <para>Тест на данный момент сломан по причине bash-5 и libtool-2.4.3.
     Чтобы запустить тест, не смотря на это, выполните:</para>
- -->
+
 <screen><userinput remap="test">make check</userinput></screen>
 <!--
     <para>Выполнение может занять продолжительное время, около &autoconf-fin-sbu-tests; SBU.
@@ -67,11 +65,10 @@
     Automake. Также, два теста не пройдут из-за изменений в библиотеке libtool-2.4.3
     и её более поздних версиях.</para>
 
-    <note><para>Время тестирования autoconf можно значительно сохратить на многоядерых
-    системах.
-    Для этого добавьте <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> к строке выше.
-    Для примера, использование аргумента -j4 может сократить время тестирования более чем
-    на 60 процентов.</para></note>
+    <note><para>Время тестирования autoconf можно значительно сократить на многоядерых
+    системах. Для этого добавьте <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> к строке выше.
+    Использование аргумента -j4 может сократить время тестирования более чем на 60
+    процентов.</para></note>
 -->
     <para>Установка пакета:</para>
 

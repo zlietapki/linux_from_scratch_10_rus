@@ -73,8 +73,8 @@ rm /lib/libelf.a</userinput></screen>
     <title>Содержимое пакета Libelf</title>
 
     <segmentedlist>
-      <segtitle>Установленная библиотека</segtitle>
-      <segtitle>Установленный каталог</segtitle>
+      <segtitle>&contentlibs;</segtitle>
+      <segtitle>&contentdirs;</segtitle>
       <seglistitem>
         <seg>
           libelf.so

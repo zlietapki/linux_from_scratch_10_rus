@@ -10,8 +10,8 @@
 
   <title>Настройка окружения</title>
 
-  <para>Настройте хорошо работающее окружение, создав два файла автозапуска 
-  <command>bash</command> оболочки. От имени 
+  <para>Для настройки чистого рабочего окружения понадобятся два файла автозапуска 
+  <command>bash</command>. От имени 
   <systemitem class="username">lfs</systemitem> создайте файл
   <filename>.bash_profile</filename>:</para>
 
@@ -45,12 +45,11 @@ LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=/usr/bin
 if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
 PATH=$LFS/tools/bin:$PATH
-CONFIG_SITE=$LFS/usr/share/config.site
-export LFS LC_ALL LFS_TGT PATH CONFIG_SITE</literal>
+export LFS LC_ALL LFS_TGT PATH</literal>
 EOF</userinput></screen>
 
   <variablelist>
-    <title>Значение настроек файла <filename>.bashrc</filename></title>
+    <title>Значение настроек <filename>.bashrc</filename></title>
 
     <varlistentry>
       <term><parameter>set +h</parameter></term>
@@ -102,7 +101,8 @@ EOF</userinput></screen>
       <listitem>
   <para>Переменная <envar>LFS_TGT</envar> содержит описание совместимой машины, которое будет
   использоваться при сборке кросс-компилятора и линковщика, а затем при кросс-компиляции
-  временного инструментария. Больше информации содержится в <xref linkend="ch-tools-toolchaintechnotes" role=""/>.</para>
+  временного инструментария. Больше информации содержится в
+  <xref linkend="ch-tools-toolchaintechnotes" role=""/>.</para>
       </listitem>
     </varlistentry>
 
@@ -139,21 +139,9 @@ EOF</userinput></screen>
     </varlistentry>
 
     <varlistentry>
-      <term><parameter>CONFIG_SITE=$LFS/usr/share/config.site</parameter></term>
+      <term><parameter>export LFS LC_ALL LFS_TGT PATH</parameter></term>
       <listitem>
-  <para>Если эта переменная не установлена, то в главах
-  <xref linkend="chapter-cross-tools"/> и
-  <xref linkend="chapter-temporary-tools"/> скрипт <command>configure</command> 
-  может загрузить специфичную для дистрибутивов конфигурацию из
-  <filename>/usr/share/config.site</filename> с хост-системы. Перезапись переменной 
-  предупреждает потенциальное влияние хоста.</para>
-      </listitem>
-    </varlistentry>
-
-    <varlistentry>
-      <term><parameter>export ...</parameter></term>
-      <listitem>
-        <para>Экспортирует переменные, установленные выше, для их видимости из дочерних 
+        <para>Экспортирует установленные выше переменные для их видимости из дочерних 
         процессов.</para>
       </listitem>
     </varlistentry>
@@ -175,7 +163,7 @@ EOF</userinput></screen>
 
      <para>После завершения работы пользователем <systemitem class="username">lfs</systemitem>
      в <xref linkend="chapter-chroot-temporary-tools"/> вы можете восстановить
-     <filename>/etc/bash.bashrc</filename> (при желании).</para>
+     <filename>/etc/bash.bashrc</filename> (по желанию).</para>
 
      <para>Замечание: пакет Bash, который будет собран в
      <xref linkend="ch-system-bash"/> не настроен на загрузку или выполнение

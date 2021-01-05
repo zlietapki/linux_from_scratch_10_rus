@@ -60,10 +60,6 @@
 
 <screen><userinput remap="pre">sed -i '/test.lock/s/^/#/' gnulib-tests/gnulib.mk</userinput></screen>
 
-<para>Fix a problem with autoconf-2.70 in an included gnulib .m4 file:</para>
-
-<screen><userinput remap="pre">echo '# deleted' > m4/std-gnu11.m4</userinput></screen>
-
     <para>Now prepare Coreutils for compilation:</para>
 
 <screen><userinput remap="configure">autoreconf -fiv
@@ -86,7 +82,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
       <varlistentry>
         <term><envar>FORCE_UNSAFE_CONFIGURE=1</envar></term>
         <listitem>
-          <para>This environment variable allows the package to be
+          <para>This environment variable allows the package to be 
           built as the root user.
           </para>
         </listitem>
@@ -106,7 +102,8 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Пролистайте до <quote>Установки пакета</quote>, если не собираетесь запускать тесты.</para>
+    <para>Пролистайте до раздела <quote>Установка пакета</quote>, если не планируете
+    запускать тесты.</para>
 
     <para>Now the test suite is ready to be run. First, run the tests that are
     meant to be run as user <systemitem class="username">root</systemitem>:</para>

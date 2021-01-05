@@ -40,11 +40,11 @@
   <sect2 role="installation">
     <title>Установка Bash</title>
 
-    <para>Сначала исправьте ситуацию гонки при использовании многоядерности:</para>
+    <para>Примените несколько исправлений основной ветки разработки:</para>
 
-<screen><userinput remap="pre">sed -i  '/^bashline.o:.*shmbchar.h/a bashline.o: ${DEFDIR}/builtext.h' Makefile.in</userinput></screen>
+<screen><userinput remap="pre">patch -Np1 -i ../&bash-fixes-patch;</userinput></screen>
 
-    <para>Подготовьте Bash для компиляции:</para>
+    <para>Подготовка Bash к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr                    \
             --docdir=/usr/share/doc/bash-&bash-version; \
@@ -52,29 +52,28 @@
             --with-installed-readline</userinput></screen>
 
     <variablelist>
-      <title>Значение новых параметров конфигурации:</title>
+      <title>Значение параметров configure:</title>
 
       <varlistentry>
         <term><parameter>--with-installed-readline</parameter></term>
         <listitem>
-          <para>Опция говорит Bash'у использовать библиотеку <filename
-          class="libraryfile">readline</filename> уже установленную в системе вместо
-          собственной версии readline.</para>
+          <para>Опция говорит Bash использовать уже установленную в системе библиотеку
+          <filename class="libraryfile">readline</filename> вместо собственной версии.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Скомпилируйте пакет:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Перейдите дальше к разделу <quote>Установка пакета</quote>,
-    если не будете запускать тесты.</para>
+    <para>Перейдите к части <quote>Установка пакета</quote>, если не планируете запускать
+    тесты.</para>
 
-    <para>To prepare the tests, ensure that
-    the <systemitem class="username">tester</systemitem> user can write to
-    the sources tree:</para>
+    <para>Для подготовки к тестированию убедитесь, что пользователь
+    <systemitem class="username">tester</systemitem> может писать в каталог с 
+    исходниками:</para>
 
 <screen><userinput remap="test">chown -Rv tester .</userinput></screen>
 
@@ -112,8 +111,8 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
       <segtitle>&contentdirs;</segtitle>
 
       <seglistitem>
-        <seg>bash, bashbug, and sh (link to bash)</seg>
-        <seg>/usr/include/bash, /usr/lib/bash, and
+        <seg>bash, bashbug и sh (ссылка на bash)</seg>
+        <seg>/usr/include/bash, /usr/lib/bash и
         /usr/share/doc/bash-&bash-version;</seg>
       </seglistitem>
     </segmentedlist>
@@ -126,9 +125,9 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
       <varlistentry id="bash">
         <term><command>bash</command></term>
         <listitem>
-          <para>A widely-used command interpreter; it performs many types of
-          expansions and substitutions on a given command line before executing
-          it, thus making this interpreter a powerful tool</para>
+          <para>Широко распространенный командный интерпретатор. Выполняет различные
+          дополнения и подстановки в переданной командной строке перед её выполнением, что
+          делает этот интерпретатор мощным инструментом</para>
           <indexterm zone="ch-system-bash bash">
             <primary sortas="b-bash">bash</primary>
           </indexterm>
@@ -138,8 +137,8 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
       <varlistentry id="bashbug">
         <term><command>bashbug</command></term>
         <listitem>
-          <para>A shell script to help the user compose and mail standard
-          formatted bug reports concerning <command>bash</command></para>
+          <para>Скрипт помогающий пользователю составлять и отправлять рапорты о
+          найденных в <command>bash</command> ошибках</para>
           <indexterm zone="ch-system-bash bashbug">
             <primary sortas="b-bashbug">bashbug</primary>
           </indexterm>
@@ -149,11 +148,10 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
       <varlistentry id="sh">
         <term><command>sh</command></term>
         <listitem>
-          <para>A symlink to the <command>bash</command> program; when invoked
-          as <command>sh</command>, <command>bash</command> tries to mimic the
-          startup behavior of historical versions of <command>sh</command> as
-          closely as possible, while conforming to the POSIX standard as
-          well</para>
+          <para>Символическая ссылка на программу <command>bash</command>. Если вызвать
+          <command>bash</command> по имени <command>sh</command>, то он постаряется
+          подражать поведению <command>sh</command> на сколько это возможно, продолжая при
+          этом следовать стандартам POSIX</para>
           <indexterm zone="ch-system-bash sh">
             <primary sortas="b-sh">sh</primary>
           </indexterm>
