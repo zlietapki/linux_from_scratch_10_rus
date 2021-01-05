@@ -24,8 +24,8 @@
     <title/>
 
     <para>Пакет OpenSSL содержит криптографические инструменты и библиотеки.
-    Предоставляет криптографические функции, которые могут использованы другими пакетами,
-    такими как OpenSSH, почтовые приложения, веб-браузеры (для доступа к HTTPS).</para>
+    Предоставляет функции криптографии для других пакетов, таких как OpenSSH, почтовые
+    приложения, веб-браузеры (для доступа к HTTPS).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -66,14 +66,10 @@
 <screen><userinput remap="install">sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 make MANSUFFIX=ssl install</userinput></screen>
 
-    <para>К имени каталога документации добавьте версию для согласованности с другими
-    пакетами:</para>
+    <para>По желанию можно установить дополнительную документацию:</para>
 
-<screen><userinput remap="install">mv -v /usr/share/doc/openssl /usr/share/doc/openssl-&openssl-version;</userinput></screen>
-
-    <para>При желании можно установить дополнительную документацию:</para>
-
-<screen><userinput remap="install">cp -vfr doc/* /usr/share/doc/openssl-&openssl-version;</userinput></screen>
+<screen><userinput remap="install">mv -v /usr/share/doc/openssl /usr/share/doc/openssl-&openssl-version;
+cp -vfr doc/* /usr/share/doc/openssl-&openssl-version;</userinput></screen>
 
   </sect2>
 
@@ -87,15 +83,15 @@ make MANSUFFIX=ssl install</userinput></screen>
 
       <seglistitem>
         <seg>
-          c_rehash и openssl
+          c_rehash, openssl
         </seg>
         <seg>
-          libcrypto.so и libssl.so
+          libcrypto.so, libssl.so
         </seg>
         <seg>
           /etc/ssl,
           /usr/include/openssl,
-          /usr/lib/engines и
+          /usr/lib/engines,
           /usr/share/doc/openssl-&openssl-version;
         </seg>
       </seglistitem>
@@ -110,7 +106,7 @@ make MANSUFFIX=ssl install</userinput></screen>
         <term><command>c_rehash</command></term>
         <listitem>
           <para>
-            скрипт <application>Perl</application>, который сканирует все файлы в каталоге
+            <application>Perl</application> скрипт, который сканирует все файлы в каталоге
             и добавляет символические ссылки на их хэш-значения.
           </para>
           <indexterm zone="ch-system-openssl c_rehash">
@@ -123,8 +119,8 @@ make MANSUFFIX=ssl install</userinput></screen>
         <term><command>openssl</command></term>
         <listitem>
           <para>
-            инструмент командной строки для использования криптографических функций
-            <application>OpenSSL</application>. Варианты использования
+            утилита использования криптографических функций
+            <application>OpenSSL</application> из командной строки. Варианты использования
             описаны в <command>man 1 openssl</command>.
           </para>
           <indexterm zone="ch-system-openssl openssl-prog">
@@ -138,7 +134,7 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>реализует большой список криптографических алгоритмов, используемых
           в различных Internet-стандартах.
-          Сервисы предоставляемые этой библиотекой используются в
+          Возможности этой библиотеки используются в
           <application>OpenSSL</application> реализации SSL, TLS, S/MIME, раньше
           использовались в <application>OpenSSH</application>,
           <application>OpenPGP</application> и других криптографических стандартах.

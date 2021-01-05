@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Meson - система сборки с открытым исходным кодом, созданная быть экстремально
-    быстрой и максимально дружелюбной к пользователю.</para>
+    <para>Meson это система сборки с открытым исходным кодом, экстремально быстрая и
+    максимально дружелюбная.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -47,11 +47,6 @@
   <sect2 role="installation">
     <title>Установка Meson</title>
 
-    <para>Примените патч, исправляющий проблему pkgconfig файлов для статичных
-    библиотек:</para>
-
-<screen><userinput remap="pre">patch -Np1 -i ../&meson-fix-patch;</userinput></screen>
-
     <para>Компиляция Meson:</para>
 
 <screen><userinput remap="make">python3 setup.py build</userinput></screen>
@@ -64,15 +59,15 @@
 cp -rv dest/* /</userinput></screen>
 
     <variablelist>
-      <title>Значения параметров установки:</title>
-
+      <title>Значения параметров install:</title>
+      
       <varlistentry>
         <term><parameter>--root=dest</parameter></term>
         <listitem>
           <para>По умолчанию команда <command>python3 setup.py install</command>
-          выполняет установку различных файлов (например, файлов руководств) в
+          установит различные файлы (например, файлы руководств) в
           Python Eggs. При указанном аргументе root, <command>setup.py</command> установит
-          файлы в стандартную иерархию каталогов. Эту иерархию можно затем скопировать в
+          файлы в стандартную иерархию каталогов. После эту иерархию можно скопировать в
           стундарное местоположение.
         </para>
         </listitem>

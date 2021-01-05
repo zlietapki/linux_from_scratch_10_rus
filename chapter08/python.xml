@@ -23,9 +23,9 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет Python 3 содержит окружение разработчика Python. Его можно использовать
+    <para>Пакет Python 3 содержит среду разработчика Python. Его можно использовать
     для объектно-ориентированного программирования, написания скриптов, прототипирования
-    больших проектов или разработки приложений.</para>
+    больших проектов или разработки собственных приложений.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -56,21 +56,21 @@
     <varlistentry>
       <term><parameter>--with-system-expat</parameter></term>
       <listitem>
-        <para>Включает линковку с системной версией <application>Expat</application>.</para>
+        <para>Линковать с системной версией <application>Expat</application>.</para>
        </listitem>
      </varlistentry>
 
     <varlistentry>
       <term><parameter>--with-system-ffi</parameter></term>
       <listitem>
-        <para>Включает линковку с системной версией <application>libffi</application>.</para>
+        <para>Линковать с системной версией <application>libffi</application>.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>--with-ensurepip=yes</parameter></term>
       <listitem>
-        <para>Включает сборку программ <command>pip</command> и
+        <para>Собирать программы <command>pip</command> и
         <command>setuptools</command>.</para>
       </listitem>
     </varlistentry>
@@ -81,13 +81,9 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Тестирование:</para>
-
-<screen><userinput remap="test">make test</userinput></screen>
-
-    <para>Некоторые тесты будует пропущены из-за отсутсвия сети или дополнительных,
-    необходимых пакетов.
-    Тест test_unicodedata не пройдет, т.к. конфигурация сети еще не завершена.
+    <para>Для запуска тестов выполните <command>make test</command>.
+    Некоторые тесты будут пропущены из-за отсутствия сети или дополнительных пакетов.
+    Тест test_normalization не пройдет, т.к. настройка сети еще не завершена.
     Более объемное тестирование возможно перезапуском тестов после переустановки Python 3
     в BLFS.</para>
 
@@ -104,7 +100,7 @@ ln -sfv pip&python-minor; /usr/bin/pip3</userinput></screen>
     <varlistentry>
       <term><command>chmod -v 755 /usr/lib/libpython3.{8.,}so</command></term>
       <listitem>
-        <para>Исправление прав доступа для библиотеки для сохранения консистентности с
+        <para>Исправьте права доступа для библиотек для поддержания консистентности с
         остальными библиотеками.</para>
       </listitem>
     </varlistentry>
@@ -113,7 +109,7 @@ ln -sfv pip&python-minor; /usr/bin/pip3</userinput></screen>
 
     <para>По желанию можно установить документацию:</para>
 
-<screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html
+<screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html 
 
 tar --strip-components=1  \
     --no-same-owner       \
@@ -122,14 +118,14 @@ tar --strip-components=1  \
     -xvf ../python-&python-version;-docs-html.tar.bz2</userinput></screen>
 
     <variablelist>
-      <title>Значение параметров установки документации:</title>
+      <title>Значение параметров install для документации:</title>
 
     <varlistentry>
       <term><option>--no-same-owner</option> и <option>--no-same-permissions</option></term>
       <listitem>
-        <para>Гарантирует корректные права и владельца для устанавливаемых файлов.
-        Без этих опций <application>tar</application> установит файлы с правами пользователя
-        создававшего пакет.
+        <para>Устанавливает корректные права и владельца для файлов.
+        Без этих опций <application>tar</application> установленные файлы будут с правами
+        пользователя создававшего пакет.
         </para>
       </listitem>
     </varlistentry>
@@ -148,14 +144,14 @@ tar --strip-components=1  \
 
       <seglistitem>
         <seg>
-          2to3, idle3, pip3, pydoc3, python3 и python3-config
+          2to3, idle3, pip3, pydoc3, python3, python3-config
         </seg>
         <seg>
-          libpython&python-minor;.so и libpython3.so
+          libpython&python-minor;.so, libpython3.so
         </seg>
         <seg>
           /usr/include/python&python-minor;,
-          /usr/lib/python3 и
+          /usr/lib/python3,
           /usr/share/doc/python-&python-version;
         </seg>
       </seglistitem>
@@ -185,7 +181,7 @@ tar --strip-components=1  \
         <listitem>
           <para>
             скрипт-обертка, запускающая GUI редактор <application>Python</application>.
-            Для работы, перед установкой Python, должен быть установлен
+            Для запуска, перед установкой Python, нужно установить
             <application>Tk</application>. В этом случае будет собран необходимый Python
             модуль Tkinter.
           </para>
