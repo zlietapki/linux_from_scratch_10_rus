@@ -174,7 +174,7 @@ EOF</userinput></screen>
 <screen><literal>set spelllang=en,ru
 set spell</literal></screen>
 
-      <para>Больше информации можно найти в файле README по ссылке выше.</para>
+      <para>Больше информации можно найти в соответсвующем файле README по ссылке выше.</para>
     </note>
 
   </sect2>
