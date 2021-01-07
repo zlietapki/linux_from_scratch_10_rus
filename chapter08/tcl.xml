@@ -25,9 +25,10 @@
   <sect2 role="package">
     <title/>
 
-    <para>The <application>Tcl</application> package contains the Tool Command Language,
-    a robust general-purpose scripting language. The <application>Expect</application> package
-    is written in the <application>Tcl</application> language.</para>
+    <para>Пакет <application>Tcl</application> содержит командный язык инструментов
+    (Tool Command Language), простой скриптовый язык общего назначения.
+    Пакет <application>Expect</application> написан на языке 
+    <application>Tcl</application>.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,24 +43,24 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Tcl</title>
+    <title>Установка Tcl</title>
 
-    <para>This package and the next two (Expect and DejaGNU) are
-    installed to support running the test suites for GCC and binutils and other
-    packages.  Installing three packages for testing purposes may seem
-    excessive, but it is very reassuring, if not essential, to know that the
-    most important tools are working properly. These packages are required
-    to run the test suites in this chapter.</para>
+    <para>Tcl и еще два пакета (Expect и DejaGNU) устанавливаются для поддержки возможности
+    тестирования GCC, binutils и остальных пакетов.
+    Установка сразу трёх пакетов тестирования может показаться чрезмерной, но это
+    очень обнадеживающе знать, что самые важные инструменты протестированы и
+    работают надежно.
+    Пакеты тестирования нужны для запуска тестов в этой главе.</para>
 
 <!--    <para>Note that the Tcl package used here is a minimal version needed
-    to run the LFS tests.  For the full package, see the
+    to run the LFS tests.  For the full package, see the  
     <ulink url='&blfs-book;general/tcl.html'>BLFS Tcl procedures</ulink>.</para>-->
 
-    <para>First, unpack the documentation by issuing the following command:</para>
+    <para>Распакуйте документацию командой:</para>
 
 <screen><userinput remap="pre">tar -xf ../tcl8.6.10-html.tar.gz --strip-components=1</userinput></screen>
 
-    <para>Prepare Tcl for compilation:</para>
+    <para>Подготовка Tcl к компиляции:</para>
 
 <screen><userinput remap="configure">SRCDIR=$(pwd)
 cd unix
@@ -73,17 +74,16 @@ cd unix
       <varlistentry>
         <term><parameter>$([ "$(uname -m)" = x86_64 ] &amp;&amp; echo --enable-64bit)</parameter></term>
         <listitem>
-          <para>The construct <parameter>$(&lt;shell command&gt;)</parameter>
-          is replaced by the output of the shell command.  Here this output is
-          empty if running on a 32 bit machine, and is
-          <parameter>--enable-64bit</parameter> if running on a 64 bit machine.
+          <para>Конструкция <parameter>$(&lt;команда оболочки&gt;)</parameter>
+          будет обработана оболочкой. Результат её будет пустым в случае запуска на 32-битной
+          машине, в случае 64-битной результат будет <parameter>--enable-64bit</parameter>.
           </para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Build the package:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make
 
@@ -104,11 +104,11 @@ sed -e "s|$SRCDIR/unix/pkgs/itcl&itcl-ver;|/usr/lib/itcl&itcl-ver;|" \
 
 unset SRCDIR</userinput></screen>
 
-    <para>The various <quote>sed</quote> instructions after the
-    <quote>make</quote> command removes references to the build directory from
-    the configuration files and replaces them with the install directory.
-    This is not mandatory for the remainder of LFS, but may be needed in case a
-    package built later uses Tcl.</para>
+    <para>Различные инструкции <quote>sed</quote> после команды
+    <quote>make</quote> удаляют ссылки на каталог сборки из файлов конфигурации и заменяют
+    их на каталог установки.
+    Это необязательно для оставшейся части LFS, но может понадобится в случае сборки пакета
+    после Tcl.</para>
 
     <para>Тестирование:</para>
 
@@ -116,9 +116,9 @@ unset SRCDIR</userinput></screen>
 
    <note>
       <para>
-         In the test results there are several places associated with clock.test
-         that indicate a failure, but the summary at the end indicates no
-         failures. clock.test passes on a complete LFS system.
+         В результатах есть несколько связанных с clock.test мест, сообщающих об ошибке, но
+         итоговая информация сообщает об отсутствии ошибок.
+         clock.test будет корректно работать на собранной LFS системе.
       </para>
     </note>
 
@@ -126,22 +126,18 @@ unset SRCDIR</userinput></screen>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Make the installed library writable so debugging symbols can
-    be removed later:</para>
+    <para>Сделайте установленную библиотеку доступной на запись, это даст возможность
+    удалить из нее отладочные символы позже:</para>
 
 <screen><userinput remap="install">chmod -v u+w /usr/lib/libtcl&tcl-major-version;.so</userinput></screen>
 
-    <para>Install Tcl's headers. The next package, Expect, requires them.</para>
+    <para>Установите заголовочные файлы Tcl. Следующий пакет Expect нуждается в них.</para>
 
 <screen><userinput remap="install">make install-private-headers</userinput></screen>
 
-    <para>Now make a necessary symbolic link:</para>
+    <para>Создайте необходимую символьную ссылку:</para>
 
 <screen><userinput remap="install">ln -sfv tclsh&tcl-major-version; /usr/bin/tclsh</userinput></screen>
-
-    <para>Finally, rename a man page that conflicts with a Perl man page:</para>
-
-    <screen><userinput remap="install">mv /usr/share/man/man3/{Thread,Tcl_Thread}.3</userinput></screen>
 
   </sect2>
 
@@ -154,11 +150,11 @@ unset SRCDIR</userinput></screen>
 
       <seglistitem>
         <seg>
-          tclsh (link to tclsh&tcl-major-version;) and
+          tclsh (link to tclsh&tcl-major-version;) and 
           tclsh&tcl-major-version;
         </seg>
         <seg>
-          libtcl&tcl-major-version;.so and
+          libtcl&tcl-major-version;.so and 
           libtclstub&tcl-major-version;.a
         </seg>
       </seglistitem>
@@ -172,7 +168,7 @@ unset SRCDIR</userinput></screen>
       <varlistentry id="tclsh&tcl-major-version;">
         <term><command>tclsh&tcl-major-version;</command></term>
         <listitem>
-          <para>The Tcl command shell</para>
+          <para>Командная оболочка Tcl</para>
           <indexterm zone="ch-tools-tcl tclsh&tcl-major-version;">
             <primary sortas="b-tclsh&tcl-major-version;">tclsh&tcl-major-version;</primary>
           </indexterm>
@@ -182,7 +178,7 @@ unset SRCDIR</userinput></screen>
       <varlistentry id="tclsh">
         <term><command>tclsh</command></term>
         <listitem>
-          <para>A link to tclsh&tcl-major-version;</para>
+          <para>Ссылка на tclsh&tcl-major-version;</para>
           <indexterm zone="ch-tools-tcl tclsh">
             <primary sortas="b-tclsh">tclsh</primary>
           </indexterm>
@@ -192,7 +188,7 @@ unset SRCDIR</userinput></screen>
       <varlistentry id="libtcl&tcl-major-version;.so">
         <term><filename class="libraryfile">libtcl&tcl-major-version;.so</filename></term>
         <listitem>
-          <para>The Tcl library</para>
+          <para>Библиотека Tcl</para>
           <indexterm zone="ch-tools-tcl libtcl&tcl-major-version;.so">
             <primary sortas="c-libtcl&tcl-major-version;.so">libtcl&tcl-major-version;.so</primary>
           </indexterm>
@@ -202,7 +198,7 @@ unset SRCDIR</userinput></screen>
       <varlistentry id="libtclstub&tcl-major-version;.a">
         <term><filename class="libraryfile">libtclstub&tcl-major-version;.a</filename></term>
         <listitem>
-          <para>The Tcl Stub library</para>
+          <para>Библиотека-заглушка Tcl</para>
           <indexterm zone="ch-tools-tcl libtclstub&tcl-major-version;.a">
             <primary sortas="c-libtclstub&tcl-major-version;.a">libtclstub&tcl-major-version;.a</primary>
           </indexterm>
