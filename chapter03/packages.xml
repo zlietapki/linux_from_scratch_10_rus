@@ -688,7 +688,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Документация Tcl (&tcl-version;) - <token>&tcl-docs-size;</token>:</term>
+      <term>Tcl документация (&tcl-version;) - <token>&tcl-docs-size;</token>:</term>
       <listitem>
         <para>Скачать: <ulink url="&tcl-docs-url;"/></para>
         <para>MD5: <literal>&tcl-docs-md5;</literal></para>

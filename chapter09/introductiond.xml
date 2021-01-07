@@ -10,9 +10,8 @@
 
   <title>Введение</title>
 
-  <para>This chapter discusses configuration files and systemd services.
-  First, the general configuration files needed to set up networking are
-  presented.</para>
+  <para>В этой главе рассматриваются файлы системных настроек и службы systemd.
+  Первой по списку идет настройка сети.</para>
 
   <itemizedlist>
      <listitem>
@@ -26,8 +25,7 @@
      </listitem>
   </itemizedlist>
 
-  <para>Second, issues that affect the proper setup of devices are
-  discussed.</para>
+  <para>Второй - рассмотрены проблемы, влияющие на правильную настройку устройств.</para>
 
   <itemizedlist>
      <listitem>
@@ -38,7 +36,7 @@
      </listitem>
   </itemizedlist>
 
-  <para>Third, configuring the system clock and keyboard layout is shown.</para>
+  <para>Третьей - показаны настройки системных часов и раскладки клавиатуры.</para>
 
   <itemizedlist>
      <listitem>
@@ -49,8 +47,8 @@
      </listitem>
   </itemizedlist>
 
-  <para>Fourth, a brief introduction to the scripts and configuration
-  files used when the user logs into the system is presented.</para>
+  <para>Четвертой - краткое введение в скрипты и настройки используемые при входе пользователя
+  в систему.</para>
 
   <itemizedlist>
      <listitem>
@@ -61,7 +59,7 @@
      </listitem>
   </itemizedlist>
 
-  <para>And finally, configuring the behavior of systemd is discussed.</para>
+  <para>И под конец рассмотрена настройка работы systemd.</para>
 
   <itemizedlist>
      <listitem>

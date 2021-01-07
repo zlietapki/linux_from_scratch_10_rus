@@ -8,75 +8,77 @@
 <sect1 id="ch-config-network" revision="systemd">
   <?dbhtml filename="network.html"?>
 
-  <title>Конфигурация Сети</title>
+  <title>Настройка сети</title>
 
   <indexterm zone="ch-config-network">
     <primary sortas="d-network">network</primary>
   <secondary>configuring</secondary></indexterm>
 
-  <para>Изучите этот раздел если необходимо настроить сетевую карту.</para>
+  <para>Раздел полностью посвящен настройке сетевой карты.</para>
 
   <sect2>
-    <title>Файлы конфигурации сетевого интерфейса</title>
+    <title>Настройка сетевого интерфейса</title>
 
-    <para>Начиная с версии systemd 209, в комплекте есть служба конфигурирования сети - <command>systemd-networkd</command>. Она может быть использована для базовой настройки сети. В версии 213 разрешение имен DNS может выполняться при помощи службы  <command>systemd-resolved</command> вместо использования статического файла <filename>/etc/resolv.conf</filename>. Обе службы по умолчанию включены.</para>
+    <para>Начиная с версии  209 systemd поставляется со службой настройки сети
+    <command>systemd-networkd</command>, которую можно использовать для базовой настройки.
+    А начиная с версии 213, DNS разрешение имен работает через службу
+    <command>systemd-resolved</command> вместо статичного файла
+    <filename>/etc/resolv.conf</filename>. Обе эти службы по умолчанию включены.</para>
 
-    <para>Файлы конфигурации для  <command>systemd-networkd</command> (и
-    <command>systemd-resolved</command>) могут располагаться в каталоге
+    <para>Файлы настроек  <command>systemd-networkd</command> (и
+    <command>systemd-resolved</command>) могут находится в каталоге
     <filename class="directory">/usr/lib/systemd/network</filename>
-    или <filename class="directory">/etc/systemd/network</filename>. Файлам в каталоге
-    <filename class="directory">/etc/systemd/network</filename> будет отдаваться больший приоритет чем файлу в каталоге <filename class="directory">/usr/lib/systemd/network</filename>.
-	 Существует три типа файлов конфигурации:
+    или <filename class="directory">/etc/systemd/network</filename>. Больший приоритет у
+    файлов из каталога <filename class="directory">/etc/systemd/network</filename>, чем
+    <filename class="directory">/usr/lib/systemd/network</filename>.
+    Есть три типа файлов с конфигурацией:
 
     <filename class="extension">.link</filename>,
     <filename class="extension">.netdev</filename> и
-    <filename class="extension">.network</filename>. Подробные
-    описания и примеры содержимого файлов конфигурации, содержатся в файле руководств
+    <filename class="extension">.network</filename>. Более подробное
+    описание с примерами использования содержатся в руководствах
     <filename>systemd-link(5)</filename>,
     <filename>systemd-netdev(5)</filename> и
     <filename>systemd-network(5)</filename>.</para>
 
     <sect3 id="systemd-network-devices">
-      <title>Именование Сетевых Устройств</title>
+      <title>Именование сетевых устройств</title>
 
       <para>
-       Udev обычно назначает имена интерфейсов сетевой карты на основе
-       физических характеристик системы, например enp2s1. Если вы
-       не знаете, имени сетевого интерфейса, вы всегда можете запустить команду
-        <command> ip link</command> после загрузки системы.
+       Udev обычно назначает имена интерфейсам сетевой карты на основе
+       физических характеристик системы, например enp2s1. Узнать имя своего сетевого
+       интерфейса можно выполнив команду <command>ip link</command> после загрузки системы.
       </para>
 
       <para>
-        Для большинства систем существует только один сетевой интерфейс для
-        каждого типа соединения. Например, наименование классического интерфейса
-        для проводного соединения - eth0. Беспроводное соединение
-        обычно именнуются как wifi0 или wlan0.
+        Большинство систем имеют только один сетевой интерфейс для всех типов соединения.
+        Например, классическое имя интерфейса для проводного соединения - eth0.
+        Беспроводное соединение обычно называется wifi0 или wlan0.
       </para>
 
       <para>
-        Если вы предпочитаете использовать классические или настраиваемые имена сетевого интерфейса,
-        есть три способа как это сделать:</para>
+        Если вы предпочитаете использовать классические имена сетевых интерфейсов или
+        дать им произвольные имена, то есть три способа это сделать:</para>
 
       <itemizedlist>
         <listitem>
           <para>
-            Замаскируйте файл .link для использования политики по умолчанию:
+            Спрячьте .link файл от политики по умолчанию:
 <screen role="nodump"><userinput>ln -s /dev/null /etc/systemd/network/99-default.link</userinput></screen>
           </para>
         </listitem>
 
         <listitem>
           <para>
-             Создайте собственную схему именования, например, вы можете именовать
-             интерфейсы "internet0", "dmz0", и "lan0". Для этого, создайте файл
-             .link  в каталоге /etc/systemd/network/, в дальнейшем будет выбрана
-             наиболее подходящая схема именования сетевых устройств для одного, или
-             нескольких интерфейсов. Нарпимер:
+             Создайте собственную схему именования интерфейсов, например с именами
+             "internet0", "dmz0" или "lan0". Для этого создайте файл
+             .link  в каталоге /etc/systemd/network/, в котором явно указано новое имя
+             интерфейса или более подходящая схема именования. Например:
           </para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/systemd/network/10-ether0.link &lt;&lt; "EOF"
 <literal>[Match]
-# Change the MAC address as appropriate for your network device
+# Измените MAC адрес в соответствии с вашей сетевой картой
 MACAddress=12:34:45:78:90:AB
 
 [Link]
@@ -84,14 +86,13 @@ Name=ether0</literal>
 EOF</userinput></screen>
 
           <para>
-             Дополнительную информацию можно найти на страницах руководств systemd.link(5).
+             Дополнительную информацию читайте в руководсте systemd.link(5).
           </para>
         </listitem>
 
         <listitem>
           <para>
-            В файле /boot/grub/grub.cfg, укажите аргумент net.ifnames=0 
-            в строке ядра.
+            В файле /boot/grub/grub.cfg укажите параметр net.ifnames=0 в строке ядра.
           </para>
         </listitem>
       </itemizedlist>
@@ -100,9 +101,8 @@ EOF</userinput></screen>
     <sect3 id="systemd-networkd-static">
       <title>Настройка статического IP</title>
 
-      <para>Команда ниже создает базовый файл конфигурации для
-      статического IP (может использоваться как systemd-networkd так и
-      systemd-resolved):</para>
+      <para>Следующая команда создаст базовый файл настроек для статического IP (будет
+      использован и для systemd-networkd, и для systemd-resolved):</para>
 <!-- jhalfs relies on the values for Name, Address, etc. If you want to change
      them, please inform the jhalfs maintainer(s). -->
 <screen><userinput>cat &gt; /etc/systemd/network/10-eth-static.network &lt;&lt; "EOF"
@@ -116,17 +116,16 @@ DNS=192.168.0.1
 Domains=<replaceable>&lt;Your Domain Name&gt;</replaceable></literal>
 EOF</userinput></screen>
 
-      <para>Multiple DNS entries can be added if you have more than one DNS
-      server. Do not include DNS or Domains entries if you intend to use a
-      static <filename>/etc/resolv.conf</filename> file.</para>
+      <para>Добавьте несколько записей DNS, если вы используете больше одного DNS
+      сервера. Не добавляйте записи DNS и Domains, если планируете использовать
+      статичный файл настроек <filename>/etc/resolv.conf</filename>.</para>
 
     </sect3>
 
     <sect3 id="systemd-networkd-dhcp">
       <title>DHCP Configuration</title>
 
-      <para>The command below creates a basic configuration file for an IPv4
-      DHCP setup:</para>
+      <para>Команда ниже создаст базовую конфигурацию для IPv4 DHCP:</para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/systemd/network/10-eth-dhcp.network &lt;&lt; "EOF"
 <literal>[Match]
@@ -150,21 +149,19 @@ EOF</userinput></screen>
       <primary sortas="e-/etc/resolv.conf">/etc/resolv.conf</primary>
     </indexterm>
 
-    <para>If the system is going to be connected to the Internet, it will
-    need some means of Domain Name Service (DNS) name resolution to
-    resolve Internet domain names to IP addresses, and vice versa. This is
-    best achieved by placing the IP address of the DNS server, available
-    from the ISP or network administrator, into
-    <filename>/etc/resolv.conf</filename>.</para>
+    <para>Если система будет работать с интернет, то ей понадобится помощь службы разрешения 
+    имен - DNS. С её помощью доменное имя может быть преобразовано в IP адрес и наоборот.
+    Проще всего будет поместить IP адрес DNS сервера, полученного от вашего провайдера
+    или сетевого администратора, в файл <filename>/etc/resolv.conf</filename>.</para>
 
     <sect3 id="resolv-conf-systemd-resolved">
       <title>systemd-resolved Configuration</title>
 
       <note><para>If using another means to configure your network
       interfaces (ex: ppp, network-manager, etc.), or if using any type of
-      local resolver (ex: bind, dnsmasq, etc.), or any other software that
-      generates an <filename>/etc/resolv.conf</filename> (ex: resolvconf), the
-      <command>systemd-resolved</command> service should not be
+      local resolver (ex: bind, dnsmasq, unbound, etc.), or any other software 
+      that generates an <filename>/etc/resolv.conf</filename> (ex: resolvconf),
+      the <command>systemd-resolved</command> service should not be
       used.</para></note>
 
       <para>When using <command>systemd-resolved</command> for DNS
