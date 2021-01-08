@@ -23,9 +23,9 @@
   <sect2 role="package">
     <title/>
 
-    <para>The <application>DejaGnu</application> package contains a framework for running test
-      suites on GNU tools. It is written in <command>expect</command>, which itself
-      uses <application>Tcl</application> (Tool Command Language).</para>
+    <para>Пакет <application>DejaGnu</application> содержит фреймворк для тестирования
+      интрументов GNU. Он написан на <command>expect</command>, который в свою очередь
+      использует <application>Tcl</application> (командный язык инструментов).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,9 +40,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of DejaGNU</title>
+    <title>Установка DejaGNU</title>
 
-    <para>Prepare DejaGNU for compilation:</para>
+    <para>Подготовка DejaGNU к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr
 makeinfo --html --no-split -o doc/dejagnu.html doc/dejagnu.texi
@@ -62,7 +62,7 @@ install -v -m644   doc/dejagnu.{html,txt} /usr/share/doc/dejagnu-&dejagnu-versio
 
 
   <sect2 id="contents-dejagnu" role="content">
-    <title>Contents of DejaGNU</title>
+    <title>Содержимое DejaGNU</title>
 
     <segmentedlist>
       <segtitle>&contentprogs;</segtitle>
@@ -80,8 +80,8 @@ install -v -m644   doc/dejagnu.{html,txt} /usr/share/doc/dejagnu-&dejagnu-versio
       <varlistentry id="runtest">
         <term><command>runtest</command></term>
         <listitem>
-          <para>A wrapper script that locates the proper
-          <command>expect</command> shell and then runs DejaGNU</para>
+          <para>Скрипт-обертка, который находит правильное расположение оболочки
+          <command>expect</command> и запускает DejaGNU</para>
           <indexterm zone="ch-tools-dejagnu runtest">
             <primary sortas="b-runtest">runtest</primary>
           </indexterm>

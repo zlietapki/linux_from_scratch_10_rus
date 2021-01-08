@@ -23,9 +23,9 @@
   <sect2 role="package">
     <title/>
 
-    <para>Zstandard is a real-time compression algorithm, providing high
-    compression ratios. It offers a very wide range of compression / speed
-    trade-offs, while being backed by a very fast decoder.</para>
+    <para>Zstandard это алгоритм сжатия в реальном времени.
+    Он предлагает очень широкий диапазон компромиссов между скоростью и компрессией при
+    поддержке очень быстрого декодера.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,22 +40,22 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Zstd</title>
+    <title>Установка Zstd</title>
 
     <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package does not come with a test suite.</para>
+    <para>Этот пакет не имеет тестов.</para>
 
     <para>Установка пакета:</para>
 
 <screen><userinput remap="install">make prefix=/usr install</userinput></screen>
 
-    <para>Remove the static library and move the shared library to
-    <filename class="directory">/lib</filename>. Also, the
-    <filename class="extension">.so</filename> file in
-    <filename class="directory">/usr/lib</filename> will need to be recreated:</para>
+    <para>Удалите статическую библиотеку, а разделяемую перенесите в
+    <filename class="directory">/lib</filename>. Кроме того, файл
+    <filename class="extension">.so</filename> в каталоге
+    <filename class="directory">/usr/lib</filename> нужно пересоздать:</para>
 
 <screen><userinput remap="install">rm -v /usr/lib/libzstd.a
 mv -v /usr/lib/libzstd.so.* /lib
@@ -64,7 +64,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
   </sect2>
 
   <sect2 id="contents-zstd" role="content">
-    <title>Contents of Zstd</title>
+    <title>Содержимое Zstd</title>
 
     <segmentedlist>
       <segtitle>&contentprogs;</segtitle>
@@ -72,11 +72,11 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
 
       <seglistitem>
         <seg>zstd,
-             zstdcat (link to zstd),
+             zstdcat (ссылка на zstd),
              zstdgrep,
              zstdless,
-             zstdmt (link to zstd), and
-             unzstd (link to zstd)
+             zstdmt (ссылка на zstd),
+             unzstd (ссылка на zstd)
         </seg>
 
         <seg>libzstd.so</seg>
@@ -91,7 +91,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
       <varlistentry id="zstd">
         <term><command>zstd</command></term>
         <listitem>
-          <para>Compresses or decompresses files using the ZSTD format</para>
+          <para>Сжимамает или разжимает файлы в формате ZSTD</para>
           <indexterm zone="ch-system-zstd zstd">
             <primary sortas="b-zstd">zstd</primary>
           </indexterm>
@@ -101,7 +101,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
       <varlistentry id="zstdgrep">
         <term><command>zstdgrep</command></term>
         <listitem>
-          <para>Runs <command>grep</command> on ZSTD compressed files</para>
+          <para>Запускает <command>grep</command> на сжатых ZSTD файлах</para>
           <indexterm zone="ch-system-zstd zstdgrep">
             <primary sortas="b-zstdgrep">zstdgrep</primary>
           </indexterm>
@@ -111,7 +111,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
       <varlistentry id="zstdless">
         <term><command>zstdless</command></term>
         <listitem>
-          <para>Runs <command>less</command> on ZSTD compressed files</para>
+          <para>Запускает <command>less</command> на сжатых ZSTD файлах</para>
           <indexterm zone="ch-system-zstd zstdless">
             <primary sortas="b-zstdless">zstdless</primary>
           </indexterm>
@@ -121,8 +121,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
       <varlistentry id="libzstd">
         <term><filename class="libraryfile">libzstd</filename></term>
         <listitem>
-          <para>The library implementing lossless data
-          compression, using the ZSTD algorithm</para>
+          <para>Библиотека реализующая сжатие без потерь на основе алгоритма ZSTD</para>
           <indexterm zone="ch-system-zstd libzstd">
             <primary sortas="c-libzstd">libzstd</primary>
           </indexterm>
