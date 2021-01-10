@@ -50,7 +50,7 @@
     за рамки этой книги. Инструкции по установке таких пакетов есть в книге BLFS.</para>
 
     <variablelist>
-      <bridgehead renderas="sect3">Пакеты поставляемые в LFS, необходимые для соответсвия
+      <bridgehead renderas="sect3">Пакеты поставляемые в LFS, необходимые для соответствия
           LSB</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
@@ -95,7 +95,7 @@
     </variablelist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Пакеты поставляемые в BLFS, необходимые для соответсвия
+      <bridgehead renderas="sect3">Пакеты поставляемые в BLFS, необходимые для соответствия
           LSB</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
@@ -103,8 +103,8 @@
       <varlistentry>
         <term><emphasis>LSB Core:</emphasis></term>
         <listitem>
-          <para>At, Batch (a part of At), Cpio, Ed, Fcrontab, LSB-Tools, NSPR,
-          NSS, PAM, Pax, Sendmail (or Postfix or Exim), time
+          <para>At, Batch (часть At), Cpio, Ed, Fcrontab, LSB-Tools, NSPR,
+          NSS, PAM, Pax, Sendmail (или Postfix, или Exim), time
           </para>
         </listitem>
       </varlistentry>
@@ -143,7 +143,7 @@
 
     <variablelist>
       <bridgehead renderas="sect3">Пакеты отсутствующие в LFS и BLFS, необходимые для
-      соответсвия LSB</bridgehead>
+      соответствия LSB</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
