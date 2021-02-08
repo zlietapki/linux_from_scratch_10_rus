@@ -43,12 +43,12 @@
   <sect2 role="installation">
     <title>Установка M4</title>
 
-    <para>Сначала сделайте несколько исправлений представленных в glibc-2.28:</para>
+    <para>Сначала сделайте несколько исправлений сделанных в glibc-2.28:</para>
 
 <screen><userinput remap="pre">sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
 echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
 
-    <para>Подготовьте  M4 для компиляции:</para>
+    <para>Подготовьте M4 для компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr   \
             --host=$LFS_TGT \

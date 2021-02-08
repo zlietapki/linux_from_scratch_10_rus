@@ -46,25 +46,25 @@
   <sect2 role="installation">
     <title>Установка GDBM</title>
 
-    <para>Сначала исправьте проблему впервые обнаруженную gcc-10:</para>
+    <para>Исправьте проблему впервые обнаруженную gcc-10:</para>
 
 <screen><userinput remap="pre">sed -r -i '/^char.*parseopt_program_(doc|args)/d' src/parseopt.c</userinput></screen>
 
-    <para>Prepare GDBM for compilation:</para>
+    <para>Подготовка GDBM к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --disable-static \
             --enable-libgdbm-compat</userinput></screen>
 
     <variablelist>
-      <title>Значения параметров конфигурации:</title>
+      <title>Значения параметров configure:</title>
 
       <varlistentry>
         <term><envar>--enable-libgdbm-compat</envar></term>
         <listitem>
-          <para>Аргумент включает режим совместимости с библиотекой libgdbm.
-          Некоторые пакеты за пределами LFS могут требовать старые механизмы DBM,
-          которые предоставляет этот режим.</para>
+          <para>Включает сборку libgdbm - библиотеки совместимости.
+          Некоторым пакетам вне LFS нужны старые механизмы DBM, которые предоставляет
+          эта библиотека.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -77,7 +77,7 @@
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Установите пакет:</para>
+    <para>Установка пакета:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
@@ -91,8 +91,8 @@
       <segtitle>&contentlibs;</segtitle>
 
       <seglistitem>
-        <seg>gdbm_dump, gdbm_load, and gdbmtool</seg>
-        <seg>libgdbm.so and libgdbm_compat.so</seg>
+        <seg>gdbm_dump, gdbm_load, gdbmtool</seg>
+        <seg>libgdbm.so, libgdbm_compat.so</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -144,7 +144,7 @@
       <varlistentry id="libgdbm_compat">
         <term><filename class="libraryfile">libgdbm_compat</filename></term>
         <listitem>
-          <para>Библиотека совместимости содержащая устаревшие функции DBM</para>
+          <para>Библиотека совместимости; содержит устаревшие функции DBM</para>
           <indexterm zone="ch-system-gdbm libgdbm_compat">
             <primary sortas="c-libgdbm_compat">libgdbm_compat</primary>
           </indexterm>

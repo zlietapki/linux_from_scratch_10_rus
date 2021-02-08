@@ -56,7 +56,7 @@ make html</userinput></screen>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Установка пакета и его документации:</para>
+    <para>Установка пакета и документации:</para>
 
 <screen><userinput remap="install">make install
 make install-html</userinput></screen>
@@ -85,7 +85,7 @@ make install-html</userinput></screen>
       <varlistentry id="libmpc">
         <term><filename class="libraryfile">libmpc</filename></term>
         <listitem>
-          <para>Содержит сложные математические функции</para>
+          <para>Содержит комплексные математические функции</para>
           <indexterm zone="ch-system-mpc libmpc">
             <primary sortas="c-libmpc">libmpc</primary>
           </indexterm>

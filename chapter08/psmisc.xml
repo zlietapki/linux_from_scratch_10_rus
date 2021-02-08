@@ -70,7 +70,7 @@ mv -v /usr/bin/killall /bin</userinput></screen>
       <segtitle>&contentprogs;</segtitle>
 
      <seglistitem>
-        <seg>fuser, killall, peekfd, prtstat, pslog, pstree, and pstree.x11 (ссылка на pstree)</seg>
+        <seg>fuser, killall, peekfd, prtstat, pslog, pstree, pstree.x11 (ссылка на pstree)</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -82,8 +82,8 @@ mv -v /usr/bin/killall /bin</userinput></screen>
       <varlistentry id="fuser">
         <term><command>fuser</command></term>
         <listitem>
-          <para>Сообщает идентификатор процесса (PID) процесса, который использует данный
-          файл или файловая система</para>
+          <para>Сообщает идентификаторы процессов (PID), которые используют указанный
+          файл или файловую систему</para>
           <indexterm zone="ch-system-psmisc fuser">
             <primary sortas="b-fuser">fuser</primary>
           </indexterm>
@@ -93,8 +93,8 @@ mv -v /usr/bin/killall /bin</userinput></screen>
       <varlistentry id="killall">
         <term><command>killall</command></term>
         <listitem>
-          <para>Уничтожает процесс по наименованию; посылает сигнал всем
-          процессам, которые были запущены указанной командой.</para>
+          <para>Уничтожает процесс по имени. Посылает сигнал всем
+          процессам, запустившим любую из указанных команд.</para>
           <indexterm zone="ch-system-psmisc killall">
             <primary sortas="b-killall">killall</primary>
           </indexterm>

@@ -14,51 +14,47 @@
     <primary sortas="e-etc-locale-conf">/etc/locale.conf</primary>
   </indexterm>
 
-  <para>The <filename>/etc/locale.conf</filename> file below sets some
-  environment variables necessary for native language support. Setting
-  them properly results in:</para>
+  <para>Файл <filename>/etc/locale.conf</filename> устанавливает переменные окружения,
+  отвечающие за поддержку вашего языка. Правильная их установка влияет на:</para>
 
   <itemizedlist>
     <listitem>
-      <para>The output of programs being translated into your native language</para>
+      <para>Перевод вывода программ на ваш язык</para>
     </listitem>
     <listitem>
-      <para>The correct classification of characters into letters, digits and other
-      classes. This is necessary for <command>bash</command> to properly accept
-      non-ASCII characters in command lines in non-English locales</para>
+      <para>Правильную интерпретацию символов в буквы, цифры и прочее.
+      Это необходимо <command>bash</command> для правильного понимания
+      не-ASCII символов командной строки в неанглийских локалях</para>
     </listitem>
     <listitem>
-      <para>The correct alphabetical sorting order for the country</para>
+      <para>Правильную сортировку по алфавиту</para>
     </listitem>
     <listitem>
-      <para>The appropriate default paper size</para>
+      <para>Выбор подходящей размер бумаги по умолчанию</para>
     </listitem>
     <listitem>
-      <para>The correct formatting of monetary, time, and date values</para>
+      <para>Правильный формат для денег, времени и дат</para>
     </listitem>
   </itemizedlist>
 
-  <para>Replace <replaceable>&lt;ll&gt;</replaceable> below with the two-letter code
-  for your desired language (e.g., <quote>en</quote>) and
-  <replaceable>&lt;CC&gt;</replaceable> with the two-letter code for the appropriate
-  country (e.g., <quote>GB</quote>). <replaceable>&lt;charmap&gt;</replaceable> should
-  be replaced with the canonical charmap for your chosen locale. Optional
-  modifiers such as <quote>@euro</quote> may also be present.</para>
+  <para>Ниже замените <replaceable>&lt;ll&gt;</replaceable> на двузначный код
+  выбранного языка (например <quote>en</quote>) и
+  <replaceable>&lt;CC&gt;</replaceable> на двузначный код страны (например <quote>GB</quote>).
+  <replaceable>&lt;charmap&gt;</replaceable> нужно заменить на каноничную кодировку для вашей
+  локали. Возможно использовать опциональные модификаторы вроде <quote>@euro</quote>.</para>
 
-  <para>The list of all locales supported by Glibc can be obtained by running
-  the following command:</para>
+  <para>Список всех, поддерживаемых Glibc, локалей можно получить командой:</para>
 
 <screen role="nodump"><userinput>locale -a</userinput></screen>
 
-  <para>Charmaps can have a number of aliases, e.g., <quote>ISO-8859-1</quote>
-  is also referred to as <quote>iso8859-1</quote> and <quote>iso88591</quote>.
-  Some applications cannot handle the various synonyms correctly (e.g., require
-  that <quote>UTF-8</quote> is written as <quote>UTF-8</quote>, not
-  <quote>utf8</quote>), so it is the safest in most
-  cases to choose the canonical name for a particular locale. To determine
-  the canonical name, run the following command, where <replaceable>&lt;locale
-  name&gt;</replaceable> is the output given by <command>locale -a</command> for
-  your preferred locale (<quote>en_GB.iso88591</quote> in our example).</para>
+  <para>Таблицы символов могут иметь синонимы. Например <quote>ISO-8859-1</quote>
+  так же называет <quote>iso8859-1</quote> и <quote>iso88591</quote>.
+  Некоторые приложения не обрабатывают синонимы корректно (например <quote>UTF-8</quote>
+  должно быть указано как <quote>UTF-8</quote>, а не <quote>utf8</quote>), так что самым 
+  безопасным будет указывать каноничное имя выбранной локали. Для определения каноничного
+  имени локали запустите следующую команду, заменив <replaceable>&lt;locale
+  name&gt;</replaceable> на вывод <command>locale -a</command> для желаемой локали
+  (например <quote>en_GB.iso88591</quote>).</para>
 
 <screen role="nodump"><userinput>LC_ALL=<replaceable>&lt;locale name&gt;</replaceable> locale charmap</userinput></screen>
 

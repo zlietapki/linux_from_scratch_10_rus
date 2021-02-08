@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет Ncurses содержит библиотеки для обработки текстовых экранов независимо от
+    <para>Пакет Ncurses содержит библиотеки для работы с текстовыми экранами независимо от
     используемого терминала.</para>
 
     <segmentedlist>
@@ -41,7 +41,7 @@
   <sect2 role="installation">
     <title>Установка Ncurses</title>
 
-    <para>Don't install a static library that is not handled by configure:</para>
+    <para>Не устанавливайте статичную библиотеку, которая не обрабатывается configure:</para>
 
 <screen><userinput remap="pre">sed -i '/LIBTOOL_INSTALL/d' c++/Makefile.in</userinput></screen>
 
@@ -61,13 +61,13 @@
       <varlistentry>
         <term><parameter>--enable-widec</parameter></term>
         <listitem>
-          <para>Включает сборку с поддержкой библиотек расширенных символов (например, <filename
+          <para>Включает сборку библиотек с расширенными символами (например <filename
           class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
-          вместо обычных (e.g., <filename
+          вместо обычных (например <filename
           class="libraryfile">libncurses.so.&ncurses-version;</filename>).
-          Библиотеки расширенных символов можно использовать и в многобайтной локали и в обычной
-          8-битной, в то время как обычные библиотеки работают исключительно с 8-битными
-          локалями. Библиотеки с расширенными символами и обычные совместимы на уровне исходных
+          Библиотеки расширенных символов можно использовать как в многобайтной локали, так и
+          в обычной 8-битной. Обычные библиотеки работают исключительно с 8-битными
+          локалями. Библиотеки расширенных символов и обычные совместимы на уровне исходных
           кодов, но не совместимы бинарно.</para>
         </listitem>
       </varlistentry>
@@ -83,7 +83,7 @@
       <varlistentry>
         <term><parameter>--without-normal</parameter></term>
         <listitem>
-          <para>Этот параметр отключает сборку и установку большинства статичных библиотек.
+          <para>Отключает сборку и установку большинства статичных библиотек.
           </para>
         </listitem>
       </varlistentry>
@@ -114,8 +114,9 @@
 <screen><userinput remap="install">ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so</userinput></screen>
 
     <para>Многие приложения продолжают ожидать, что линковщик сможет найти
-    не-расширенные библиотеки  Ncurses. Можно хитрость заставить такие приложения линковать
-    расширенные библиотеки с помощью символических ссылок и скриптов линкощика:</para>
+    библиотеки Ncurses с обычных (нерасширенных) символов. С помощью символических ссылок и скриптов
+    линкощика можно обмануть такие приложения и убедить их линковать расширенные
+    библиотеки :</para>
 
 <screen><userinput remap="install">for lib in ncurses form panel menu ; do
     rm -vf                    /usr/lib/lib${lib}.so
@@ -123,8 +124,8 @@
     ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc
 done</userinput></screen>
 
-    <para>Наконец убедитесь, что старые приложения, которым нужна
-    <filename class="libraryfile">-lcurses</filename> во время сбоки, все еще собираются:</para>
+    <para>Убедитесь, что старые приложения, которым нужна
+    <filename class="libraryfile">-lcurses</filename> для сборки, все еще собираются:</para>
 
 <screen><userinput remap="install">rm -vf                     /usr/lib/libcursesw.so
 echo "INPUT(-lncursesw)" &gt; /usr/lib/libcursesw.so

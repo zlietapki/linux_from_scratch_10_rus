@@ -23,9 +23,9 @@
   <sect2 role="package">
     <title/>
 
-    <para>GNU libtool является общей библиотекой поддержки скриптов. Libtool скрывает
-    сложность использования распределенных библиотек под последовательным, переносимым 
-    интерфейсом. Библиотека необходима для выполнения тестов других пакетов LFS.</para>
+    <para>Пакет Libtool содержит GNU версию скрипта поддержки общих библиотек. Libtool
+    скрывает сложность использования разделяемых библиотек под согласованным, переносимым 
+    интерфейсом.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,9 +40,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Установка пакета Libtool</title>
+    <title>Установка Libtool</title>
 
-    <para>Подготовьте пакет Libtool к компиляции:</para>
+    <para>Подготовка Libtool к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 

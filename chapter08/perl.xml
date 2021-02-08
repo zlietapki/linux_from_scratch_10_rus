@@ -48,9 +48,9 @@
 <screen><userinput remap="pre">export BUILD_ZLIB=False
 export BUILD_BZIP2=0</userinput></screen>
 
-    <para>Для полного контроля настроек Perl можете удалить опцию <quote>-des</quote> из
-    следующей команды и вручную управлять сборкой этого пакета.
-    Либо используйте команду без изменений и Perl автоматически определит подходящие
+    <para>Для полного контроля настроек Perl можно удалить опцию <quote>-des</quote> из
+    следующей команды и вручную управлять сборкой пакета.
+    Либо использовать команду без изменений и Perl автоматически определит подходящие
     параметры:</para>
 
  <screen><userinput remap="configure">sh Configure -des                                         \
@@ -157,7 +157,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         perlbug, perldoc, perlivp, perlthanks (жесткая ссылка на perlbug), piconv,
         pl2pm, pod2html, pod2man, pod2text, pod2usage, podchecker, podselect,
         prove, ptar, ptardiff, ptargrep, shasum,
-        splain, xsubpp, and zipdetails</seg>
+        splain, xsubpp, zipdetails</seg>
         <seg>Список слишком большой для перечисления</seg>
         <seg>/usr/lib/perl5</seg>
       </seglistitem>

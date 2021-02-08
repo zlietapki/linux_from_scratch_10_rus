@@ -59,7 +59,7 @@
 
 <screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
 
-    <para>Убедитесь, что все нужные файлы в правильном каталоге:</para>
+    <para>Переместите файлы в правильные каталоги:</para>
 
 <screen><userinput remap="install">mv -v $LFS/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat}  $LFS/bin
 mv -v $LFS/usr/lib/liblzma.so.*                       $LFS/lib

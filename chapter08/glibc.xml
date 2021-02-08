@@ -386,7 +386,7 @@ unset ZONEINFO</userinput></screen>
   </sect3>
 
   <sect3 id="conf-ld" role="configuration">
-    <title>Конфигурирование динамического загрузчика</title>
+    <title>Настройка динамического загрузчика</title>
 
     <indexterm zone="conf-ld">
       <primary sortas="e-/etc/ld.so.conf">/etc/ld.so.conf</primary>
@@ -395,7 +395,7 @@ unset ZONEINFO</userinput></screen>
     <para>По умолчанию, во время работы программы динамический загрузчик (<filename
     class="libraryfile">/lib/ld-linux.so.2</filename>) ищет нужные библиотеки
     в каталогах <filename class="directory">/lib</filename>
-    и <filename class="directory">/usr/lib</filename>. Если же библиотека находится в другом
+    и <filename class="directory">/usr/lib</filename>. Если библиотека находится в другом
     каталоге, то его необходимо указать в файле <filename>/etc/ld.so.conf</filename>, чтобы
     динамический загрузчик смог найти библиотеку.
     Два каталога - <filename
@@ -412,9 +412,9 @@ unset ZONEINFO</userinput></screen>
 </literal>
 EOF</userinput></screen>
 
-  <para>Динамический загрузчик умеет читать содержимое файлов каталога. Обычно это файлы
-  из одной строки с указанием пути к библиотеке.
-  Для добавления такой возможности, выполните следующие команды:</para>
+  <para>У динамического загрузчика есть опция просматривать все файлы каталога и включать их
+  содержимое. Обычно такие файлы состоят из одной строки и содержат путь к библиотеке.
+  Для включения этой опции выполните следующие команды:</para>
 
 <screen role="nodump"><userinput>cat &gt;&gt; /etc/ld.so.conf &lt;&lt; "EOF"
 <literal># Add an include directory

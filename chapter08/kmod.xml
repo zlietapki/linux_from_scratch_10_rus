@@ -56,15 +56,14 @@
       <varlistentry>
         <term><parameter>--with-xz, --with-zlib</parameter></term>
         <listitem>
-          <para>Эти аргументы позволяют Kmod обрабатывать сжатые модули ядра.</para>
+          <para>Аргументы включают обработку сжатых модулей ядра.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-rootlibdir=/lib</parameter></term>
         <listitem>
-          <para>Обеспечивает размещение различных связанных с библиотекой
-          файлов в правильных каталогах.</para>
+          <para>Гарантирует правильные пути различных, связанных с библиотекой, файлов.</para>
         </listitem>
       </varlistentry>
 
@@ -74,9 +73,9 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Пакет не поставляется с тестами, которые можно запустить в среде LFS chroot.
-    Как минимум требуется программа git и несколько тестов не будут выполняться вне
-     git репозитория.</para>
+    <para>У пакета нет тестов, которые можно запустить в среде LFS chroot.
+    Как минимум требуется программа git, а несколько тестов не будут выполняться вне
+    git репозитория.</para>
 
     <para>Установите пакет и создайте символические ссылки для обеспечения совместимости
     с Module-Init-Tools (пакет, который ранее обрабатывал модули ядра Linux):</para>
@@ -99,9 +98,9 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <segtitle>&contentlibs;</segtitle>
 
       <seglistitem>
-        <seg>depmod (link to kmod), insmod (link to kmod), kmod,
-        lsmod (link to kmod), modinfo (link to kmod), modprobe (link to kmod),
-        and rmmod (link to kmod)</seg>
+        <seg>depmod (ссылка на kmod), insmod (ссылка на kmod), kmod,
+        lsmod (ссылка на kmod), modinfo (ссылка на kmod), modprobe (ссылка на kmod),
+        rmmod (ссылка на kmod)</seg>
         <seg>libkmod.so</seg>
       </seglistitem>
     </segmentedlist>
@@ -114,8 +113,8 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="depmod">
         <term><command>depmod</command></term>
         <listitem>
-          <para>Создает файл зависимостей на основе символов, которые он находит в
-          существующем наборе модулей; этот файл зависимостей используется программой
+          <para>Создает файл зависимостей на основе символов найденных в
+          существующем наборе модулей; этот файл используется программой
           <command>modprobe</command> для автоматической загрузки необходимых
           модулей</para>
           <indexterm zone="ch-system-kmod depmod">
@@ -127,7 +126,7 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="insmod">
         <term><command>insmod</command></term>
         <listitem>
-          <para>программа для вставки модуля в ядро Linux</para>
+          <para>Устанавливает загружаемый модуль в работающее ядро Linux</para>
           <indexterm zone="ch-system-kmod insmod">
             <primary sortas="b-insmod">insmod</primary>
           </indexterm>
@@ -157,8 +156,8 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="modinfo">
         <term><command>modinfo</command></term>
         <listitem>
-          <para>Изучает объектный файл, связанный с модулем ядра, и
-          отображает любую информацию, которую он может получить</para>
+          <para>Сканирует, связанный с модулем ядра, объектный файл и выводит всю найденную
+          информацию</para>
           <indexterm zone="ch-system-kmod modinfo">
             <primary sortas="b-modinfo">modinfo</primary>
           </indexterm>
@@ -189,8 +188,8 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="libkmod">
         <term><filename class="libraryfile">libkmod</filename></term>
         <listitem>
-          <para>Эта библиотека используется другими программами для загрузки и
-          выгрузки модулей ядра</para>
+          <para>Библиотека используемая другими программами для загрузки и выгрузки модулей
+          ядра</para>
           <indexterm zone="ch-system-kmod">
             <primary sortas="c-libkmod">libkmod</primary>
           </indexterm>

@@ -23,7 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет MPFR включает функции по работе с вычислениями с произвольной точностью.</para>
+    <para>Пакет MPFR содержит математические функции вычислений с множественной
+    точностью.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -57,11 +58,11 @@ make html</userinput></screen>
        Не пропускайте их выполнение ни при каких обстоятельствах.</para>
     </important>
 
-    <para>Выполните команду для запуска тестов и убедитесь, что все тесты выполнились успешно:</para>
+    <para>Выполните тестирование и убедитесь, что все тесты прошли успешно:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Установка пакета и его документации:</para>
+    <para>Установка пакета и документации:</para>
 
 <screen><userinput remap="install">make install
 make install-html</userinput></screen>
@@ -90,7 +91,7 @@ make install-html</userinput></screen>
       <varlistentry id="libmpfr">
         <term><filename class="libraryfile">libmpfr</filename></term>
         <listitem>
-          <para>Содержит функции по работе с вычислениями с произвольной точностью</para>
+          <para>Содержит функции вычислений с множественной точностью</para>
           <indexterm zone="ch-system-mpfr libmpfr">
             <primary sortas="c-libmpfr">libmpfr</primary>
           </indexterm>

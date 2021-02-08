@@ -23,7 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Expat потокоориентированная библиотека парсинга XML, написанная на C. Как один из наиболее доступных XML парсеров, широко используется в открытом программном обеспечении.</para>
+    <para>Пакет Expat содержит написанную на Си потокоориентированную библиотеку
+    парсинга XML.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,11 +41,7 @@
   <sect2 role="installation">
     <title>Установка Expat</title>
 
-    <para>Исправим проблему при работе с регрессионными тестами в окружении LFS:</para>
-
-<screen><userinput remap="pre">sed -i 's|usr/bin/env |bin/|' run.sh.in</userinput></screen>
-
-    <para>Подготовьте пакет Expat к компиляции:</para>
+    <para>Подготовка Expat к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --disable-static \
@@ -54,7 +51,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Для выполнения тестов, выполните команду:</para>
+    <para>Тестирование:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -91,7 +88,7 @@
       <varlistentry id="xmlwf">
         <term><command>xmlwf </command></term>
         <listitem>
-          <para>Утилита для проверки XML документов на предмет правильного оформления</para>
+          <para>Утилита проверки правильности формирования XML документов</para>
           <indexterm zone="ch-system-expat xmlwf">
             <primary sortas="b-xmlwf">xmlwf</primary>
           </indexterm>
@@ -101,7 +98,7 @@
       <varlistentry id="libexpat">
         <term><filename class="libraryfile">libexpat</filename></term>
         <listitem>
-          <para>Содержит функции API для разбора (парсинга) XML</para>
+          <para>Содержит функции API для парсинга XML</para>
           <indexterm zone="ch-system-expat libexpat">
             <primary sortas="c-libexpat">libexpat</primary>
           </indexterm>

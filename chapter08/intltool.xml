@@ -23,7 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Intltool - инструмент интернационализации, используемый для извлечения переводимых строк из исходных файлов.</para>
+    <para>Intltool - инструмент интернационализации, извлекающий переводимые строки из
+    исходных файлов.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,19 +41,19 @@
   <sect2 role="installation">
     <title>Установка Intltool</title>
 
-    <para>Сначала исправим предупреждение, вызванное в perl-5.22 и более поздних версиях:</para>
+    <para>Исправьте предупреждение, вызываемое perl-5.22 и более поздними версиями:</para>
 
 <screen><userinput remap="pre">sed -i 's:\\\${:\\\$\\{:' intltool-update.in</userinput></screen>
 
-    <para>Подготовьте пакет Intltool к компиляции:</para>
+    <para>Подготовка Intltool к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Скомпилируйте пакет:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Для выполнения тестов, выполните команду:</para>
+    <para>Тестирование:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -72,8 +73,8 @@ install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N
 
       <seglistitem>
         <seg>intltool-extract, intltool-merge, intltool-prepare,
-        intltool-update, and intltoolize</seg>
-        <seg>/usr/share/doc/intltool-&intltool-version; and
+        intltool-update, intltoolize</seg>
+        <seg>/usr/share/doc/intltool-&intltool-version; и
         /usr/share/intltool</seg>
       </seglistitem>
     </segmentedlist>
@@ -86,7 +87,7 @@ install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N
       <varlistentry id="intltoolize">
         <term><command>intltoolize</command></term>
         <listitem>
-          <para>Подготовьте пакет для использования intltool</para>
+          <para>Подготавливает пакет для использования intltool</para>
           <indexterm zone="ch-system-intltool intltoolize">
             <primary sortas="b-intltoolize">intltoolize</primary>
           </indexterm>
@@ -96,7 +97,7 @@ install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N
       <varlistentry id="intltool-extract">
         <term><command>intltool-extract</command></term>
         <listitem>
-          <para>Создает заголовочные файлы, которые могут быть прочитаны программой <command>gettext</command></para>
+          <para>Создает заголовочные файлы, читаемые программой <command>gettext</command></para>
           <indexterm zone="ch-system-intltool intltool-extract">
             <primary sortas="b-intltool-extract">intltool-extract</primary>
           </indexterm>
@@ -106,7 +107,7 @@ install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N
       <varlistentry id="intltool-merge">
         <term><command>intltool-merge</command></term>
         <listitem>
-          <para>Объединяет переведенные строки в различные типы файлов</para>
+          <para>Объединяет переведенные строки в файлы различных типов</para>
           <indexterm zone="ch-system-intltool intltool-merge">
             <primary sortas="b-intltool-merge">intltool-merge</primary>
           </indexterm>

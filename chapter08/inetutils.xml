@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Установка пакета Inetutils</title>
 
-    <para>Подготовьте пакет Inetutils к компиляции:</para>
+    <para>Подготовка Inetutils к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr        \
             --localstatedir=/var \
@@ -58,54 +58,62 @@
       <varlistentry>
         <term><parameter>--disable-logger</parameter></term>
         <listitem>
-          <para>Аргумент запрещает устанавливать программу
-          <command>logger</command>, которая используется сценариями для перенаправления сообщений системной службе логирования (System Log Daemon). Не устанавливайте его, потому что Util-linux устанавливает более новую версию.</para>
+          <para>Аргумент запрещает установку программы
+          <command>logger</command>, используемой скриптами для отправки сообщений системной
+          службе логирования (System Log Daemon). Не устанавливайте её, т.к. Util-linux
+          устанавливает более свежую версию.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-whois</parameter></term>
         <listitem>
-          <para>Аргумент запрещает устанавливать программу <command>whois</command>, которая является устаревшей. Инструкции для установки лучшей альтернативы <command>whois</command> располагается в книге BLFS.</para>
+          <para>Запрещает устанавливать программу <command>whois</command>, которая является
+          устаревшей. Инструкции по установке лучшего <command>whois</command> клиента
+          описаны в книге BLFS.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-r*</parameter></term>
         <listitem>
-          <para>Аргумент запрещает устанавливать устаревшие программы которые по соображениям безопасности не должны быть установлены. Функции, поддерживаемые этими программами можно заменить функционалом из пакета <application>openssh</application> из книги BLFS.</para>
+          <para>Запрещает установку устаревших программ, которые не должны использоваться
+          по соображениям безопасности. Функционал этих программы можно получить установкой
+          пакета <application>openssh</application> из книги BLFS.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-servers</parameter></term>
         <listitem>
-          <para>Отключает установку различных сетевых серверов
-          из пакета Inetutils. Эти серверы считаются не
-          соответствующих базовой системе LFS. Некоторые из них небезопасны по своей природе и
-          считаются безопасным только в надежных сетях. Обратите внимание, что
-          для многих из этих серверов есть лучшие замены.</para>
+          <para>Отключает установку различных сетевых серверов, входящих в состав пакета
+          Inetutils. Эти серверы считаются неподходящими для базовой системы LFS. Некоторые из
+          них небезопасны по своей природе и считаются надежными только в доверенных сетях.
+          Стоит учесть, что многие из этих серверов можно заменить лучшими вариантами.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Скомпилируйте пакет:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Для выполнения тестов, выполните команду:</para>
+    <para>Тестирование:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <note><para>Один тест, libls.sh, может не пройти в среде chroot но пройдет корректно, если повторить проверку после окончательной установки системы LFS. Ещё один тест ping-localhost.sh также не пройдёт если хост система не поддерживает возможности ipv6.</para></note>
+    <note><para>Один тест, libls.sh, может не пройти в среде chroot но пройдет корректно,
+    если повторить проверку после окончательной установки системы LFS. Ещё один тест
+    ping-localhost.sh также не пройдёт если хост система не поддерживает возможности
+    ipv6.</para></note>
 
     <para>Установка пакета:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Переместите некоторые программы, чтобы они были доступны, если каталог <filename
-    class='directory'>/usr</filename> недоступен:</para>
+    <para>Переместите некоторые программы. Они должны работать при недоступности
+    каталога <filename class='directory'>/usr</filename>:</para>
 
 <screen><userinput remap="install">mv -v /usr/bin/{hostname,ping,ping6,traceroute} /bin
 mv -v /usr/bin/ifconfig /sbin</userinput></screen>

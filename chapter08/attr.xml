@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет attr содержит утилиты для администрирования расширенных атрибутов
+    <para>Пакет attr содержит утилиты администрирования расширенных атрибутов
     объектов файловой системы.</para>
 
     <segmentedlist>
@@ -70,8 +70,8 @@
 
     <para>Разделяемую библиотеку необходимо перенести в каталог
     <filename class="directory">/lib</filename> и, как следствие,
-    <filename class="extension">.so</filename> файл в каталоге
-    <filename class="directory">/usr/lib</filename> необходимо создать заново:</para>
+    <filename class="extension">.so</filename> файл в
+    <filename class="directory">/usr/lib</filename> необходимо пересоздать:</para>
 
 <screen><userinput remap="install">mv -v /usr/lib/libattr.so.* /lib
 ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so</userinput></screen>
