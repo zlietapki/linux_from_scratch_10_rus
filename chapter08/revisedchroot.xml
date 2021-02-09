@@ -16,8 +16,8 @@
 <screen><userinput>rm -rf /tmp/*</userinput></screen>
 
   <para>Теперь выйдите и перезайдите в среду chroot с помощь обновленной команды
-  chroot. С этих пор используйте эту обновленную chroot команду каждый раз,
-  когда вам нужно войти в chroot окружение:</para>
+  chroot. С этого момента используйте указанную команду chroot команду каждый раз,
+  когда нужно войти в chroot окружение:</para>
 
 <screen role="nodump"><userinput>logout
 
@@ -27,8 +27,8 @@ chroot "$LFS" /usr/bin/env -i          \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
     /bin/bash --login</userinput></screen>
 
-  <para>Тут больше не используется параметр <parameter>+h</parameter>, так как
-  все предыдущие программы были заменены хеширование стало возможным.</para>
+  <para>Параметр <parameter>+h</parameter> больше не используется, т.к.
+  все предыдущие программы были заменены и хеширование стало возможным.</para>
 
   <para>Если виртуальные файловые системы ядра были отмонтированы (вручную
   или из-за перезагрузки), убедитесь в том, что они примонтированы перед входом в chroot.
@@ -36,10 +36,9 @@ chroot "$LFS" /usr/bin/env -i          \
   linkend="ch-tools-bindmount"/> и <xref
   linkend="ch-tools-kernfsmount"/>.</para>
 
-  <para>Остались несколько статичных библиотек, не удаленных ранее в этой главе, для
-  прохождения регрессионных тестов нескольких пакетов. Это библиотеки от пакетов 
-  binutils, bzip2, e2fsprogs, flex, libtool и zlib. Если хотите,
-  можете удалить их сейчас:</para>
+  <para>Остались неудаленными несколько статичных библиотек, они нужны были для
+  прохождения регрессионных тестов нескольких пакетов. Это библиотеки из пакетов 
+  binutils, bzip2, e2fsprogs, flex, libtool и zlib. Теперь их можно удалить:</para>
 
 <screen><userinput>rm -f /usr/lib/lib{bfd,opcodes}.a
 rm -f /usr/lib/libctf{,-nobfd}.a
@@ -53,7 +52,7 @@ rm -f /usr/lib/libz.a</userinput></screen>
   /usr/libexec. Это "архивы libtool". Как уже говорилось, они нужны только для линковки
   со статичными библиотеками. Они не нужны и потенциально опасны при
   использовании динамических разделяемых библиотек, особенно при использовании
-  неавтоматических систем сборки. Для их удаления выполните команду:</para>
+  неавтоматических систем сборки. Для их удаления выполните:</para>
 
 <screen><userinput>find /usr/lib /usr/libexec -name \*.la -delete</userinput></screen>
 
@@ -62,17 +61,16 @@ rm -f /usr/lib/libz.a</userinput></screen>
    url="&blfs-book;/introduction/la-files.html">раздел BLFS "Файлы архивов Libtool (.la)"</ulink>.</para>
 
    <para>Компилятор собранный в <xref linkend="chapter-temporary-tools"/> и
-   <xref linkend="chapter-chroot-temporary-tools"/> все еще частично установлен
+   <xref linkend="chapter-chroot-temporary-tools"/> всё еще частично установлен
    и больше не нужен. Удалите его:</para>
 
 <screen><userinput>find /usr -depth -name $(uname -m)-lfs-linux-gnu\* | xargs rm -rf</userinput></screen>
 
-   <para>Каталог <filename class="directory">/tools</filename> тоже может быть удален
-   для освобождения места:</para>
+   <para>Каталог <filename class="directory">/tools</filename> тоже может быть удален:</para>
 
 <screen><userinput>rm -rf /tools</userinput></screen>
 
-   <para>Наконец удалите аккаунт временного пользователя 'tester' созданный в начале 
+   <para>Наконец, удалите аккаунт временного пользователя 'tester', созданный в начале 
    предыдущей главы.</para>
 
 <screen><userinput>userdel -r tester</userinput></screen>

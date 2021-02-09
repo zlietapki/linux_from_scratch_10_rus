@@ -91,8 +91,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so</useri
 
 <screen><userinput remap="install">ln -sfv /etc/machine-id /var/lib/dbus</userinput></screen>
 
-    <para>Move the socket file to /run instead of the deprecated
-    /var/run:</para>
+    <para>Переместите файл сокета в /run из устаревшего пути /var/run:</para>
 
  <screen><userinput remap="install">sed -i 's:/var/run:/run:' /lib/systemd/system/dbus.socket</userinput></screen>
 
@@ -109,11 +108,11 @@ ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so</useri
       <seglistitem>
         <seg>dbus-cleanup-sockets, dbus-daemon, dbus-launch, dbus-monitor,
         dbus-run-session, dbus-send, dbus-test-tool,
-        dbus-update-activation-environment, and dbus-uuidgen</seg>
+        dbus-update-activation-environment, dbus-uuidgen</seg>
         <seg>libdbus-1.{a,so}</seg>
         <seg>/etc/dbus-1, /usr/include/dbus-1.0, /usr/lib/dbus-1.0,
         /usr/share/dbus-1, /usr/share/doc/dbus-&dbus-version;,
-        and /var/lib/dbus</seg>
+        /var/lib/dbus</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -135,7 +134,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so</useri
       <varlistentry id="dbus-daemon">
         <term><command>dbus-daemon</command></term>
         <listitem>
-          <para>Is the D-Bus message bus daemon</para>
+          <para>Служба сообщений D-Bus</para>
           <indexterm zone="ch-system-dbus dbus-daemon">
             <primary sortas="b-dbus-daemon">dbus-daemon</primary>
           </indexterm>
@@ -156,7 +155,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so</useri
       <varlistentry id="dbus-monitor">
         <term><command>dbus-monitor</command></term>
         <listitem>
-          <para>Monitors messages passing through a D-Bus message bus</para>
+          <para>Мониторинг сообщений, проходящих через службу D-Bus</para>
           <indexterm zone="ch-system-dbus dbus-monitor">
             <primary sortas="b-dbus-monitor">dbus-monitor</primary>
           </indexterm>
@@ -211,7 +210,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so</useri
       <varlistentry id="dbus-uuidgen">
         <term><command>dbus-uuidgen</command></term>
         <listitem>
-          <para>Generates a universally unique ID</para>
+          <para>Генерирует уникальные идентификаторы UUID</para>
           <indexterm zone="ch-system-dbus dbus-uuidgen">
             <primary sortas="b-dbus-uuidgen">dbus-uuidgen</primary>
           </indexterm>

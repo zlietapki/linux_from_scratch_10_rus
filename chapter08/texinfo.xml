@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Texinfo package contains programs for reading, writing, and
-    converting info pages.</para>
+    <para>Пакет Texinfo содержит программы для чтения, записи и конвертирования
+    страниц руководств.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,12 +41,12 @@
   <sect2 role="installation">
     <title>Installation of Texinfo</title>
 
-    <para>Prepare Texinfo for compilation:</para>
+    <para>Подготовка Texinfo к компиляции:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 <!--
     <variablelist>
-      <title>The meaning of the configure option:</title>
+      <title>Значения параметров configure:</title>
 
       <varlistentry>
         <term><parameter>- -disable-static</parameter></term>
