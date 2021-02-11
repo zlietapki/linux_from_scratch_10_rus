@@ -41,7 +41,7 @@
     <title>Установка systemd</title>
 
 <!--
-    <para>Сначала примените патч исправляющий ошибку сегментации при сборке с GCC-10:</para>
+    <para>Примените патч, исправляющий ошибку сегментации при сборке с GCC-10:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../systemd-&systemd-version;-gcc_10-fixes-2.patch</userinput></screen>
 -->
@@ -100,8 +100,8 @@ meson --prefix=/usr                 \
       <varlistentry>
         <term><parameter>-D*-path=*</parameter></term>
         <listitem>
-          <para>Указывает положение еще неустановленных двоичных файлов нужных systemd для
-          работы.</para>
+          <para>Пути бинарных файлов нужных для работы systemd, но еще
+          неустановленных.</para>
         </listitem>
       </varlistentry>
 
@@ -115,8 +115,8 @@ meson --prefix=/usr                 \
       <varlistentry>
         <term><parameter>-Dfirstboot=false</parameter></term>
         <listitem>
-          <para>Отключает установку сервисов systemd ответственных за первоначальную настройку
-          системы. Они не нужны в случае LFS, т.к. все настраивается вручную.</para>
+          <para>Отключает установку сервисов настройки systemd при первом запуске. Они не
+          нужны в случае LFS, т.к. все настраивается вручную.</para>
         </listitem>
       </varlistentry>
 
@@ -133,14 +133,14 @@ meson --prefix=/usr                 \
           <para>Отключает установку юнита systemd, который запускает
           <command>ldconfig</command> при каждой загрузке системы. Это бесполезно для
           собранных из исходников дистрибутивов вроде LFS и замедляет загрузку. Удалите
-          параметр, если такая функция всеже нужна.</para>
+          параметр, если такая функция все же нужна.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>-Droot*</parameter></term>
         <listitem>
-          <para>Эти параметры гарантируют установку основных программ и разделяемых библиотек
+          <para>Гарантируют установку основных программ и разделяемых библиотек
           в подкаталоги корневого раздела.</para>
         </listitem>
       </varlistentry>
@@ -148,8 +148,8 @@ meson --prefix=/usr                 \
       <varlistentry>
         <term><parameter>-Dsplit-usr=true</parameter></term>
         <listitem>
-          <para>Эти параметры гарантируют, что systemd будет работать на системах, где
-          каталоги /bin, /lib и /sbin не являются символическими ссылками на /usr.</para>
+          <para>Гарантируют работу systemd на системах, где каталоги /bin, /lib и /sbin не
+          являются символическими ссылками на /usr.</para>
         </listitem>
       </varlistentry>
 
@@ -166,7 +166,7 @@ meson --prefix=/usr                 \
       <varlistentry>
         <term><parameter>-Drpmmacrosdir=no</parameter></term>
         <listitem>
-          <para>Отключает установку RPM макросов systemd, потому что LFS не поддерживает
+          <para>Отключает установку RPM макросов systemd, т.к. LFS не поддерживает
           RPM.</para>
         </listitem>
       </varlistentry>
@@ -174,7 +174,7 @@ meson --prefix=/usr                 \
       <varlistentry>
         <term><parameter>-D{userdb,homed}=false</parameter></term>
         <listitem>
-          <para>Удаляет две службы, которые требуют зависимостей неудовлетворяющим LFS.</para>
+          <para>Удаляет две службы, чьи зависимости не удовлетворяет LFS.</para>
         </listitem>
       </varlistentry>
 
@@ -188,11 +188,11 @@ meson --prefix=/usr                 \
 
 <screen><userinput remap="install">LANG=en_US.UTF-8 ninja install</userinput></screen>
 
-    <para>Удалите необязательную символическую ссылку:</para>
+    <para>Удалите временную символическую ссылку:</para>
 
 <screen><userinput remap="install">rm -f /usr/bin/xsltproc</userinput></screen>
 
-    <para>Создайте файл <filename>/etc/machine-id</filename> нужный
+    <para>Создайте файл <filename>/etc/machine-id</filename> необходимый
     <command>systemd-journald</command>:</para>
 
 <screen><userinput remap="adjust">systemd-machine-id-setup</userinput></screen>
@@ -207,7 +207,7 @@ meson --prefix=/usr                 \
  
 <screen><userinput remap="adjust">systemctl disable systemd-time-wait-sync.service</userinput></screen>
 
-    <para>Отключите возможность systemd сбрасывать максимальное значение PID, это
+    <para>Отключите возможность systemd сбрасывать максимальное значение PID, которое
     вызывает некоторые проблемы с пакетами и юнитами из BLFS:</para>
     
 <screen><userinput remap="adjust">rm -f /usr/lib/sysctl.d/50-pid-max.conf</userinput></screen>
@@ -241,7 +241,7 @@ meson --prefix=/usr                 \
         <seg>libnss_myhostname.so.2, libnss_mymachines.so.2,
         libnss_resolve.so.2, libnss_systemd.so.2,
         libsystemd.so, libsystemd-shared-&systemd-version;.so (in /lib/systemd),
-        and libudev.so</seg>
+        libudev.so</seg>
         <seg>/etc/binfmt.d, /etc/init.d, /etc/kernel, /etc/modules-load.d,
         /etc/sysctl.d, /etc/systemd, /etc/tmpfiles.d, /etc/udev,
         /etc/xdg/systemd, /lib/systemd, /lib/udev, /usr/include/systemd,
@@ -271,7 +271,7 @@ meson --prefix=/usr                 \
       <varlistentry id="busctl">
         <term><command>busctl</command></term>
         <listitem>
-          <para>Используется для анализа и мониторинга за D-Bus</para>
+          <para>Используется для анализа и мониторинга D-Bus</para>
           <indexterm zone="ch-system-systemd busctl">
             <primary sortas="b-busctl">busctl</primary>
           </indexterm>
@@ -304,7 +304,8 @@ meson --prefix=/usr                 \
       <varlistentry id="hostnamectl">
         <term><command>hostnamectl</command></term>
         <listitem>
-          <para>Используется для чтения и установки имени системы и связанных с этим настроек</para>
+          <para>Используется для чтения и установки имени системы и связанных с этим
+          настроек</para>
           <indexterm zone="ch-system-systemd hostnamectl">
             <primary sortas="b-hostnamectl">hostnamectl</primary>
           </indexterm>
@@ -314,9 +315,9 @@ meson --prefix=/usr                 \
       <varlistentry id="init">
         <term><command>init</command></term>
         <listitem>
-          <para>Первый процесс запускаемый после инициализации ядром оборудования, который
+          <para>Первый процесс, запускаемый ядром после инициализации оборудования, который
           продолжает процесс загрузки и запускает все процессы в соответствии с их 
-          настройками. В этом случае, он запускает systemd.</para>
+          настройками. В данном случае, он запускает systemd.</para>
           <indexterm zone="ch-system-systemd init">
             <primary sortas="b-init">init</primary>
           </indexterm>
@@ -326,7 +327,7 @@ meson --prefix=/usr                 \
       <varlistentry id="journalctl">
         <term><command>journalctl</command></term>
         <listitem>
-          <para>Используется для получения данных из журнала systemd</para>
+          <para>Получает данные из журнала systemd</para>
           <indexterm zone="ch-system-systemd journalctl">
             <primary sortas="b-journalctl">journalctl</primary>
           </indexterm>
@@ -336,7 +337,7 @@ meson --prefix=/usr                 \
       <varlistentry id="kernel-install">
         <term><command>kernel-install</command></term>
         <listitem>
-          <para>Используется для добавления и удаления файлов ядра и initramfs из /boot.
+          <para>Добавляет и удаляет образы ядра и initramfs из /boot.
           В LFS это делается вручную.</para>
           <indexterm zone="ch-system-systemd kernel-install">
             <primary sortas="b-kernel-install">kernel-install</primary>
@@ -347,8 +348,7 @@ meson --prefix=/usr                 \
       <varlistentry id="localectl">
         <term><command>localectl</command></term>
         <listitem>
-          <para>Используется для чтения и изменения настроек системной локали, а также
-          раскладки клавиатуры</para>
+          <para>Настройка системной локали и раскладки клавиатуры</para>
           <indexterm zone="ch-system-systemd localectl">
             <primary sortas="b-localectl">localectl</primary>
           </indexterm>
@@ -358,8 +358,7 @@ meson --prefix=/usr                 \
       <varlistentry id="loginctl">
         <term><command>loginctl</command></term>
         <listitem>
-          <para>Используется для анализа и контроля за состоянием login-менеджера
-          systemd</para>
+          <para>Анализ и контроль состояния Login-менеджера systemd</para>
           <indexterm zone="ch-system-systemd loginctl">
             <primary sortas="b-loginctl">loginctl</primary>
           </indexterm>
@@ -369,8 +368,8 @@ meson --prefix=/usr                 \
       <varlistentry id="machinectl">
         <term><command>machinectl</command></term>
         <listitem>
-          <para>Используется для анализа и контроля за состоянием виртуальной машины systemd
-          и Container Registration Manager</para>
+          <para>Анализ и контроль состояния виртуальной машины systemd и 
+          Container Registration Manager</para>
           <indexterm zone="ch-system-systemd machinectl">
             <primary sortas="b-machinectl">machinectl</primary>
           </indexterm>
@@ -380,8 +379,7 @@ meson --prefix=/usr                 \
       <varlistentry id="networkctl">
         <term><command>networkctl</command></term>
         <listitem>
-          <para>Изспользуется для анализа и контроля за сетевыми ссылками, настроенными
-          systemd-networkd</para>
+          <para>Анализ и контроль сетевых ссылок настроенных с помощью systemd-networkd</para>
           <indexterm zone="ch-system-systemd networkctl">
             <primary sortas="b-networkctl">networkctl</primary>
           </indexterm>
@@ -391,8 +389,7 @@ meson --prefix=/usr                 \
       <varlistentry id="portablectl">
         <term><command>portablectl</command></term>
         <listitem>
-          <para>Используется для подключения и отключения портативных сервисов локальной
-          системы</para>
+          <para>Подключае/отключает переносимые сервисы от локальной системы</para>
           <indexterm zone="ch-system-systemd portablectl">
             <primary sortas="b-portablectl">portablectl</primary>
           </indexterm>
@@ -402,7 +399,7 @@ meson --prefix=/usr                 \
       <varlistentry id="poweroff">
         <term><command>poweroff</command></term>
         <listitem>
-          <para>Говорит системе остановить систему и выключить питание компьютера
+          <para>Инструктирует ядро остановить систему и выключить компьютер
           (см. <command>halt</command>)</para>
           <indexterm zone="ch-system-systemd poweroff">
             <primary sortas="b-poweroff">poweroff</primary>
@@ -413,8 +410,7 @@ meson --prefix=/usr                 \
       <varlistentry id="reboot">
         <term><command>reboot</command></term>
         <listitem>
-          <para>Говорит ядру перезагрузить систему (см.
-          <command>halt</command>)</para>
+          <para>Инструктирует ядро перезагрузить систему (см. <command>halt</command>)</para>
           <indexterm zone="ch-system-systemd reboot">
             <primary sortas="b-reboot">reboot</primary>
           </indexterm>
@@ -436,8 +432,7 @@ meson --prefix=/usr                 \
         <term><command>resolvectl</command></term>
         <listitem>
           <para>Отправляет управляющие команды менеджеру разрешения имен или
-          разрешает доменные имена, адреса IPv4 и IPv6,
-          DNS записи и службы.</para>
+          разрешает доменные имена, адреса IPv4 и IPv6, DNS записи и сервисы.</para>
           <indexterm zone="ch-system-systemd resolvectl">
             <primary sortas="b-resolvectl">resolvectl</primary>
           </indexterm>
@@ -447,8 +442,8 @@ meson --prefix=/usr                 \
       <varlistentry id="runlevel">
         <term><command>runlevel</command></term>
         <listitem>
-          <para>Возвращет предыдущий и текущий уровни запуска. Читает данные о предыдущем
-          уровне из <filename>/var/run/utmp</filename></para>
+          <para>Возвращет предыдущий и текущий уровни запуска в соответсвии с данными
+          из <filename>/var/run/utmp</filename></para>
           <indexterm zone="ch-system-systemd runlevel">
             <primary sortas="b-runlevel">runlevel</primary>
           </indexterm>
@@ -459,7 +454,7 @@ meson --prefix=/usr                 \
         <term><command>shutdown</command></term>
         <listitem>
           <para>Выключает систему безопасным способом, отправляя всем процессам сигналы и
-          оповещая авторизованных пользователей</para>
+          оповещая пользователей в системе</para>
           <indexterm zone="ch-system-systemd shutdown">
             <primary sortas="b-shutdown">shutdown</primary>
           </indexterm>
@@ -469,8 +464,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemctl">
         <term><command>systemctl</command></term>
         <listitem>
-          <para>Используется для анализа и управления системой systemd и менеджером
-          служб</para>
+          <para>Анализ и управление системой systemd и менеджером сервисов</para>
           <indexterm zone="ch-system-systemd systemctl">
             <primary sortas="b-systemctl">systemctl</primary>
           </indexterm>
@@ -480,8 +474,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-analyze">
         <term><command>systemd-analyze</command></term>
         <listitem>
-          <para>Используется для определения производительности загрузки системы в текущем
-          запуске, а также для поиска проблемных юнитов systemd</para>
+          <para>Определяет производительность загрузки системы в текущем
+          запуске и указывает на проблемные юниты systemd</para>
           <indexterm zone="ch-system-systemd systemd-analyze">
             <primary sortas="b-systemd-analyze">systemd-analyze</primary>
           </indexterm>
@@ -491,8 +485,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-ask-password">
         <term><command>systemd-ask-password</command></term>
         <listitem>
-          <para>Запрашивает у пользователя пароль системы. Может использовать сообщение,
-          переданное в командной строке</para>
+          <para>Запрашивает у пользователя пароль, используя параметр командной строки в
+          качестве сообщения</para>
           <indexterm zone="ch-system-systemd systemd-ask-password">
             <primary sortas="b-systemd-ask-password">systemd-ask-password</primary>
           </indexterm>
@@ -502,9 +496,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-cat">
         <term><command>systemd-cat</command></term>
         <listitem>
-          <para>Is used to connect the STDOUT and STDERR outputs of a process
-          with the systemd journal.
-          </para>
+          <para>Соединяет вывод STDOUT и STDERR процесса с журналом systemd.</para>
           <indexterm zone="ch-system-systemd systemd-cat">
             <primary sortas="b-systemd-cat">systemd-cat</primary>
           </indexterm>
@@ -514,8 +506,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-cgls">
         <term><command>systemd-cgls</command></term>
         <listitem>
-          <para>Recursively shows the contents of the selected Linux control
-          group hierarchy in a tree</para>
+          <para>Выводит содержимое иерархии контрольной группы Linux в виде
+          дерева</para>
           <indexterm zone="ch-system-systemd systemd-cgls">
             <primary sortas="b-systemd-cgls">systemd-cgls</primary>
           </indexterm>
@@ -525,8 +517,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-cgtop">
         <term><command>systemd-cgtop</command></term>
         <listitem>
-          <para>Shows the top control groups of the local Linux control group
-          hierarchy, ordered by their CPU, memory and disk I/O load</para>
+          <para>Отображает топ контрольных групп создающих нагрузку на CPU, память и
+          дисковые операции</para>
           <indexterm zone="ch-system-systemd systemd-cgtop">
             <primary sortas="b-systemd-cgtop">systemd-cgtop</primary>
           </indexterm>
@@ -536,9 +528,9 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-delta">
         <term><command>systemd-delta</command></term>
         <listitem>
-          <para>Is used to identify and compare configuration files in
-          <filename class="directory">/etc</filename> that override default
-          counterparts in <filename class="directory">/usr</filename></para>
+          <para>Находит и сравнивает файлы настроек перегруженные в
+          <filename class="directory">/etc</filename> по сравнению с дефолтными из
+          <filename class="directory">/usr</filename></para>
           <indexterm zone="ch-system-systemd systemd-delta">
             <primary sortas="b-systemd-delta">systemd-delta</primary>
           </indexterm>
@@ -548,8 +540,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-detect-virt">
         <term><command>systemd-detect-virt</command></term>
         <listitem>
-          <para>Detects whether the system is being run in a virtual
-          environment, and adjusts udev accordingly.</para>
+          <para>Определяет загружена ли система внутри виртуального окружения и подстраивает
+          udev соответствующим образом.</para>
           <indexterm zone="ch-system-systemd systemd-detect-virt">
             <primary sortas="b-systemd-detect-virt">systemd-detect-virt</primary>
           </indexterm>
@@ -559,8 +551,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-escape">
         <term><command>systemd-escape</command></term>
         <listitem>
-          <para>Is used to escape strings for inclusion in systemd unit
-          names</para>
+          <para>Экранирует строки для включения их в имена юнитов systemd</para>
           <indexterm zone="ch-system-systemd systemd-escape">
             <primary sortas="b-systemd-escape">systemd-escape</primary>
           </indexterm>
@@ -570,7 +561,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-hwdb">
         <term><command>systemd-hwdb</command></term>
         <listitem>
-          <para>Is used to manage the hardware database (hwdb)</para>
+          <para>Менеджер базы данных оборудования (hwdb)</para>
           <indexterm zone="ch-system-systemd systemd-hwdb">
             <primary sortas="b-systemd-hwdb">systemd-hwdb</primary>
           </indexterm>
@@ -580,7 +571,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-id128">
         <term><command>systemd-id128</command></term>
         <listitem>
-          <para>Generates and prints id128 strings</para>
+          <para>Генерирует и выводит строки id128</para>
           <indexterm zone="ch-system-systemd systemd-id128">
             <primary sortas="b-systemd-id128">systemd-id128</primary>
           </indexterm>
@@ -590,9 +581,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-inhibit">
         <term><command>systemd-inhibit</command></term>
         <listitem>
-          <para>Is used to execute a program with a shutdown, sleep or idle
-          inhibitor lock taken, preventing an action such as a system shutdown
-          until the process is completed.</para>
+          <para>Запускает программу, блокируя выключение, сон или остановку системы до
+          окончания процесса программы.</para>
           <indexterm zone="ch-system-systemd systemd-inhibit">
             <primary sortas="b-systemd-inhibit">systemd-inhibit</primary>
           </indexterm>
@@ -602,9 +592,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-machine-id-setup">
         <term><command>systemd-machine-id-setup</command></term>
         <listitem>
-          <para>Is used by system installer tools to initialize the machine ID
-          stored in <filename>/etc/machine-id</filename> at install time with a
-          randomly generated ID</para>
+          <para>Используется установщиками программ при инсталяции для инициализации ID машины
+          в <filename>/etc/machine-id</filename> случайно сгенерированным ID.</para>
           <indexterm zone="ch-system-systemd systemd-machine-id-setup">
             <primary sortas="b-systemd-machine-id-setup">systemd-machine-id-setup</primary>
           </indexterm>
@@ -614,7 +603,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-mount">
         <term><command>systemd-mount</command></term>
         <listitem>
-          <para>Is used to temporarily mount or automount disks.</para>
+          <para>Используется для временного монтирования или автомонтирования дисков.</para>
           <indexterm zone="ch-system-systemd systemd-mount">
             <primary sortas="b-systemd-mount">systemd-mount</primary>
           </indexterm>
@@ -624,8 +613,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-notify">
         <term><command>systemd-notify</command></term>
         <listitem>
-          <para>Is used by daemon scripts to notify the init system about status
-          changes</para>
+          <para>Используется скриптами служб для информирования системы об изменении
+          статуса</para>
           <indexterm zone="ch-system-systemd systemd-notify">
             <primary sortas="b-systemd-notify">systemd-notify</primary>
           </indexterm>
@@ -635,8 +624,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-nspawn">
         <term><command>systemd-nspawn</command></term>
         <listitem>
-          <para>Is used to run a command or OS in a light-weight namespace
-          container</para>
+          <para>Позволяет запускать команду или ОС внутри легковесного контейнера пространства
+          имён</para>
           <indexterm zone="ch-system-systemd systemd-nspawn">
             <primary sortas="b-systemd-nspawn">systemd-nspawn</primary>
           </indexterm>
@@ -646,7 +635,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-path">
         <term><command>systemd-path</command></term>
         <listitem>
-          <para>Is used to query system and user paths</para>
+          <para>Возвращает системные и пользовательские пути</para>
           <indexterm zone="ch-system-systemd systemd-path">
             <primary sortas="b-systemd-path">systemd-path</primary>
           </indexterm>
@@ -656,8 +645,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-repart">
         <term><command>systemd-repart</command></term>
         <listitem>
-          <para>Is used to grow and add partitions to a partition table when
-          systemd is used in an OS image (e.g. a container).</para>
+          <para>Расширяет и добавляет разделы в таблицу разделов, когда
+          systemd используется в качестве образа ОС (например в виде контейнера).</para>
           <indexterm zone="ch-system-systemd systemd-repart">
             <primary sortas="b-systemd-repart">systemd-repart</primary>
           </indexterm>
@@ -667,8 +656,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-resolve">
         <term><command>systemd-resolve</command></term>
         <listitem>
-          <para>Is used to resolve domain names, IPV4 and IPv6 addresses, DNS
-          resource records, and services</para>
+          <para>Разрешает доменные имена, IPV4 и IPv6 адреса, записи DNS ресурсов и 
+          сервисов</para>
           <indexterm zone="ch-system-systemd systemd-resolve">
             <primary sortas="b-systemd-resolve">systemd-resolve</primary>
           </indexterm>
@@ -678,9 +667,9 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-run">
         <term><command>systemd-run</command></term>
         <listitem>
-          <para>Is used to create and start a transient .service or a .scope
-          unit and run the specified command in it. This is useful for
-          validating systemd units.</para>
+          <para>Умеет создавать и запускать временные юниты .service или .scope,
+          а также запускать указанную команду внутри них. Бывает полезным для валидации
+          юнитов systemd.</para>
           <indexterm zone="ch-system-systemd systemd-run">
             <primary sortas="b-systemd-run">systemd-run</primary>
           </indexterm>
@@ -690,8 +679,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-socket-activate">
         <term><command>systemd-socket-activate</command></term>
         <listitem>
-          <para>Is used to listen on socket devices and launch a process upon
-          a successful connection to the socket.</para>
+          <para>Используется для прослушки сокетов и запуска процесса при удачном соединении с
+          сокетом.</para>
           <indexterm zone="ch-system-systemd systemd-socket-activate">
             <primary sortas="b-systemd-socket-activate">systemd-socket-activate</primary>
           </indexterm>
@@ -701,10 +690,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-tmpfiles">
         <term><command>systemd-tmpfiles</command></term>
         <listitem>
-          <para>Creates, deletes and cleans up volatile and temporary files and
-          directories, based on the configuration file format and location
-          specified in
-          <filename class="directory">tmpfiles.d</filename> directories</para>
+          <para>Создает, удаляет и очищает временные файлы и каталоги учитывая файл настроек
+          и путь указанный в каталогах <filename class="directory">tmpfiles.d</filename></para>
           <indexterm zone="ch-system-systemd systemd-tmpfiles">
             <primary sortas="b-systemd-tmpfiles">systemd-tmpfiles</primary>
           </indexterm>
@@ -714,7 +701,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-umount">
         <term><command>systemd-umount</command></term>
         <listitem>
-          <para>Unmounts mount points</para>
+          <para>Отмонтирование точек монтирования</para>
           <indexterm zone="ch-system-systemd systemd-umount">
             <primary sortas="b-systemd-umount">systemd-umount</primary>
           </indexterm>
@@ -724,8 +711,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-tty-ask-password-agent">
         <term><command>systemd-tty-ask-password-agent</command></term>
         <listitem>
-          <para>Is used to list and/or process pending systemd password 
-          requests</para>
+          <para>Показывает и обрабатывает очередь запросов паролей systemd</para>
           <indexterm zone="ch-system-systemd systemd-tty-ask-password-agent">
             <primary sortas="b-systemd-tty-ask-password-agent">systemd-tty-ask-password-agent</primary>
           </indexterm>
@@ -735,8 +721,8 @@ meson --prefix=/usr                 \
       <varlistentry id="telinit">
         <term><command>telinit</command></term>
         <listitem>
-          <para>Tells <command>init</command> which run-level to change
-          to</para>
+          <para>Сообщает <command>init</command> на какой уровень запуска нужно
+          переключиться</para>
           <indexterm zone="ch-system-systemd telinit">
             <primary sortas="b-telinit">telinit</primary>
           </indexterm>
@@ -746,8 +732,7 @@ meson --prefix=/usr                 \
       <varlistentry id="timedatectl">
         <term><command>timedatectl</command></term>
         <listitem>
-          <para>Is used to query and change the system clock and its settings
-          </para>
+          <para>Отображает и устанавливает системное время и сопутствующие настройки</para>
           <indexterm zone="ch-system-systemd timedatectl">
             <primary sortas="b-timedatectl">timedatectl</primary>
           </indexterm>
@@ -757,10 +742,10 @@ meson --prefix=/usr                 \
       <varlistentry id="udevadm">
         <term><command>udevadm</command></term>
         <listitem>
-          <para>Is a generic udev administration tool which controls the udevd 
-          daemon, provides info from the Udev hardware database, monitors 
-          uevents, waits for uevents to finish, tests udev configuration, and 
-          triggers uevents for a given device</para>
+          <para>Общий инструмент udev администрирования для управления службой udevd,
+          получения информации об оборудовании из Udev базы данных, мониторинга 
+          uevents, ожидания окончания uevents, проверки конфигурации udev и
+          запуска uevents для устройств</para>
           <indexterm zone="ch-system-systemd udevadm">
             <primary sortas="b-udevadm">udevadm</primary>
           </indexterm>
@@ -770,7 +755,7 @@ meson --prefix=/usr                 \
       <varlistentry id="libsystemd">
         <term><filename class="libraryfile">libsystemd</filename></term>
         <listitem>
-          <para>Is the main systemd utility library</para>
+          <para>Основная библиотека утилиты systemd</para>
           <indexterm zone="ch-system-systemd libsystemd">
             <primary sortas="c-libsystemd">libsystemd</primary>
           </indexterm>
@@ -780,7 +765,7 @@ meson --prefix=/usr                 \
       <varlistentry id="libudev">
         <term><filename class="libraryfile">libudev</filename></term>
         <listitem>
-          <para>Is a library to access Udev device information</para>
+          <para>Библиотека доступа к Udev информации устройств</para>
           <indexterm zone="ch-system-systemd libudev">
             <primary sortas="c-libudev">libudev</primary>
           </indexterm>

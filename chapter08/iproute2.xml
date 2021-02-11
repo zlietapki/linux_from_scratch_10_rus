@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Пакет IPRoute2 содержит набор программ для управления базовыми и
-    расширенными параметрами сети основанной на IPV4.</para>
+    <para>Пакет IPRoute2 содержит набор программ управления основными и расширенными
+    параметрами сети IPV4.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,17 +41,22 @@
   <sect2 role="installation">
     <title>Установка IPRoute2</title>
 
-    <para>Программа <command>arpd</command> в этом пакете не будет собрана, так как зависит от Berkeley DB, которая не будет устанавливаться в LFS. Однако, каталог для <command>arpd</command> и страницы руководств будут установлены. Предотвратите это, выполнив приведенные ниже команды. Если бинарный файл <command>arpd</command> необходим, инструкции по установке пакета Berkeley DB  можно найти в книге BLFS по ссылке <ulink url="&blfs-book;server/databases.html#db"/>.
+    <para>Программа <command>arpd</command> этого пакета не будет собрана, т.к. она зависит
+    от Berkeley DB, которая не будет уставлена в LFS. Но каталог для <command>arpd</command>
+    и её руководства все еще будут устанавливаться. Отключите это, выполнив команды ниже.
+    Если файл <command>arpd</command> необходим, то инструкции по установке Berkeley DB
+    можно найти в книге BLFS по ссылке <ulink url="&blfs-book;server/databases.html#db"/>.
     </para>
 
 <screen><userinput remap="pre">sed -i /ARPD/d Makefile
 rm -fv man/man8/arpd.8</userinput></screen>
 
-    <para>Также необходимо запретить сборку двух модулей, для которых необходим пакет <ulink url="&blfs-book;postlfs/iptables.html"/>.</para>
+    <para>Также необходимо отключить сборку двух модулей, которым необходим пакет
+    <ulink url="&blfs-book;postlfs/iptables.html"/>.</para>
 
 <screen><userinput remap="pre">sed -i 's/.m_ipt.o//' tc/Makefile</userinput></screen>
 
-    <para>Скомпилируйте пакет:</para>
+    <para>Компиляция пакета:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
@@ -82,7 +87,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <seglistitem>
         <seg>bridge, ctstat (link to lnstat), genl, ifcfg, ifstat, ip, lnstat,
         nstat, routef, routel, rtacct, rtmon, rtpr, rtstat (link to lnstat), ss,
-        and tc</seg>
+        tc</seg>
         <seg>/etc/iproute2, /usr/lib/tc, and /usr/share/doc/iproute2-&iproute2-version;,
         </seg>
       </seglistitem>
@@ -96,7 +101,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="bridge">
         <term><command>bridge</command></term>
         <listitem>
-          <para>Configures network bridges</para>
+          <para>Настройка сетевых мостов</para>
           <indexterm zone="ch-system-iproute2 bridge">
             <primary sortas="b-bridge">bridge</primary>
           </indexterm>
@@ -106,7 +111,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="ctstat">
         <term><command>ctstat</command></term>
         <listitem>
-          <para>Connection status utility</para>
+          <para>Утилита статуса соединения</para>
           <indexterm zone="ch-system-iproute2 ctstat">
             <primary sortas="b-ctstat">ctstat</primary>
           </indexterm>
@@ -116,7 +121,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="genl">
         <term><command>genl</command></term>
         <listitem>
-          <para>Generic netlink utility frontend</para>
+          <para>Фронтенд общей утилиты коннектов</para>
           <indexterm zone="ch-system-iproute2 genl">
             <primary sortas="b-genl">genl</primary>
           </indexterm>
@@ -126,10 +131,10 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="ifcfg">
         <term><command>ifcfg</command></term>
         <listitem>
-          <para>A shell script wrapper for the <command>ip</command> command
-          [Note that it requires the <command>arping</command> and
-          <command>rdisk</command> programs from the
-          iputils package found at <ulink url="http://www.skbuff.net/iputils/"/>.]</para>
+          <para>Скрипт-обертка над <command>ip</command>
+          [ей необходимы программы <command>arping</command> и
+          <command>rdisk</command> из пакета
+          iputils, который можно найти в <ulink url="http://www.skbuff.net/iputils/"/>.]</para>
           <indexterm zone="ch-system-iproute2 ifcfg">
             <primary sortas="b-ifcfg">ifcfg</primary>
           </indexterm>
@@ -139,8 +144,8 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="ifstat">
         <term><command>ifstat</command></term>
         <listitem>
-          <para>Shows the interface statistics, including the amount of
-          transmitted and received packets by interface</para>
+          <para>Показывает статистику интерфейса, количество переданных и полученных
+          интерфейсом пакетов</para>
           <indexterm zone="ch-system-iproute2 ifstat">
             <primary sortas="b-ifstat">ifstat</primary>
           </indexterm>
@@ -150,13 +155,13 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="ip">
         <term><command>ip</command></term>
         <listitem>
-          <para>The main executable. It has several different functions:</para>
+          <para>Основной исполняймый файл. У него есть несколько функций:</para>
 
           <para><command>ip link <replaceable>&lt;device&gt;</replaceable></command>
-          allows users to look at the state of devices and to make changes</para>
+          просмотреть и изменить состояние устройства</para>
 
-          <para><command>ip addr</command> allows users to look at addresses and
-          their properties, add new addresses, and delete old ones</para>
+          <para><command>ip addr</command> просмотреть и изменить адреса,
+          их свойства, добавить новые адреса и удалить старые</para>
 
           <para><command>ip neighbor</command> allows users to look at neighbor
           bindings and their properties, add new neighbor entries, and delete
@@ -165,11 +170,11 @@ rm -fv man/man8/arpd.8</userinput></screen>
           <para><command>ip rule</command> allows users to look at the routing
           policies and change them</para>
 
-          <para><command>ip route</command> allows users to look at the routing
-          table and change routing table rules</para>
+          <para><command>ip route</command> просмотреть и изменить таблицу маршрутизации
+          </para>
 
-          <para><command>ip tunnel</command> allows users to look at the IP
-          tunnels and their properties, and change them</para>
+          <para><command>ip tunnel</command> просмотреть IP
+          туннели, их свойства и изменить их</para>
 
           <para><command>ip maddr</command> allows users to look at the multicast
           addresses and their properties, and change them</para>
@@ -177,8 +182,8 @@ rm -fv man/man8/arpd.8</userinput></screen>
           <para><command>ip mroute</command> allows users to set, change, or
           delete the multicast routing</para>
 
-          <para><command>ip monitor</command> allows users to continuously monitor
-          the state of devices, addresses and routes</para>
+          <para><command>ip monitor</command> мониторинг состояния устройств, адресов и их
+          роутинга</para>
           <indexterm zone="ch-system-iproute2 ip">
             <primary sortas="b-ip">ip</primary>
           </indexterm>

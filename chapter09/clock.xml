@@ -8,33 +8,32 @@
 <sect1 id="ch-config-clock" revision="systemd">
   <?dbhtml filename="clock.html"?>
 
-  <title>Настройка системных часов</title>
+  <title>Настройка системного времени</title>
 
   <indexterm zone="ch-config-clock">
     <primary sortas="d-clock">clock</primary>
   <secondary>configuring</secondary></indexterm>
 
-  <para>This section discusses how to configure the
-  <command>systemd-timedated</command> system service, which configures
-  the system clock and timezone.</para>
+  <para>Этот раздел описывает настройку системного сервиса
+  <command>systemd-timedated</command>, который отвечает за системное время и часовой
+  пояс.</para>
 
-  <para>If you cannot remember whether or not the hardware clock is set to UTC,
-  find out by running the <userinput>hwclock --localtime --show</userinput>
-  command. This will display what the current time is according to the hardware
-  clock. If this time matches whatever your watch says, then the hardware clock is
-  set to local time. If the output from <command>hwclock</command> is not local
-  time, chances are it is set to UTC time. Verify this by adding or subtracting
-  the proper amount of hours for the timezone to the time shown by
-  <command>hwclock</command>. For example, if you are currently in the MST
-  timezone, which is also known as GMT -0700, add seven hours to the local
-  time.</para>
+  <para>Если вы не помните настроено ли системное время на часовой пояс UTC,
+  запустите команду <userinput>hwclock --localtime --show</userinput>. Она отобразит
+  текущее время основываясь на аппаратных часах.
+  Если вывод совпадает с вашим текущим временем, то аппаратные часы настроены на локальное
+  время. Если время <command>hwclock</command> не совпадает с текущим, то возможно
+  системные часы настроены на часовой пояс UTC. Проверьте это добавлением или вычитанием
+  нужного количества часов для вашего часового пояса.
+  Например, если ваш часовй пояс это MST, так же известный как GMT -0700, то добавьте
+  семь часов к локальному времени.</para>
 
-  <para><command>systemd-timedated</command> reads <filename>/etc/adjtime</filename>,
-  and depending on the contents of the file, sets the clock to either UTC or
-  local time.</para>
+  <para><command>systemd-timedated</command> читает файл <filename>/etc/adjtime</filename>
+  и в зависимости от его содержимого устанавливает часы в UTC, либо в локальном часовом
+  поясе.</para>
 
-  <para>Create the <filename>/etc/adjtime</filename> file with the following contents
-  if your hardware clock is set to local time:</para>
+  <para>Создайте файл <filename>/etc/adjtime</filename> следующего содержания, если аппаратные
+  часы настроены на локальное время:</para>
 
 <screen><userinput>cat &gt; /etc/adjtime &lt;&lt; "EOF"
 <literal>0.0 0 0.0
@@ -42,62 +41,56 @@
 LOCAL</literal>
 EOF</userinput></screen>
 
-  <para>If <filename>/etc/adjtime</filename> isn't present at first boot,
-  <command>systemd-timedated</command> will assume that hardware clock is
-  set to UTC and adjust the file according to that.</para>
+  <para>Если файл <filename>/etc/adjtime</filename> не будет найден при первой загрузке,
+  то <command>systemd-timedated</command> будет подразумевать, что системные часы
+  настроены на UTC и подстроит под это файл.</para>
 
-  <para>You can also use the <command>timedatectl</command> utility to tell
-  <command>systemd-timedated</command> if your hardware clock is set to
-  UTC or local time:</para>
+  <para>Можно использовать утилиту <command>timedatectl</command>, которая сообщит
+  <command>systemd-timedated</command> настроены часы на UTC или локальное время:</para>
 
 <screen role="nodump"><userinput>timedatectl set-local-rtc 1</userinput></screen>
 
-  <para><command>timedatectl</command> can also be used to change system time and
-  time zone.</para>
+  <para><command>timedatectl</command> может использоваться для изменения системного времени
+  и часового пояса.</para>
 
-  <para>To change your current system time, issue:</para>
+  <para>Для изменения текущего системного времени выполните:</para>
 
 <screen role="nodump"><userinput>timedatectl set-time YYYY-MM-DD HH:MM:SS</userinput></screen>
 
-  <para>The hardware clock will also be updated accordingly.</para>
+  <para>Аппаратные часы будут обновлены на соответствующее значение.</para>
 
-  <para>To change your current time zone, issue:</para>
+  <para>Для изменения текущего часового пояса выполните:</para>
 
 <screen role="nodump"><userinput>timedatectl set-timezone TIMEZONE</userinput></screen>
 
-  <para>You can get a list of available time zones by running:</para>
+  <para>Получить список доступных часовых поясов можно выполнив:</para>
 
 <screen role="nodump"><userinput>timedatectl list-timezones</userinput></screen>
 
-  <note><para>Please note that the <command>timedatectl</command> command can
-  be used only on a system booted with systemd.</para></note>
+  <note><para>Пожалуйста обратите внимание, команда <command>timedatectl</command> может
+  использоваться только в случае загрузки системы с systemd.</para></note>
 
   <sect2>
-    <title>Network Time Synchronization</title>
+    <title>Сетевая синхронизация времени</title>
 
-    <para>Starting with version 213, systemd ships a daemon called
-    <command>systemd-timesyncd</command> which can be used to
-    synchronize the system time with remote NTP servers.</para>
+    <para>Начиная с версии 213 в состав systemd входит служба
+    <command>systemd-timesyncd</command>, которая занимается синхронизацией системного
+    времени с удаленными NTP серверами.</para>
 
-    <para>The daemon is not intended as a replacement for the well
-    established NTP daemon, but as a client only implementation
-    of the SNTP protocol which can be used for less advanced
-    tasks and on resource limited systems.</para>
+    <para>Она предназначена не для замены известной службы NTP,
+    а лишь использования в качестве клиента протокола SNTP, подходящего для
+    простых задач в системах с ограниченными ресурсами.</para>
 
-    <para>Starting with systemd version 216, the
-    <command>systemd-timesyncd</command> daemon is enabled by
-    default. If you want to disable it, issue the following
-    command:</para>
+    <para>Начиная с systemd версии 216 служба <command>systemd-timesyncd</command>
+    по умолчанию включена. При желании её можно отключить выполнив:</para>
 
 <screen role="nodump"><userinput>systemctl disable systemd-timesyncd</userinput></screen>
 
-    <para>The <filename>/etc/systemd/timesyncd.conf</filename> file
-    can be used to change the NTP servers that
-    <command>systemd-timesyncd</command> synchronizes with.</para>
+    <para>В файле <filename>/etc/systemd/timesyncd.conf</filename> можно менять
+    список серверов NTP для синхронизации <command>systemd-timesyncd</command>.</para>
 
-    <para>Please note that when system clock is set to Local Time,
-    <command>systemd-timesyncd</command> won't update hardware
-    clock.</para>
+    <para>Обратите внимание, команда <command>systemd-timesyncd</command> не будет обновлять
+    аппартные часы, если системное время установлено для локального часового пояса.</para>
 
   </sect2>
 
